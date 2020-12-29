@@ -2817,7 +2817,11 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">voorstel.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">kohgadai2020</bcf:citekey>
+    <bcf:citekey order="1">Gartner2019</bcf:citekey>
+    <bcf:citekey order="2">Gartner2019</bcf:citekey>
+    <bcf:citekey order="3">kohgadai2020</bcf:citekey>
+    <bcf:citekey order="4">Gartner2019</bcf:citekey>
+    <bcf:citekey order="5">Education2019</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

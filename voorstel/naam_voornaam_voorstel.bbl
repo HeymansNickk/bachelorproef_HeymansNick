@@ -19,6 +19,43 @@
 
 \refsection{0}
   \datalist[entry]{apa/global//global/global}
+    \entry{Education2019}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5a3089a19a6fe2740bde62328d352eec}{%
+           family={Education},
+           familyi={E\bibinitperiod},
+           given={IBM\bibnamedelima Cloud},
+           giveni={I\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {IBM}%
+      }
+      \strng{namehash}{5a3089a19a6fe2740bde62328d352eec}
+      \strng{fullhash}{5a3089a19a6fe2740bde62328d352eec}
+      \strng{bibnamehash}{5a3089a19a6fe2740bde62328d352eec}
+      \strng{authorbibnamehash}{5a3089a19a6fe2740bde62328d352eec}
+      \strng{authornamehash}{5a3089a19a6fe2740bde62328d352eec}
+      \strng{authorfullhash}{5a3089a19a6fe2740bde62328d352eec}
+      \field{sortinit}{E}
+      \field{sortinithash}{c554bd1a0b76ea92b9f105fe36d9c7b0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{25}
+      \field{month}{5}
+      \field{title}{Containerization}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.ibm.com/cloud/learn/containerization#toc-what-is-co-r25Smlqq
+      \endverb
+      \verb{url}
+      \verb https://www.ibm.com/cloud/learn/containerization#toc-what-is-co-r25Smlqq
+      \endverb
+    \endentry
     \entry{kohgadai2020}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=f1f95e8969266f91421fc1f304699917}{%
@@ -51,6 +88,40 @@
       \endverb
       \verb{url}
       \verb https://www.stackrox.com/post/2020/05/kubernetes-security-101/
+      \endverb
+    \endentry
+    \entry{Gartner2019}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5ba95598ff684100819d138f5b64f250}{%
+           family={Pettey},
+           familyi={P\bibinitperiod},
+           given={Christy},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5ba95598ff684100819d138f5b64f250}
+      \strng{fullhash}{5ba95598ff684100819d138f5b64f250}
+      \strng{bibnamehash}{5ba95598ff684100819d138f5b64f250}
+      \strng{authorbibnamehash}{5ba95598ff684100819d138f5b64f250}
+      \strng{authornamehash}{5ba95598ff684100819d138f5b64f250}
+      \strng{authorfullhash}{5ba95598ff684100819d138f5b64f250}
+      \field{sortinit}{P}
+      \field{sortinithash}{bb5b15f2db90f7aef79bb9e83defefcb}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{23}
+      \field{month}{4}
+      \field{title}{6 Best Practices for Creating a Container Platform Strategy}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.gartner.com/smarterwithgartner/6-best-practices-for-creating-a-container-platform-strategy/
+      \endverb
+      \verb{url}
+      \verb https://www.gartner.com/smarterwithgartner/6-best-practices-for-creating-a-container-platform-strategy/
       \endverb
     \endentry
   \enddatalist

@@ -1,33 +1,34 @@
 % Encoding: UTF-8
-@ARTICLE{Doll1954,
-  author = {Doll, Richard and Hill, A Bradford},
-  title = {The mortality of doctors in relation to their smoking habits: a preliminary
-	report},
-  journal = {British Medical Journal},
-  year = {1954},
-  volume = {328},
-  pages = {1529-1533},
-  number = {7455},
-  owner = {jbuy519},
-  timestamp = {2014.03.28}
+
+@Online{kohgadai2020,
+  author    = {Ajmal Kohgadai},
+  date      = {2020-05-15},
+  title     = {Kubernetes Security 101: Risks and 29 Best Practices},
+  url       = {https://www.stackrox.com/post/2020/05/kubernetes-security-101/},
+  owner     = {nickH},
+  timestamp = {2020-12-22},
+  year      = {2020},
 }
 
-@BOOK{Moore2002,
-  title = {Introduction to the Practice of Statistics},
-  publisher = {W. H. Freeman},
-  year = {2002},
-  author = {Moore, David and McCabe, George},
-  owner = {jbuy519},
-  timestamp = {2014.01.28}
+@Online{Gartner2019,
+  author  = {Christy Pettey},
+  date    = {2019-04-23},
+  title   = {6 Best Practices for Creating a Container Platform Strategy},
+  url     = {https://www.gartner.com/smarterwithgartner/6-best-practices-for-creating-a-container-platform-strategy/},
+  comment = {- 2022 75% van internationale orgs, containers in prod.
+- Containers kunne legacy apps moderniseren en cloud applicaties schalen.
+- docker en k8s standerdized frameworks
+- een van de sleutelelementen van een geode container deployement is security
+- k8s word beschouwd als de de facto standaar voor container scheduling and orchestration
+-},
 }
 
-@BOOK{Smits2011,
-  title = {Onderzoek met SPSS en Excel},
-  publisher = {Pearson Education},
-  year = {2011},
-  author = {Smits, Johan and Edens, Ronald},
-  owner = {jbuy519},
-  timestamp = {2014.01.23}
+@Online{Education2019,
+  author       = {IBM Cloud Education},
+  date         = {2019-05-25},
+  title        = {Containerization},
+  url          = {https://www.ibm.com/cloud/learn/containerization#toc-what-is-co-r25Smlqq},
+  organization = {IBM},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}
