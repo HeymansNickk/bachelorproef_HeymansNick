@@ -56,38 +56,38 @@
       \verb https://www.ibm.com/cloud/learn/containerization#toc-what-is-co-r25Smlqq
       \endverb
     \endentry
-    \entry{kohgadai2020}{online}{}
+    \entry{McCarty2018}{online}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=f1f95e8969266f91421fc1f304699917}{%
-           family={Kohgadai},
-           familyi={K\bibinitperiod},
-           given={Ajmal},
-           giveni={A\bibinitperiod},
+        {{un=0,uniquepart=base,hash=a55badf62d05bdd1365857dd8cd411cf}{%
+           family={McCarty},
+           familyi={M\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{f1f95e8969266f91421fc1f304699917}
-      \strng{fullhash}{f1f95e8969266f91421fc1f304699917}
-      \strng{bibnamehash}{f1f95e8969266f91421fc1f304699917}
-      \strng{authorbibnamehash}{f1f95e8969266f91421fc1f304699917}
-      \strng{authornamehash}{f1f95e8969266f91421fc1f304699917}
-      \strng{authorfullhash}{f1f95e8969266f91421fc1f304699917}
-      \field{sortinit}{K}
-      \field{sortinithash}{d3edc18d54b9438a72c24c925bfb38f4}
+      \strng{namehash}{a55badf62d05bdd1365857dd8cd411cf}
+      \strng{fullhash}{a55badf62d05bdd1365857dd8cd411cf}
+      \strng{bibnamehash}{a55badf62d05bdd1365857dd8cd411cf}
+      \strng{authorbibnamehash}{a55badf62d05bdd1365857dd8cd411cf}
+      \strng{authornamehash}{a55badf62d05bdd1365857dd8cd411cf}
+      \strng{authorfullhash}{a55badf62d05bdd1365857dd8cd411cf}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{day}{15}
-      \field{month}{5}
-      \field{title}{Kubernetes Security 101: Risks and 29 Best Practices}
-      \field{year}{2020}
+      \field{day}{22}
+      \field{month}{2}
+      \field{title}{A Practical Introduction to Container Terminology}
+      \field{year}{2018}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb https://www.stackrox.com/post/2020/05/kubernetes-security-101/
+      \verb https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.6yt1ex5wfo3l
       \endverb
       \verb{url}
-      \verb https://www.stackrox.com/post/2020/05/kubernetes-security-101/
+      \verb https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.6yt1ex5wfo3l
       \endverb
     \endentry
     \entry{Gartner2019}{online}{}
@@ -122,6 +122,46 @@
       \endverb
       \verb{url}
       \verb https://www.gartner.com/smarterwithgartner/6-best-practices-for-creating-a-container-platform-strategy/
+      \endverb
+    \endentry
+    \entry{Tripwire2019}{report}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1291fcd1f5e4f409f9d172f58ea05a63}{%
+           family={Tripwire},
+           familyi={T\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Tripwire}%
+      }
+      \strng{namehash}{1291fcd1f5e4f409f9d172f58ea05a63}
+      \strng{fullhash}{1291fcd1f5e4f409f9d172f58ea05a63}
+      \strng{bibnamehash}{1291fcd1f5e4f409f9d172f58ea05a63}
+      \strng{authorbibnamehash}{1291fcd1f5e4f409f9d172f58ea05a63}
+      \strng{authornamehash}{1291fcd1f5e4f409f9d172f58ea05a63}
+      \strng{authorfullhash}{1291fcd1f5e4f409f9d172f58ea05a63}
+      \field{sortinit}{T}
+      \field{sortinithash}{51f9faf24c60c62ca764a77f78cf5666}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{1}
+      \field{isrn}{BRDRSCS1b}
+      \field{month}{1}
+      \field{title}{Tripwire State of Container Security Report}
+      \field{type}{resreport}
+      \field{urlday}{30}
+      \field{urlmonth}{11}
+      \field{urlyear}{2020}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://3b6xlt3iddqmuq5vy2w0s5d3-wpengine.netdna-ssl.com/state-of-security/wp-content/uploads/sites/3/Tripwire-Dimensional-Research-State-of-Container-Security-Report.pdf
+      \endverb
+      \verb{url}
+      \verb https://3b6xlt3iddqmuq5vy2w0s5d3-wpengine.netdna-ssl.com/state-of-security/wp-content/uploads/sites/3/Tripwire-Dimensional-Research-State-of-Container-Security-Report.pdf
       \endverb
     \endentry
   \enddatalist
