@@ -1,7 +1,15 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \babel@toc {dutch}{}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1}Introductie}{1}{section.1}%
+\contentsline {section}{\numberline {1}Inleiding en State-of-the-art}{1}{section.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.1}Wat zijn containers?}{1}{subsection.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2}Waarom container applicaties?}{1}{subsection.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.3}Context voor dit onderzoek}{2}{subsection.1.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.4}Verloop van het onderzoek}{2}{subsection.1.4}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2}Methodologie}{2}{section.2}%
 \defcounter {refsection}{0}\relax 

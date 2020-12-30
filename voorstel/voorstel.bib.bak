@@ -43,4 +43,13 @@
   urldate     = {2020-11-30},
 }
 
+@Report{StackRox2020,
+  author      = {StackRox},
+  date        = {2020-02-19},
+  institution = {StackRox},
+  title       = {State of Container and Kubernetes Security},
+  type        = {resreport},
+  url         = {https://www.stackrox.com/kubernetes-adoption-security-and-market-share-for-containers/},
+}
+
 @Comment{jabref-meta: databaseType:biblatex;}

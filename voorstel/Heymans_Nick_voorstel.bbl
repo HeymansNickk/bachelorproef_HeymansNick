@@ -124,6 +124,41 @@
       \verb https://www.gartner.com/smarterwithgartner/6-best-practices-for-creating-a-container-platform-strategy/
       \endverb
     \endentry
+    \entry{StackRox2020}{report}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=67da51953ca4aa1cf2d9a0edfa5629fd}{%
+           family={StackRox},
+           familyi={S\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {StackRox}%
+      }
+      \strng{namehash}{67da51953ca4aa1cf2d9a0edfa5629fd}
+      \strng{fullhash}{67da51953ca4aa1cf2d9a0edfa5629fd}
+      \strng{bibnamehash}{67da51953ca4aa1cf2d9a0edfa5629fd}
+      \strng{authorbibnamehash}{67da51953ca4aa1cf2d9a0edfa5629fd}
+      \strng{authornamehash}{67da51953ca4aa1cf2d9a0edfa5629fd}
+      \strng{authorfullhash}{67da51953ca4aa1cf2d9a0edfa5629fd}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{19}
+      \field{month}{2}
+      \field{title}{State of Container and Kubernetes Security}
+      \field{type}{resreport}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.stackrox.com/kubernetes-adoption-security-and-market-share-for-containers/
+      \endverb
+      \verb{url}
+      \verb https://www.stackrox.com/kubernetes-adoption-security-and-market-share-for-containers/
+      \endverb
+    \endentry
     \entry{Tripwire2019}{report}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=1291fcd1f5e4f409f9d172f58ea05a63}{%
