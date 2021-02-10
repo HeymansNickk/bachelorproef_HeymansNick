@@ -1,15 +1,15 @@
 [0] Config.pm:312> INFO - This is Biber 2.15 (beta)
 [0] Config.pm:315> INFO - Logfile is 'Heymans_Nick_voorstel.blg'
-[149] biber-MSWIN64:330> INFO - === 
-[179] Biber.pm:415> INFO - Reading 'Heymans_Nick_voorstel.bcf'
-[419] Biber.pm:952> INFO - Found 5 citekeys in bib section 0
-[443] Biber.pm:4334> INFO - Processing section 0
-[462] Biber.pm:4523> INFO - Looking for bibtex format file 'voorstel.bib' for section 0
-[469] bibtex.pm:1682> INFO - LaTeX decoding ...
-[481] bibtex.pm:1494> INFO - Found BibTeX data source 'voorstel.bib'
-[556] UCollate.pm:68> INFO - Overriding locale 'nl-NL' defaults 'variable = shifted' with 'variable = non-ignorable'
-[556] UCollate.pm:68> INFO - Overriding locale 'nl-NL' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[557] Biber.pm:4162> INFO - Sorting list 'apa/global//global/global' of type 'entry' with template 'apa' and locale 'nl-NL'
-[558] Biber.pm:4168> INFO - No sort tailoring available for locale 'nl-NL'
-[577] bbl.pm:651> INFO - Writing 'Heymans_Nick_voorstel.bbl' with encoding 'UTF-8'
-[580] bbl.pm:754> INFO - Output to Heymans_Nick_voorstel.bbl
+[121] biber-MSWIN64:330> INFO - === 
+[146] Biber.pm:415> INFO - Reading 'Heymans_Nick_voorstel.bcf'
+[296] Biber.pm:952> INFO - Found 5 citekeys in bib section 0
+[327] Biber.pm:4334> INFO - Processing section 0
+[346] Biber.pm:4523> INFO - Looking for bibtex format file 'voorstel.bib' for section 0
+[352] bibtex.pm:1682> INFO - LaTeX decoding ...
+[365] bibtex.pm:1494> INFO - Found BibTeX data source 'voorstel.bib'
+[438] UCollate.pm:68> INFO - Overriding locale 'nl-NL' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[438] UCollate.pm:68> INFO - Overriding locale 'nl-NL' defaults 'variable = shifted' with 'variable = non-ignorable'
+[438] Biber.pm:4162> INFO - Sorting list 'apa/global//global/global' of type 'entry' with template 'apa' and locale 'nl-NL'
+[438] Biber.pm:4168> INFO - No sort tailoring available for locale 'nl-NL'
+[454] bbl.pm:651> INFO - Writing 'Heymans_Nick_voorstel.bbl' with encoding 'UTF-8'
+[460] bbl.pm:754> INFO - Output to Heymans_Nick_voorstel.bbl

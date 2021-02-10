@@ -5,40 +5,41 @@
 
 \subsection{Wat zijn containers?}
 Het uitrollen en schalen van applicaties wordt steeds vaker gedaan met behulp van containers. 
-Tijdens de ontwikkeling van traditionele applicaties word de applicatie ontwikkeld in een specifiek testomgeving. 
-Vervolgens wordt de applicatie overgezet naar de productieomgeving wat vaak voor problemen zorgt (bijvoorbeeld van een linux testomgeving naar een Windows productieomgeving).
-Een container is een pakket waar één enkele applicatie in zit, samen met alle nodige afhankelijkheden. 
-Dit zorgt ervoor dat deze gemakkelijk en snel van de ene omgeving naar de andere kan overgezet worden.
-De containers maken gebruik van een 'runtime engine', dit is een laag die verantwoordelijk is voor de communicatie tussen het operating system van de host machine en de containers zelf.
-De meeste gebruikte 'runtime engine' is de 'Docker Engine'\footnote{https://docs.docker.com/engine/}. Deze is al sinds 2013 de industriestandaard als het gaat over container software\autocite{McCarty2018}.
-Naar mate het gebruik van containers steeg, steeg ook de nood naar op manier om deze vanuit één centrale locatie te beheren.
-Om aan deze vraag te voldoen werden container orchestratie tools, zoals Kubernetes \footnote{https://kubernetes.io/}, ontwikkeld. 
-Deze tools helpen bij het opzetten, uitbreiden en verbinden van een grote hoeveelheid containers.
+Tijdens de ontwikkeling van traditionele applicaties wordt de applicatie ontwikkeld in een specifiek testomgeving. 
+Vervolgens wordt de applicatie overgezet naar de productieomgeving wat vaak voor problemen zorgt (bijvoorbeeld van een linux testomgeving naar een Windows productieomgeving). 
+Een container is een pakket waar één enkele applicatie in zit, samen met alle nodige afhankelijkheden\autocite{Education2019}. 
+Dit zorgt ervoor dat deze gemakkelijk en snel van de ene omgeving naar de andere kan overgezet worden. 
+De containers maken gebruik van een 'runtime engine', dit is een laag die verantwoordelijk is voor de communicatie tussen het operating system van de host machine en de containers zelf. 
+De meeste gebruikte 'runtime engine' is de 'Docker Engine'\footnote{https://docs.docker.com/engine/}. Deze is al sinds 2013 de industriestandaard als het gaat over container software\autocite{McCarty2018}. 
+Naarmate het gebruik van containers steeg, steeg ook de nood naar op manier om deze vanuit één centrale locatie te beheren. 
+Om aan deze vraag te voldoen werden container orkestratie tools, zoals Kubernetes \footnote{https://kubernetes.io/}, ontwikkeld. 
+Deze tools helpen bij het opzetten, uitbreiden en verbinden van een grote hoeveelheid containers. 
 
 \subsection{Waarom container applicaties?}
-Container applicaties hebben enkele voordelen tegenover normale applicaties, ze draaien namelijk geisoleerd van de rest van het systeem. 
-Ze kunnen dus perfect werken zonder afhankelijk te zijn van andere containers.
-Dit garandeerd dat als er één container gecompromitteerd is, de rest zonder interuptie kan verderwerken.
-De containers delen wel verschillende resources van het host systeem, wat de deur opent voor veiligheids inbreuken tussen containers.
+Container applicaties hebben enkele voordelen tegenover normale applicaties, ze draaien namelijk geïsoleerd van de rest van het systeem. 
+Ze kunnen dus perfect werken zonder afhankelijk te zijn van andere containers. 
+Dit garandeerd dat als er één container aangetast is, de rest zonder interruptie kan verderwerken. 
+De containers delen wel verschillende resources van het host systeem, wat de deur opent voor veiligheidsinbreuken tussen containers. 
 
 \subsection{Context voor dit onderzoek}
 Gartner \autocite{Gartner2019} voorspeld dat tegen 2022 maar liefst 75\% van alle internationale organisaties gecontaineriseerde
-applicaties zullen gebruiken in hun productieomgeving. Dit zowel in lokale datacenters alsook in online cloud omgevingen.
+applicaties zullen gebruiken in hun productieomgeving. Dit zowel in lokale datacenters alsook in online cloud omgevingen. 
 Uit een raport van \textcite{Tripwire2019} blijkt dat 94\% van bevraagden bezorgd zijn over de veiligheid van hun containers. 
-Uit hetzelfde raport blijkt ook dat 47\% weet dat ze kwetsbare containers gebruiken in hun productieomgeving.
+Uit hetzelfde raport blijkt ook dat 47\% weet dat ze kwetsbare containers gebruiken in hun productieomgeving. 
 Spijtig genoeg werd bij voorgaande onderzoeken, zoals \textcite{StackRox2020}, het effect van 'security best practices en tools' 
-op opzetsnelheid, benodigde resources en stabiliteit steeds onderbelicht.
+op opzetsnelheid, benodigde resources en stabiliteit steeds onderbelicht. 
 
 \subsection{Verloop van het onderzoek}
-In deze paper zal ik onderzoeken wat de belangrijkste bronnen van security inbreuken zijn en hoe deze vermeden kunnen worden.
-Tegelijkertijd krijg ik via dit onderzoek de oppurtuniteit om er achter te komen of er vooral technische problemen of menselijke fouten aan de basis liggen van de veiligheidsrisico's.
-In de volgende paragraaf staat er beschreven hoe ik te werk zal gaan.
+In deze paper zal ik onderzoeken wat de belangrijkste bronnen van veiligheidsinbreuken zijn en hoe deze vermeden kunnen worden. 
+Tegelijkertijd krijg ik via dit onderzoek de opportuniteit om er achter te komen of er vooral technische problemen of menselijke fouten aan de basis liggen van de veiligheidsrisico's. 
+In de volgende paragraaf staat er beschreven hoe ik te werk zal gaan. 
 
 %---------- Methodologie ------------------------------------------------------
 \section{Methodologie}
 \label{sec:methodologie}
 
-Voor dit onderzoek zullen er drie scenario's opgezet worden. Bij elke scenario zullen er verschillende 'security best practices en tools' gebruikt worden.
+Voor dit onderzoek zullen er drie scenario's opgezet worden. Elk scenario zal verschillende keren worden uitgevoerd en voor elk criteria zal het genomen worden (eventueel reking houdende met uitschieters). 
+Bij elke scenario zullen er verschillende 'security best practices en tools' gebruikt worden. 
 Deze zullen getest worden op basis van de volgende criteria: \newline
 \begin{itemize}
 	\item Deployment snelheid
@@ -49,33 +50,36 @@ Voorbeelden van scenario's: \newline
 \begin{itemize}
 	\item S(0): Er wordt een container applicatie opgezet in een Kubernetes cluster zonder extra security configuratie.
 	\item S(1): Er wordt een container applicatie opgezet in een Kubernetes cluster en enkele 'best practices' worden toegepast.
-	\item S(2): Er wordt een container applicatie opgezet in een Kubernetes cluster waar er gebruik word gemaakt van enkele 'security tools' zoals 'Project Calico' en 'Kube-hunter' . \newline
+	\item S(2): Er wordt een container applicatie opgezet in een Kubernetes cluster waar er gebruik word gemaakt van enkele 'security tools' zoals 'Project Calico' en 'Kube-hunter'. \newline
 \end{itemize} 
-Door gebruik te maken van deze scenario's en criteria hopen we vast te stellen dat het toepassen van security 'best practices' een positieve invloed heeft op het gebruik van containers en orchestratie tools.
+Door gebruik te maken van deze scenario's en criteria hopen we vast te stellen dat het toepassen van 'security best practices en tools' een positieve invloed heeft op het gebruik van containers en orkestratie tools. 
 
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwachte resultaten}
 \label{sec:verwachte_resultaten}
 
-Op basis van de criteria wordt er verwacht dat Scenario 0 en 1 even snel op opgezet kunnen worden. Ze zullen beide kwetsbaarder zijn aangezien de 'best practices' vooral bestaan uit het correct gebruik van wachtwoorden en gebruiker privileges.
-Scenario 2 daarintegen zal iets meer tijd nodig hebben om opgezet te worden(zie Figuur1) en zal daarbij meer resources gebruiken(zie Figuur2). Dit zou te wijten zijn aan het delen van resources tussen de containers wat een security risico inhoudt en dus tot een minimum zal moeten beperkt worden\autocite{Education2019}.
+Op basis van de criteria wordt er verwacht dat Scenario 0 en 1 even snel op opgezet kunnen worden en evenveel resources gebruiken. 
+Ze zullen beide kwetsbaarder zijn aangezien de 'best practices' vooral bestaan uit het correct gebruik van wachtwoorden en gebruiker privileges. 
+Scenario 2 daarintegen zal iets meer tijd nodig hebben om opgezet te worden(zie Figuur1) en zal daarbij meer resources gebruiken(zie Figuur2). Dit zou te wijten zijn aan de gebruikte 'security tools' die extra tijd en resource nodig hebben. 
 
 %---------- Verwachte conclusies ----------------------------------------------
 \section{Verwachte conclusies}
 \label{sec:verwachte_conclusies}
 
-Uit dit onderzoek willen we concluderen dat het toepassen van 'best practices' en het correct gebruik van security tools een positief effect teweeg brengt bij het gebruik van container orcherstratie tools.
+Uit dit onderzoek willen we concluderen dat het toepassen van 'best practices' en het correct gebruik van security tools een positief effect teweeg brengt bij het gebruik van container orkestratie tools. 
 We trachten daarnaast ook aan te duiden dat het omzeilen van security risico's een belangrijk aspect is bij het ontwikkelen van container applicaties. 
-Tot slot kan er geconcludeerd worden dat het beveiligen van container clusters steeds belangrijker wordt. Daarnaast is het tevens van belang dat de persoon die een cluster opzet daarbij de onderliggende werkwijze goed kent en zich bewust is van de mogelijke valkuilen.
+Tot slot kan er geconcludeerd worden dat het beveiligen van container clusters steeds belangrijker wordt. 
+Daarnaast is het tevens van belang dat de persoon die een cluster opzet daarbij de onderliggende werkwijze goed kent en zich bewust is van de mogelijke valkuilen. 
 
 %---------- Bijlagen ----------------------------------------------
 \section{Bijlagen}
 \label{sec:Bijlagen}
 \begin{figure}[ht]
+	\centering
 	\includegraphics[width=\linewidth]{img/Mock1.png}
-	\caption{Verwacht eindresultaat}
+	\caption{Verwachte opstart tijd}
 	\label{fig:example}
 	\includegraphics[width=\linewidth]{img/Mock2.png}
-	\caption{Verwacht eindresultaat}
+	\caption{Verwacht resource gebruik}
   \label{fig:example}
 \end{figure}

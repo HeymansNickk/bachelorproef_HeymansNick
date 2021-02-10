@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.25)  30 DEC 2020 20:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.25)  10 FEB 2021 13:51
 entering extended mode
 **c:/Users/nickh/Documents/School/3ejaar/bachelorproef/bachelorproef_HeymansNick/voorstel/Heymans_Nick_voorstel.tex
 (c:/Users/nickh/Documents/School/3ejaar/bachelorproef/bachelorproef_HeymansNick/voorstel/Heymans_Nick_voorstel.tex
@@ -903,58 +903,51 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 \tf@toc=\write5
 \openout5 = `Heymans_Nick_voorstel.toc'.
 
- (c:/Users\nickh\Documents\School\3ejaar\bachelorproef\bachelorproef_HeymansNick\voorstel\voorstel-inhoud.tex [1{C:/Users/nickh/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
+ (c:/Users\nickh\Documents\School\3ejaar\bachelorproef\bachelorproef_HeymansNick\voorstel\voorstel-inhoud.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1{C:/Users/nickh/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 41--44
+Underfull \hbox (badness 10000) in paragraph at lines 41--45
 
  []
 
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 44.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 45.
 (C:\Users\nickh\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 46--47
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 48--50
+Underfull \hbox (badness 10000) in paragraph at lines 49--51
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
 
  []
 
-<img/Mock1.png, id=83, 824.32968pt x 606.01407pt>
+<img/Mock1.png, id=84, 824.32968pt x 606.01407pt>
 File: img/Mock1.png Graphic file (type png)
 <use img/Mock1.png>
-Package pdftex.def Info: img/Mock1.png  used on input line 75.
+Package pdftex.def Info: img/Mock1.png  used on input line 79.
 (pdftex.def)             Requested size: 234.02388pt x 172.04077pt.
-<img/Mock2.png, id=84, 361.95226pt x 92.7465pt>
+<img/Mock2.png, id=85, 361.95226pt x 92.7465pt>
 File: img/Mock2.png Graphic file (type png)
 <use img/Mock2.png>
-Package pdftex.def Info: img/Mock2.png  used on input line 78.
+Package pdftex.def Info: img/Mock2.png  used on input line 82.
 (pdftex.def)             Requested size: 234.02388pt x 59.9675pt.
 )
 Overfull \hbox (4.52408pt too wide) in paragraph at lines 103--103
 [][]$\OT1/ptm/m/n/10 (-20) https : / / www . ibm . com / cloud / learn / containerization #
  []
 
-
-Overfull \hbox (4.56104pt too wide) in paragraph at lines 103--103
-\OT1/ptm/m/it/10 (-20) ber-ne-tes Se-cu-rity \OT1/ptm/m/n/10 (-20) (on-der-zoeks-rap.). Stack-Rox. [][]$https :
- []
-
-
-Overfull \hbox (2.96733pt too wide) in paragraph at lines 103--103
-\OT1/ptm/m/n/10 (-20) / / www . stackrox . com / kubernetes -[] adoption -[] security -[]
- []
-
-<HOGENT_Logo_Pos_rgb.png, id=91, 3503.0875pt x 1975.38pt>
+<HOGENT_Logo_Pos_rgb.png, id=90, 3503.0875pt x 1975.38pt>
 File: HOGENT_Logo_Pos_rgb.png Graphic file (type png)
 <use HOGENT_Logo_Pos_rgb.png>
 Package pdftex.def Info: HOGENT_Logo_Pos_rgb.png  used on input line 103.
@@ -966,6 +959,16 @@ We now make it that large for the rest of the document.
 This may cause the page layout to be inconsistent, however.
 
 [2 <c:/Users/nickh/Documents/School/3ejaar/bachelorproef/bachelorproef_HeymansNick/voorstel/img/Mock1.png (PNG copy)> <c:/Users/nickh/Documents/School/3ejaar/bachelorproef/bachelorproef_HeymansNick/voorstel/img/Mock2.png> <c:/Users/nickh/Documents/School/3ejaar/bachelorproef/bachelorproef_HeymansNick/voorstel/HOGENT_Logo_Pos_rgb.png>]
+Overfull \hbox (4.56104pt too wide) in paragraph at lines 103--103
+\OT1/ptm/m/it/10 (-20) ber-ne-tes Se-cu-rity \OT1/ptm/m/n/10 (-20) (on-der-zoeks-rap.). Stack-Rox. [][]$https :
+ []
+
+
+Overfull \hbox (2.96733pt too wide) in paragraph at lines 103--103
+\OT1/ptm/m/n/10 (-20) / / www . stackrox . com / kubernetes -[] adoption -[] security -[]
+ []
+
+
 Overfull \hbox (54.62692pt too wide) in paragraph at lines 103--103
 \OT1/ptm/m/n/10 (-20) gen 30 no-vem-ber 2020, van [][]$https : / / 3b6xlt3iddqmuq5vy2w0s5d3 -[]
  []
@@ -991,14 +994,14 @@ Package logreq Info: Writing requests to 'Heymans_Nick_voorstel.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  21032 strings out of 479832
- 366903 string characters out of 2871057
- 1339368 words of memory out of 3000000
+ 366894 string characters out of 2871057
+ 1338401 words of memory out of 3000000
  37316 multiletter control sequences out of 15000+200000
- 600346 words of font info for 309 fonts, out of 3000000 for 9000
+ 600383 words of font info for 309 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  80i,14n,86p,842b,4738s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/nickh/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/nickh/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/nickh/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/nickh/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/nickh/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on c:/Users\nickh\Documents\School\3ejaar\bachelorproef\bachelorproef_HeymansNick\voorstel\Heymans_Nick_voorstel.pdf (3 pages, 198856 bytes).
+Output written on c:/Users\nickh\Documents\School\3ejaar\bachelorproef\bachelorproef_HeymansNick\voorstel\Heymans_Nick_voorstel.pdf (3 pages, 199265 bytes).
 PDF statistics:
  142 PDF objects out of 1000 (max. 8388607)
  22 named destinations out of 1000 (max. 500000)
