@@ -1,0 +1,10 @@
+% Encoding: UTF-8
+
+@Electronic{Docker2018,
+  author = {Docker},
+  date   = {2018},
+  title  = {What is a Container?},
+  url    = {https://www.docker.com/resources/what-container},
+}
+
+@Comment{jabref-meta: databaseType:biblatex;}

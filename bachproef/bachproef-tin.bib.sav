@@ -25,4 +25,12 @@
   urldate      = {2021-03-08},
 }
 
+@Electronic{Docker2021,
+  author       = {Docker},
+  date         = {2021-03-03},
+  title        = {How Docker HelpsDevelopment Teams},
+  url          = {https://www.docker.com/use-cases},
+  organization = {Docker},
+}
+
 @Comment{jabref-meta: databaseType:biblatex;}
