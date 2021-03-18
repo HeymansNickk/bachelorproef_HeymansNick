@@ -28,7 +28,7 @@ In dit hoofdstuk zal uitgelegd worden wat containers zijn, hoe ze werken en waar
 
 Containers bieden veel voordelen vergeleken met normale virtuele machines (VM's). Ze kunnen snel opgezet worden en zijn gemakkelijk om te configureren terwijl virtuele machines vaak groot en traag zijn. Containers zijn pakketten waarin een applicatie vervat zit, samen met zijn benodigde bibliotheken en afhankelijkheden. Hierdoor kunnen ze vlot van de ene omgeving naar de andere worden overgezet zonder dat er extra configuratie nodig is \autocite{Education2019}. Containers maken gebruik van besturingssysteem-virtualisatie om processen te isoleren van het \textit{host} besturingssysteem. Daarnaast controleert het tevens de CPU gebruik en hoeveelheid RAM geheugen van deze processen (Docker, 2018).
 
-Containers hebben eigenlijk geen eigen besturingssysteem nodig, alle containers delen 1 gezamenlijke \textit{runtime engine}. Een \textit{runtime engine} is de laag die verantwoordelijk is voor de communicatie tussen het besturingssysteem van de host machine en de containers zelf. De meeste gebruikte runtime engine is de \textit{Docker Engine}\footnote{https://docs.docker.com/engine/}.
+Containers hebben eigenlijk geen eigen besturingssysteem nodig, alle containers delen 1 gezamenlijke \textit{runtime engine}. Een \textit{runtime engine} is de laag die verantwoordelijk is voor de communicatie tussen het besturingssysteem van de host machine en de containers zelf. De meeste gebruikte runtime engine is de \textit{Docker Engine}\footnote{docs.docker.com/engine/}.
 
 \subsection{Container vs. virtuele machine}
 \subsubsection{Hypervisors}
@@ -67,22 +67,21 @@ Containers zijn zeer veelzijdig en kunnen dus in veel verschillende omstandighed
 
 
 \section{Docker}
-Hier zal uitgelegd worden wat docker is en hoe het ontstaan en gegroeid is.
-
-\textit{Docker}\footnote{https://www.docker.com/} is een open source container platform dat sinds de release in 2013 ongelofelijk populair is geworden. In november 2019 stond de teller van aantal \textit{pulls} op de \textit{Docker hub} op 130 miljard,  in juli 2020 stond deze al op 242 miljard. Dat is bijna dubbel op minder dan 8 maand tijd \autocite{Kreisa2020}. Docker-containers kunnen overal draaien, in een het datacenter, bij een externe serviceprovider of in de cloud. Docker containers kunnen zowel op Linux als op Windows draaien. Containers die op Windows gebaseerd zijn kunnen echter alleen op Windows systemen draaien, maar Linux containers kunnen op zowel Linux systemen en Windows systemen draaien (met behulp van een Linux VM). Dit komt omdat containers ontworpen zijn om het besturingssysteem van de host te gebruiken \autocite{Anil2018}.
+\textit{Docker}\footnote{docker.com/} is een open source container platform dat sinds de release in 2013 ongelofelijk populair is geworden. In november 2019 stond de teller van aantal \textit{pulls} op de \textit{Docker hub} op 130 miljard,  in juli 2020 stond deze al op 242 miljard. Dat is bijna dubbel op minder dan 8 maand tijd \autocite{Kreisa2020}. Docker-containers kunnen overal draaien, in een het datacenter, bij een externe serviceprovider of in de cloud. Docker containers kunnen zowel op Linux als op Windows draaien. Containers die op Windows gebaseerd zijn kunnen echter alleen op Windows systemen draaien, maar Linux containers kunnen op zowel Linux systemen en Windows systemen draaien (met behulp van een Linux VM). Dit komt omdat containers ontworpen zijn om het besturingssysteem van de host te gebruiken \autocite{Anil2018}.
 
 
 \subsection{Hoe werkt docker}
-Hier zal de werking van Docker uitgelegd worden, ook de verschillende technische termen die eigen zijn aan Docker zullen uitgelegd worden.
-
 Docker gebruikt een \textit{Client-Server} architectuur. Deze werkt als volgt: De Docker \textit{Client} communiceert met de Docker \textit{Deamon} (een proces dat op de achtergrond draait en bepaalde (onderhouds)taken uitvoert). Deze is verantwoordelijk voor het bouwen, runnen en verspreiden van containers \autocite{Docker2021a}.
 
 \subsection{Docker componenten en terminologie}
 
-\subsubsection{Docker Deamon}De Docker Daemon (\verb|dockerd|) luistert naar Docker Application programming interface (API) verzoeken en beheert Docker objecten zoals \textit{images}, \textit{containers}, netwerken, en volumes.
+\subsubsection{Docker Deamon}De Docker Daemon (\verb|dockerd|) luistert naar Docker Application programming interface (API) verzoeken en beheert Docker objecten zoals \textit{images}, \textit{containers}, netwerken, en \textit{volumes}.
+
 \subsubsection{Docker Client}De Docker Client is de meest gebruikte manier voor gebruikers om te communiceren met Docker. De client stuurt alle ingevoerde commando's (zoals \verb|docker pull| en \verb|docker run|) door naar de Docker Daemon die deze uitvoert.
-\subsubsection{Docker registries}Een \textit{Docker register} is een bibliotheek die \textit{Docker images} opslaat. De standaar register voor Docker is de \textit{Docker Hub}\footnote{https://hub.docker.com/}. Als de Docker daemon geen lokale Docker image vindt gaat deze standaard in de \textit{Docker Hub} zoeken. Wanneer het \verb|docker pull| of \verb|docker run| commando's wordt gebruikt, worden de benodigde images uit het register gehaald.
+
+\subsubsection{Docker registries}Een \textit{Docker register} is een bibliotheek die \textit{Docker images} opslaat. De standaar register voor Docker is de \textit{Docker Hub}\footnote{hub.docker.com/}. Als de Docker daemon geen lokale Docker image vindt gaat deze standaard in de \textit{Docker Hub} zoeken. Wanneer het \verb|docker pull| of \verb|docker run| commando's wordt gebruikt, worden de benodigde images uit het register gehaald.
 \subsubsection{Docker objecten}Docker maakt gebruik van images, volumes en netwerken, al deze onderdelen worden objecten genoemt. Volgens \textcite{Docker2021a} zijn dit de belangrijkste objecten:
+
 \begin{itemize}
         \item \textbf{Images}: Docker images zijn read-only sjablonen met instructies om een Docker container op te zetten. Docker images kunnen uit de Docker hub gehaald worden en direct gebruikt worden zonder verdere configuratie, of je kan bijkomende instructies toevoegen aan de \textit{base image} en deze opslaan als een nieuwe en aangepaste Docker image. Een Docker image is vaak gebaseerd op een andere images (i.e., Een nieuwe image kan gebaseerd zijn op een bestaande \textit{Ubuntu} image maar installeert en configureert ook een \textit{Apache} webserver). Alsook is het mogelijk om zelf een compleet nieuwe image te maken met behulp van een \textit{dockerfile}.
         \item \textbf{Containers}: Een container is een uitvoerbare instantie van een image die wordt gecontroleerd via de Docker API. Een container kan verbonden worden met andere containers, verbonden worden aan opslag of gebruikt worden als basis voor nieuwe image.
@@ -90,10 +89,31 @@ Docker gebruikt een \textit{Client-Server} architectuur. Deze werkt als volgt: D
 \end{itemize}
 
 \section{Container orkestratie}
-Hier zal uitgelegd worden wat container orkestratie is en waarvoor het gebruikt kan worden.
+Container orkestratie helpt bij het opzetten, beheren, schalen en verbinden van een grote hoeveelheid containers. Container orkestratie helpt dus om complexe procedures te vergemakkelijken. Dit door veelvoorkomende processen en werkstromen te stroomlijnen en te optimaliseren. Nog een belangrijk onderdeel van orkestratie is het geautomatiseerd onderhoud van de applicaties die in de containers draaien \autocite{RedHat2021}.
 
-\subsection{Hoe werkt container orkestratie}
-Hier zal de innerlijke werking van container orkestratie uitgelegd worden.
+\subsubsection{Waarvoor word container orkestratie gebruikt?}
+
+Container orkestratie wordt vooral gebruikt voor het automatiseren en beheren van, onder andere, de configuratie en uitrol, het toewijzen van resources, de \textit{Load balancing} en het monitoren van containers.
+%Container orkestratie wordt vooral gebruikt voor het automatiseren en beheren van:
+%\begin{itemize}
+%    \item De configuratie en uitrol van containers.
+%    \item De toewijzing van resources.
+%    \item De \textit{Load balancing} op basis van de belasting van het systeem.
+%    \item Het monitoren van containers.
+%    \item De beveiliging van interacties tussen containers.
+%\end{itemize}
+
+\subsection{Container orkestratie tools}
+Om aan container orkestratie te gaan doen zijn er natuurlijk tools nodig die ons alle nodig functionaliteiten kunnen aanbieden. \textcite{DevopsCube2021} geeft een overzicht van de meest prominente orkestratie tools.
+
+\subsubsection{Kubernetes}
+Kubernetes(k8s)\footnote{kubernetes.io/} is een open-source, container cluster manager en orchestratie tool. Het is gebouwd met een uitstekende resource manager voor het inzetten van containers op een efficiëntere manier. Kubernetes is voor vele organisaties de de facto container orkestratie tool geworden voor veel organisaties. Volgens \textcite{CNCF2021} zijn er meer dan 109 tools om containers te beheren, maar 89\% is gebouwd met k8s aan de basis.
+
+\subsubsection{Openshift}
+Openshift is een van die 89\% tools die gebouwd zijn bovenop Kubernetes. Het Openshift-project\footnote{openshift.com/} word onderhouden door RedHat\footnote{redhat.com/}. Het heeft zowel een open source versie (\textit{openshift origin}\footnote{github.com/openshift/origin}) als een enterprise versie (\textit{openshift container platform}\footnote{openshift.com/products/container-platform}).
+
+\subsubsection{Hasicorp Nomad}
+Nomad\footnote{nomadproject.io/} is een orkestratieplatform van Hashicorp\footnote{hashicorp.com/} dat containers op schaal kan ondersteunen. Op het vlak van applicatiemanagement is het zeer sterk vergelijkbaar met Kubernetes. Echter het feit da Nomad ook niet-containerapplicaties kan beheren zorgt ervoor dat het zich toch kan distantiëren van de andere orkestratie tools. Nomad kan ook feilloos geïntegreerd worden met andere tools van Hashicorp.
 
 \section{Kubernetes}
 Hier zal uitgelegd worden wat k8s is en hoe het werkt, ook de verschillende technische termen die eigen zijn aan k8s zullen uitgelegd worden.
