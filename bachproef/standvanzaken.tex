@@ -21,42 +21,73 @@
 % Kubernetes: wat is het en waarvoor wordt het gebruikt?
 % Security: veel voorkomende problemen, best practices
 % Security tools: Welke zijn er en hoe werken ze
-
-De stand van zaken of \textit{State of the art} geeft een beeld van de technologieën die worden overwogen voor dit onderzoek en op welke manieren ze kunnen toegepast worden om een antwoord te vinden op de onderzoeksvragen.
+De stand van zaken of \textit{State of the art} geeft een algemeen beeld weer van de technologieën die worden overwogen in dit onderzoek en tevens de verschillend manieren van toepassing.
 
 \section{Containers}
 In dit hoofdstuk zal uitgelegd worden wat containers zijn, hoe ze werken en waarvoor ze worden gebruikt.
 
-Containers bieden veel voordelen vergeleken met normale virtuele machines (vm's). Ze kunnen snel opgezet worden en zijn gemakkelijk om te configureren terwijl virtuele machines vaak groot en traag zijn. Containers zijn pakketten waarin een applicatie verpakt zit, samen met al zijn benodigde bibliotheken en afhankelijkheden. Hierdoor kunnen ze vlot van de ene omgeving naar de andere worden overgezet zonder dat er extra configuratie nodig is \autocite{Education2019}. Containers maken gebruik van een vorm van besturingssysteem virtualisatie om processen te isoleren van het host besturingssysteem en zo ook het CPU gebruik en hoeveelheid RAM geheugen van die processen te controleren.\autocite{Docker2018}
+Containers bieden veel voordelen vergeleken met normale virtuele machines (VM's). Ze kunnen snel opgezet worden en zijn gemakkelijk om te configureren terwijl virtuele machines vaak groot en traag zijn. Containers zijn pakketten waarin een applicatie vervat zit, samen met zijn benodigde bibliotheken en afhankelijkheden. Hierdoor kunnen ze vlot van de ene omgeving naar de andere worden overgezet zonder dat er extra configuratie nodig is \autocite{Education2019}. Containers maken gebruik van besturingssysteem-virtualisatie om processen te isoleren van het \textit{host} besturingssysteem. Daarnaast controleert het tevens de CPU gebruik en hoeveelheid RAM geheugen van deze processen (Docker, 2018).
 
-Containers hebben geen eigen besturingssysteem nodig, alle containers delen 1 gezamenlijke 'runtime engine'. Een runtime engine is de laag die verantwoordelijk is voor de communicatie tussen het besturingssysteem van de host machine en de containers zelf. De meeste gebruikte runtime engine is de 'Docker Engine'\footnote{https://docs.docker.com/engine/}.
+Containers hebben eigenlijk geen eigen besturingssysteem nodig, alle containers delen 1 gezamenlijke \textit{runtime engine}. Een \textit{runtime engine} is de laag die verantwoordelijk is voor de communicatie tussen het besturingssysteem van de host machine en de containers zelf. De meeste gebruikte runtime engine is de \textit{Docker Engine}\footnote{https://docs.docker.com/engine/}.
 
 \subsection{Container vs. virtuele machine}
-Bij traditionele virtuele machines virtualiseert een 'hypervisor' de fysieke hardware. De hypervisor regelt het resource gebruik tussen de verschillende vm's en zorgt ervoor dat de hardware van de 'host' (de fysieke hardware waar de hypervisor op geinstaleed is) eerlijk verdeelt wordt. Elke vm heeft zijn eigen volwaardig besturingssysteem, wat ervoor zorgt dat ze zeer veel resources gebruiken en vaak traag zijn. In plaats van de onderliggende hardware te visualiseren containers het besturingssysteem (meestal is dit Linux), zodat elke individuele container enkel de applicatie en de bijhorende bibliotheken en afhankelijkheden bevat \autocite{Education2020}.
+\subsubsection{Hypervisors}
+Bij traditionele virtuele machines virtualiseert een \textit{hypervisor} de fysieke hardware. De hypervisor regelt het resource gebruik tussen de verschillende VM's en zorgt ervoor dat de hardware van de host (de fysieke hardware waar de hypervisor op geïnstalleerd is) eerlijk verdeelt wordt. Er zijn 2 types hypervisor \autocite{VMWare2021}, namelijk:
+\begin{itemize}
+    \item Type 1: Ook wel \textit{bare metal} hypervisors genoemd. Deze werken rechtstreeks op de fysieke hardware van de host en hebben dus geen onderliggend besturingssysteem nodig. Door het rechtstreekse contact tussen de hypervisor en de hardware wordt een type 1 hypervisor beschouwd als de best presterende en meest efficiënte hypervisor. Een type 1 hypervisor wordt ook beschouwd als het veiligste van de 2, dit omdat de gebreken en kwetsbaarheden die doorgaans in besturingssystemen aanwezig zijn hier onmogelijk zijn.
+    \item Type 2: Ook wel \textit{hosted} hypervisors genoemd. Deze worden doorgaans geïnstalleerd op een bestaand besturingssysteem en steunt daar ook op voor het beheren van de resources. Een groot voordeel van type 2 hypervisors is dat ze een breed gamma aan hardware ondersteunen.
+\end{itemize}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\linewidth]{img/Hypervisor.png}
+    \caption{Type 1 \& Type 2 Hypervisor \autocite{VMWare2021}}
+    \label{fig:hypers}
+\end{figure}
+
+Tegenwoordig zijn type 1 hypervisors de meest gebruikte in productieomgevingen vanwege het efficiente resource gebruik en veiligheid. Type 2 hypervisors worden dan meer gebruikt voor testomgevingen omdat ze gemakkelijker op te zetten zijn.
+
+Elke VM heeft zijn eigen volwaardig besturingssysteem, wat ervoor zorgt dat ze zeer veel resources gebruiken en vaak traag zijn. In plaats van de onderliggende hardware te visualiseren gebruiken containers het besturingssysteem (meestal is dit Linux) zelf, zo bevat elke individuele container enkel de applicatie en de bijhorende bibliotheken en afhankelijkheden bevat \autocite{Education2020}.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\linewidth]{img/container-vs-vm.png}
-    \caption{Container vs. virtuale machine \autocite{Google2016}}
+    \caption{Container vs. virtuele machine \autocite{Google2016}}
     \label{fig:example}
 \end{figure}
 
 
 \subsection{Waarvoor worden containers gebruikt}
-Containers zijn zeer veelzijdig en kunnen in veel verschillende omstandigheden gebruikt worden. Docker\footnote{https://www.docker.com/} geeft enkele use cases waarvoor containers zeer geschikt zijn \autocite{Docker2021} :
+Containers zijn zeer veelzijdig en kunnen dus in veel verschillende omstandigheden gebruikt worden. Enkele \textit{use cases} waarvoor containers zeer geschikt zijn \autocite{Docker2021}:
 
 \begin{itemize}
-  \item \textit{Microservices}: Containers zijn klein en licht, waardoor ze goed passen bij microservice-architecturen waarin applicaties zijn opgebouwd uit vele, losjes gekoppelde en onafhankelijk services.
-  \item \textit{Modernisering en migratie van applicaties}: Een van de meest voorkomende benaderingen voor het moderniseren van applicaties begint met het containeriseren ervan, zodat ze naar de cloud kunnen worden gemigreerd.
-  \item \textit{Nieuwe ontwikkelaars snel inwerken}: Door gebruik te maken van containers verloopt het opzetten van een nieuwe lokale ontwikkelingsomgeving snel en vlot, waardoor de ontwikkelaars direct aan de slag kunnen
+  \item \underline{Microservices}: Containers zijn klein en licht, waardoor ze goed passen bij microservice-architecturen waarin applicaties zijn opgebouwd uit vele, losjes gekoppelde en onafhankelijk services.
+  \item \underline{Modernisering en migratie van applicaties}: Een van de meest voorkomende benaderingen voor het moderniseren van applicaties begint met het containeriseren ervan, zodat ze naar de \textit{cloud} kunnen worden gemigreerd.
+  \item \underline{Nieuwe ontwikkelaars snel inwerken}: Door gebruik te maken van containers verloopt het opzetten van een nieuwe lokale ontwikkelingsomgeving snel en vlot, hierdoor kunnen de ontwikkelaars direct aan de slag.
 \end{itemize}
 
 
 \section{Docker}
 Hier zal uitgelegd worden wat docker is en hoe het ontstaan en gegroeid is.
 
+\textit{Docker}\footnote{https://www.docker.com/} is een open source container platform dat sinds de release in 2013 ongelofelijk populair is geworden. In november 2019 stond de teller van aantal \textit{pulls} op de \textit{Docker hub} op 130 miljard,  in juli 2020 stond deze al op 242 miljard. Dat is bijna dubbel op minder dan 8 maand tijd \autocite{Kreisa2020}. Docker-containers kunnen overal draaien, in een het datacenter, bij een externe serviceprovider of in de cloud. Docker containers kunnen zowel op Linux als op Windows draaien. Containers die op Windows gebaseerd zijn kunnen echter alleen op Windows systemen draaien, maar Linux containers kunnen op zowel Linux systemen en Windows systemen draaien (met behulp van een Linux VM). Dit komt omdat containers ontworpen zijn om het besturingssysteem van de host te gebruiken \autocite{Anil2018}.
+
+
 \subsection{Hoe werkt docker}
 Hier zal de werking van Docker uitgelegd worden, ook de verschillende technische termen die eigen zijn aan Docker zullen uitgelegd worden.
+
+Docker gebruikt een \textit{Client-Server} architectuur. Deze werkt als volgt: De Docker \textit{Client} communiceert met de Docker \textit{Deamon} (een proces dat op de achtergrond draait en bepaalde (onderhouds)taken uitvoert). Deze is verantwoordelijk voor het bouwen, runnen en verspreiden van containers \autocite{Docker2021a}.
+
+\subsection{Docker componenten en terminologie}
+
+\subsubsection{Docker Deamon}De Docker Daemon (\verb|dockerd|) luistert naar Docker Application programming interface (API) verzoeken en beheert Docker objecten zoals \textit{images}, \textit{containers}, netwerken, en volumes.
+\subsubsection{Docker Client}De Docker Client is de meest gebruikte manier voor gebruikers om te communiceren met Docker. De client stuurt alle ingevoerde commando's (zoals \verb|docker pull| en \verb|docker run|) door naar de Docker Daemon die deze uitvoert.
+\subsubsection{Docker registries}Een \textit{Docker register} is een bibliotheek die \textit{Docker images} opslaat. De standaar register voor Docker is de \textit{Docker Hub}\footnote{https://hub.docker.com/}. Als de Docker daemon geen lokale Docker image vindt gaat deze standaard in de \textit{Docker Hub} zoeken. Wanneer het \verb|docker pull| of \verb|docker run| commando's wordt gebruikt, worden de benodigde images uit het register gehaald.
+\subsubsection{Docker objecten}Docker maakt gebruik van images, volumes en netwerken, al deze onderdelen worden objecten genoemt. Volgens \textcite{Docker2021a} zijn dit de belangrijkste objecten:
+\begin{itemize}
+        \item \textbf{Images}: Docker images zijn read-only sjablonen met instructies om een Docker container op te zetten. Docker images kunnen uit de Docker hub gehaald worden en direct gebruikt worden zonder verdere configuratie, of je kan bijkomende instructies toevoegen aan de \textit{base image} en deze opslaan als een nieuwe en aangepaste Docker image. Een Docker image is vaak gebaseerd op een andere images (i.e., Een nieuwe image kan gebaseerd zijn op een bestaande \textit{Ubuntu} image maar installeert en configureert ook een \textit{Apache} webserver). Alsook is het mogelijk om zelf een compleet nieuwe image te maken met behulp van een \textit{dockerfile}.
+        \item \textbf{Containers}: Een container is een uitvoerbare instantie van een image die wordt gecontroleerd via de Docker API. Een container kan verbonden worden met andere containers, verbonden worden aan opslag of gebruikt worden als basis voor nieuwe image.
+        \item \textbf{Volumes}: De persistente gegevens die Docker containers kunnen gebruiken wordt opgeslagen in zogenaamde volumes. Deze volumes worden volledig gecontroleerd via de Docker API en bevinden zich buiten de container zelf. Hierdoor blijft het gewicht van de containers laag en kan de data blijven bestaan ook al wordt de container gestopt of verwijderd.
+\end{itemize}
 
 \section{Container orkestratie}
 Hier zal uitgelegd worden wat container orkestratie is en waarvoor het gebruikt kan worden.
