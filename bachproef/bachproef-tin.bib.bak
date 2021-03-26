@@ -89,4 +89,26 @@
   url    = {https://landscape.cncf.io/},
 }
 
+@Electronic{Kubernetes2021,
+  author       = {Kubernetes},
+  date         = {2021-02-01},
+  title        = {What is Kubernetes?},
+  url          = {https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/},
+  organization = {Kubernetes},
+}
+
+@Electronic{RedHat2021a,
+  author       = {RedHat},
+  date         = {2021-03-24},
+  title        = {Introduction to Kubernetes architecture},
+  url          = {https://www.redhat.com/en/topics/containers/kubernetes-architecture},
+  organization = {RedHat},
+  urldate      = {2021-03-24},
+}
+
+@Electronic{,
+  author = {Bjørn Erik Pedersen and Takuya Tokuda and Hidekazu Nakamura and June Yi and Shuang Wang},
+  url    = {https://kubernetes.io/docs/concepts/overview/components/},
+}
+
 @Comment{jabref-meta: databaseType:biblatex;}
