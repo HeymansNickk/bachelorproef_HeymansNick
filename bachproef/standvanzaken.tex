@@ -168,11 +168,43 @@ Ten slotte zijn er nog enkele extra \textit{addons} die gebruikt kunnen worden o
 \section{Security}
 Hier word het security aspect van containers en container orkestratie besproken. (redelijk high level want kan ongelooflijk complex worden)
 
+
+Uit een raport van \autocite{Tripwire2019} blijkt dat 94\% van bevraagden bezorgd zijn over de veiligheid van hun containers. Uit hetzelfde rapport blijkt ook dat 47\% weet dat ze mogelijks kwetsbare containers gebruiken in hun productieomgeving.
+
+ALGEMENE SECURITY ZEVER (beetje me nummers smijten/CVE bespreken?)
+
+
 \subsection{Meest voorkomende security problemen}
 Hier worden de meest voorkomende security problemen opgelijst en worden ze kort besproken (Technische uitleg over hoe deze problemen onstaan)
 
+Uitleg over hoe k8s security eruit ziet + wat voor exploits daarmee onmogeleijk gemaakt worden
+
 \subsection{Hoe een container cluster beveiligen}
-Uitleg over hoe een container cluster beveiligt kan worden (Best practices en security tools) + uitleg over ingebouwde security features.
+Uitleg over hoe een container cluster beveiligt kan worden
+
+- ingebouwde security features
+    - CNI's
+- Best practices
 
 \section{Security tools}
 Hier worden enkele security tools opgeslijst en hun werking kort besproken.
+
+Een andere manier om een K8s cluster te verder te beveiligen is door gebruik te maken man verschillende \textit{Security tools}.
+ \textcite{Taylor2019} geeft een overzicht met de mest prominente tools. Deze zullen hieronder besproken worden.
+
+\subsection{Project Calico}
+
+\textbf{\textit{Project Calico}}\footnote{projectcalico.org/} is volledig \textit{open source} en volgens \textcite{Armstrong2021} de meeste gebruikte security tool voor K8s. Calico is niet enkel een K8s security tool maar is ook volledig geïntegreerd met vele andere platformen. Figuur \ref{fig:CalicaEco} geeft een overzicht van de door Calico ondersteunde platformen. Project Calico creert een soort van \textit{microfirewall} rond elke service. De policies die ingesteld kunnen worden in Calico worden automatisch omgezet naar firewall regels. Deze worden vervolgens toegepast op elke service. Calico heeft zich onlangs aangesloten bij de Cloud Native Computing Foundation(CNCF), waardoor het onder deskundig toezicht staat en nog beter geïntegreerd is in het Kubernetes ecosysteem.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\linewidth]{img/Calico-Ecosystem.png}
+    \caption{Platformen die ondersteunt zorden door Calico \autocite{Tigera2021}}
+    \label{fig:CalicaEco}
+\end{figure}
+
+\subsection{Kube-Bench}
+\textbf{\textit{Kube-Bench}}\footnote{github.com/aquasecurity/kube-bench} is een \textit{open-source} applicatie geschreven in \textit{Go}\footnote{golang.org/} die controleert of k8s veilig is geïmplementeerd door controles uit te voeren op de cluster. De controles zijn gebaseerd op enkele guidelines die het \textit{Center for Internet Security}\footnote{cisecurity.org/benchmark/kubernetes/} (CIS), een organisatie die richtlijnen opmaakt voor het schrijven van veilige code, heeft opgesteld. Het is verpakt als een container en kan dus zeer snel en gemakkelijk in gebruik genomen worden. \textit{Kube-Bench} controleert niet alleen of er fouten in de beveiliging van een cluster zitten, het geeft ook mogelijke oplossingen. Enkele van de controles die gebeuren zijn het controleren van gebruikersautorisatie en -authenticatie, de versleuteling van gegevens en kijken of de cluster het principe van \textit{least privilege} volgt (een gebruiker krijgt enkel toegang tot gegevens die hij echt nodig heeft). De testen worden gedefinieert een in `YAML Ain't Markup Language' (YAML) bestand zodat ze gemakkelijk aangepast en uitgebreid kunnen worden \autocite{Rice2021}. De test worden uitgevoerd op elke individuele node in de cluster waardoor het vooral geschikt is voor kleinere opstellingen.
+
+\subsection{Kube-hunter}
+
+\textbf{\textit{Kube-hunter}}\footnote{github.com/aquasecurity/kube-hunter} is, net zoals \textit{Kube-Bench}, een open-source applicatie gemaakt is door \textit{Aqua Security}\footnote{aquasec.com/}. \textit{Kube-hunter} breidt de functionaliteiten van \textit{Kube-Bench} uit door penetratie testen uit te voeren op de cluster. Dit zorgt ervoor dat administrators problemen met een cluster gemakkelijk kunnen opsporen en verhelpen.
