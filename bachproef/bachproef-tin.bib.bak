@@ -146,12 +146,38 @@
   urldate = {2021-03-29},
 }
 
-@Electronic{Security2021,
+@Electronic{Rice2021,
   author       = {Liz Rice and Roberto Rojas and Huang Huang and Yoav Rotem},
   date         = {2021-02-23},
   title        = {kube-bench},
   url          = {https://github.com/aquasecurity/kube-bench},
   organization = {Aqua Security},
+}
+
+@Conference{Lewis2019,
+  author     = {Ian Lewis},
+  date       = {2019-12-10},
+  title      = {Kubernetes Security Best Practices},
+  eventdate  = {2019-12-10},
+  eventtitle = {KubeCon + CloudNativeCon},
+  language   = {Engles},
+  location   = {Seoul},
+  publisher  = {Cloud Native Computing Foundation},
+  url        = {https://www.youtube.com/watch?v=wqsUfvRyYpw},
+  urldate    = {2021-03-29},
+  venue      = {Kubernetes Forum Seoul},
+}
+
+@Conference{Rice2019,
+  author       = {Liz Rice},
+  date         = {2019-06-12},
+  title        = {The State of Kubernetes Security},
+  eventtitle   = {Paris Container Day},
+  language     = {Engels},
+  location     = {Parijs},
+  organization = {Paris Container Days},
+  url          = {https://www.youtube.com/watch?v=_l56oUxHSio},
+  urldate      = {2021-03-29},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}

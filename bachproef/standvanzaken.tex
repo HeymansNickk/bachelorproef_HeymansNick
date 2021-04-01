@@ -79,7 +79,7 @@ Docker gebruikt een \textit{Client-Server} architectuur. Deze werkt als volgt: D
 
 \subsubsection{Docker Client}De Docker Client is de meest gebruikte manier voor gebruikers om te communiceren met Docker. De client stuurt alle ingevoerde commando's (zoals \verb|docker pull| en \verb|docker run|) door naar de Docker Daemon die deze uitvoert.
 
-\subsubsection{Docker registries}
+\subsubsection{Docker registries} \label{registry}
 Een \textit{Docker register} is een bibliotheek die \textit{Docker images} opslaat. Het standaard register voor Docker is de \textit{Docker Hub}\footnote{hub.docker.com/}. Als de Docker daemon geen lokale Docker image vindt gaat deze standaard in de \textit{Docker Hub} zoeken. Wanneer gebruik gemaakt wordt van de \verb|docker pull| of \verb|docker run| commando's wordt gebruikt, worden de benodigde images uit het register gehaald.
 
 \subsubsection{Docker objecten} \label{dockerObjects}
@@ -121,7 +121,7 @@ Nomad\footnote{nomadproject.io/} is een orkestratieplatform van Hashicorp\footno
 \section{Kubernetes}
 Hier wordt ingegaan op wat Kubernetes(K8s)  en hoe het werkt. Daarnaast worden de verschillende technische termen die eigen zijn aan K8s uitgelegd.
 
-Kubernetes is een open-source, container cluster manager en orchestratie tool. Het werd ontwikkeld door Google om hun container applicaties op grote schaal te kunnen orkestreren. Het project werd in 2014 \textit{open-source} gemaakt, dat wil zeggen dat Google niet meer rechtstreeks de eigenaar is maar dat het project verder ontwikkeld wordt door vrijwilligers. Hierdoor konden ook andere organisaties niet alleen gebruik maken van deze krachtige tool, maar tevens meewerken aan de ontwikkeling ervan. De term \textit{Kubernetes} is Grieks voor 'stuurman van een schip' \autocite{Kubernetes2021}. Enkele diensten die door K8s aangeboden worden:
+Kubernetes is een open-source, container cluster manager en orchestratie tool. Het werd ontwikkeld door Google om hun container applicaties op grote schaal te kunnen orkestreren. Het project werd in 2014 \textit{open-source} gemaakt, dat wil zeggen dat Google niet meer rechtstreeks de eigenaar is maar dat het project verder ontwikkeld wordt door vrijwilligers. Hierdoor konden ook andere organisaties niet alleen gebruik maken van deze krachtige tool, maar tevens meewerken aan de ontwikkeling ervan. De term \textit{Kubernetes} is Grieks voor ``stuurman van een schip'' \autocite{Kubernetes2021}. Enkele diensten die door K8s aangeboden worden:
 \begin{itemize}
     \item Automatisch load-balancing op basis van de hoeveelheid verkeer.
     \item Opslag orkestratie: Het automatisch \textit{mounten} van verschillende types opslag (lokale- of cloud opslag).
@@ -164,37 +164,62 @@ De \textbf{\textit{kube-proxy}} is een netwerk \textit{proxy} die de verantwoord
 Het volgende component, namelijk de \textbf{\textit{Container runtime}}, werd al reeds besproken in sectie \ref{containers}.
 
 Ten slotte zijn er nog enkele extra \textit{addons} die gebruikt kunnen worden om de functionaliteit van een K8s cluster uit te breiden. Een eerste voorbeeld van een \textit{addon} is de mogelijkheid om persistent geheugen (ook wel \textit{volumes} genoemd) toe te voegen zoals uitgelegd in sectie \ref{dockerObjects}. Andere voorbeelden zijn het toevoegen van een \textbf{\textit{cluster DNS}}, \textbf{\textit{Web UI}} of \textbf{\textit{Dashboard}} en het opslaan van de log bestanden van de cluster met \textbf{\textit{cluster-level logging}}.
+\clearpage
 
 \section{Security}
-Hier word het security aspect van containers en container orkestratie besproken. (redelijk high level want kan ongelooflijk complex worden)
 
+Hier word het \textit{security} aspect van containers en container orkestratie besproken. In dit hoofdstuk tracht ik antwoord te geven op de onderzoeksvragen ``Wat zijn de belangrijkste security risico's?'' en ``Welke \textit{security tools} zijn er en hoe werken ze?''.
 
-Uit een raport van \autocite{Tripwire2019} blijkt dat 94\% van bevraagden bezorgd zijn over de veiligheid van hun containers. Uit hetzelfde rapport blijkt ook dat 47\% weet dat ze mogelijks kwetsbare containers gebruiken in hun productieomgeving.
-
-ALGEMENE SECURITY ZEVER (beetje me nummers smijten/CVE bespreken?)
-
+Uit een raport van \autocite{Tripwire2019} blijkt dat 94\% van bevraagden bezorgd zijn over de veiligheid van hun containers. Uit hetzelfde rapport blijkt ook dat 47\% weet dat ze mogelijks kwetsbare containers gebruiken in hun productieomgeving. Het beveiligen van een K8s cluster is dan ook een zeer grote en complexe taak. Dit vooral omdat er veel verschillende onderdelen zijn die allemaal andere veiligheidsproblemen met zich mee kunnen meebrengen. Door de hoeveelheid tijd en middelen die nodig zijn voor het implementeren van goede veiligheidsmaatregelen wordt het door veel bedrijven gezien als een \textit{nice to have} in plaats van een \textit{need to have}.
 
 \subsection{Meest voorkomende security problemen}
-Hier worden de meest voorkomende security problemen opgelijst en worden ze kort besproken (Technische uitleg over hoe deze problemen onstaan)
+%Uitleg over hoe k8s security eruit ziet + wat voor exploits daarmee onmogeleijk gemaakt worden
+Een van de meest voorkomende veiligheidsproblemen bij het opzetten van een K8s cluster is het fout definiëren van parameters. Dit kan er mogelijks voor zorgen dat een aanvaller kan `ontsnappen` uit een container (lees toegang krijgen tot het host systeem).
 
-Uitleg over hoe k8s security eruit ziet + wat voor exploits daarmee onmogeleijk gemaakt worden
+Een ander probleem zijn de onvermijdelijk \textit{bugs} in K8s zelf. Dit is een van de gemakkelijkste veiligheidsproblemen om op te lossen, namelijk door altijd de laatste versie van Kubernetes te installeren. Als er een \textit{bug} of kwetsbaarheid wordt ontdekt, is deze in de meeste gevallen binnen enkele dagen weggewerkt door het K8s security team.
 
 \subsection{Hoe een container cluster beveiligen}
-Uitleg over hoe een container cluster beveiligt kan worden
+In dit hoofdstuk (\textbf{\textit{Alt. Hieronder}}) zullen er enkele mogelijke manieren om een container cluser te beveiligen besproken worden.
 
-- ingebouwde security features
-    - CNI's
-- Best practices
+\textcite{Rice2019, Lewis2019} geven enkele tips voor het veilig opzetten van een K8s cluster. Ten eerste wordt het gebruik van \textit{Role Based Access Control}(RBAC) stevig aangemoedigd. Door gebruik te maken is het mogelijk om rollen toe te kennen aan bepaalde gebruikers. Deze rollen dicteren welke applicaties de gebruiker kan gebruiken wat die ermee kan doen.
+
+Vervolgens wordt er aangeraden van enkel administrator (ook wel \textit{root} genoemd) rechten te gebruiken als het echt niet anders kan. Dit kan ervoor zorgen dat als een aanvaller controle krijgt over de cluster, hij nog steeds gelimiteerd door de restricties die aan gewone accounts worden toegekend met RBAC. Ook de anonieme toegang tot de API kan men beter ontzeggen en vervangen door een gecontroleerde toegang met RBAC. Het gebruiken van een normaal gebruikers account kan ook afgedwongen worden door gebruik te maken van de ingebouwde parameter \textit{RunAsUser}.
+\textbf{\textit{hier komt een voorbeeld van RunAsUser}}
+
+De communicatie tussen Pods kan gecontroleerd worden aan de hand van zogenaamde \textbf{\textit{Network policies}}. Dit zijn regels die aanduiden welke pods met elkaar kunnen communiceren en welke soort data er kan uitgewisseld worden. De \textit{Network policies} kunnen handmatig worden geconfigureerd  of er kan ook gebruik gemaakt worden van een zogenaamde \textit{Container Network Interface} (CNI). Een CNI helpt met het configureren en onderhouden van de \textit{Network policies}. In sectie \ref{Calico} wordt één van de meest prominente CNI's besproken, namelijk \textit{Project Calico}.
+
+
+\textbf{\textit{hier komt een voorbeeld van een network policy}}
+
+Fouten maken is menselijk, dus het is perfect mogelijk dat er tijdens het opstellen van de configuratie files enkele fouten insluipen. Hierdoor wordt het aangeraden om automatische \textit{configutation checks} uit te voeren zodat de fouten vroegtijdig opgemerkt kunnen worden. Een tool die hiervoor vaak gebruikt wordt, namelijk \textbf{\textit{kube-bench}}, wordt besproken in sectie \ref{bench}.
+
+\textbf{\textit{uitleg over Linux security features zoals SELinux/seccomp/apparmor}}
+
+Het spreekwoord `De ketting is maar zo sterk als zijn zwakste schakel` is ook hier van toepassing. De cluster kan ongelooflijk zwaar beveiligt zijn, als er gebruik wordt gemaakt van onveilige containers is al die moeite voor niets geweest.
+
+Volgens \textcite{Lewis2019} zijn er verschillende manieren om ervoor te zorgen dat er enkel veilige containers gebruikt worden. De eerste is het gebruik maken van zogenaamde \textit{trusted base images}. Dit zijn containers die volledig ontwikkeld zijn door het bedrijf dat ze in gebruik neemt. Het \textit{Base} gedeelte van de naam komt van het feit dat deze containers meestal zeer simpel zijn. Zo kan elke container applicatie gebaseerd worden op dezelfde veilige container \textit{image}.
+Een extra veiligheidsmaatregel die vaak aangeraden wordt is het gebruik van een \textit{private registry}. Wat een \textit{registry} precies is werd al reeds verduidelijkt in sectie \ref{registry}. Een \textit{private registry} is niets anders dan een \textit{registry} die volledig door het bedrijf wordt gecontrolleerd en enkel door hen wordt gebruikt. Zij kiezen zelf welke \textit{images} er wel of niet worden toegevoegd. Zo kan vermeden worden dat er per ongeluk een onveilige container wordt gebruikt binnen een cluster.
+
+Spijtig genoeg is niet iedereen die met container clusters werkt even bezorgt over de veiligheid ervan. Om het gebruik van onveilige Pods te vermijden kan men een \textit{policy agent} gebruiken. Hiermee kan er automatisch gecontroleerd worden of de Pods aan alle veiligheidsvoorschriften voldoen, alvorens ze in gebruik te nemen. Een voorbeeld van een \textit{policy agent} is de \textbf{\textit{Open Policy Agent}}\footnote{openpolicyagent.org/}, onwikkeld door de \textit{text Cloud Native Computing Foundation (CNCF)}\footnote{cncf.io/}.
+
+%
+%Tips:
+%Gebruik ``trusted base images''
+%- er wordt soms gebruik gemaakt van een private registry zodat er meer controle is op de images
+%- Containers van Docker hebben een standaard Seccomp profiel dat limiteerd wat er mee kan gedaan worden (moet gespecifieerd worden in K8s)
+%
+%Open Policy Agent gebruiken om het opzetten van onveilige pods onmogelijk te maken adv policies.
 
 \section{Security tools}
-Hier worden enkele security tools opgeslijst en hun werking kort besproken.
 
-Een andere manier om een K8s cluster te verder te beveiligen is door gebruik te maken man verschillende \textit{Security tools}.
- \textcite{Taylor2019} geeft een overzicht met de mest prominente tools. Deze zullen hieronder besproken worden.
+    In dit hoofdstuk zal ik trachten te antwoorden op de onderzoeksvraag ``Welke security tools zijn er?''
 
-\subsection{Project Calico}
+Een andere manier om een K8s cluster verder te beveiligen is door gebruik te maken van \textit{Security tools}.
+\textcite{Taylor2019} geeft een overzicht met de meest prominente tools.
 
-\textbf{\textit{Project Calico}}\footnote{projectcalico.org/} is volledig \textit{open source} en volgens \textcite{Armstrong2021} de meeste gebruikte security tool voor K8s. Calico is niet enkel een K8s security tool maar is ook volledig geïntegreerd met vele andere platformen. Figuur \ref{fig:CalicaEco} geeft een overzicht van de door Calico ondersteunde platformen. Project Calico creert een soort van \textit{microfirewall} rond elke service. De policies die ingesteld kunnen worden in Calico worden automatisch omgezet naar firewall regels. Deze worden vervolgens toegepast op elke service. Calico heeft zich onlangs aangesloten bij de Cloud Native Computing Foundation(CNCF), waardoor het onder deskundig toezicht staat en nog beter geïntegreerd is in het Kubernetes ecosysteem.
+\subsection{Project Calico} \label{Calico}
+
+\textbf{\textit{Project Calico}}\footnote{projectcalico.org/} is volledig \textit{open source} en volgens \textcite{Armstrong2021} de meeste gebruikte security tool voor K8s. Calico is niet enkel een K8s security tool maar is ook volledig geïntegreerd met vele andere platformen. Figuur \ref{fig:CalicaEco} geeft een overzicht van de door Calico ondersteunde platformen. Project Calico creert een soort van \textit{microfirewall} rond elke service. De policies die ingesteld kunnen worden in Calico worden automatisch omgezet naar firewall regels. Deze worden vervolgens toegepast op elke service. Calico heeft zich onlangs aangesloten bij de Cloud Native Computing Foundation, waardoor het onder deskundig toezicht staat en nog beter geïntegreerd is in het Kubernetes ecosysteem.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\linewidth]{img/Calico-Ecosystem.png}
@@ -202,9 +227,11 @@ Een andere manier om een K8s cluster te verder te beveiligen is door gebruik te 
     \label{fig:CalicaEco}
 \end{figure}
 
-\subsection{Kube-Bench}
-\textbf{\textit{Kube-Bench}}\footnote{github.com/aquasecurity/kube-bench} is een \textit{open-source} applicatie geschreven in \textit{Go}\footnote{golang.org/} die controleert of k8s veilig is geïmplementeerd door controles uit te voeren op de cluster. De controles zijn gebaseerd op enkele guidelines die het \textit{Center for Internet Security}\footnote{cisecurity.org/benchmark/kubernetes/} (CIS), een organisatie die richtlijnen opmaakt voor het schrijven van veilige code, heeft opgesteld. Het is verpakt als een container en kan dus zeer snel en gemakkelijk in gebruik genomen worden. \textit{Kube-Bench} controleert niet alleen of er fouten in de beveiliging van een cluster zitten, het geeft ook mogelijke oplossingen. Enkele van de controles die gebeuren zijn het controleren van gebruikersautorisatie en -authenticatie, de versleuteling van gegevens en kijken of de cluster het principe van \textit{least privilege} volgt (een gebruiker krijgt enkel toegang tot gegevens die hij echt nodig heeft). De testen worden gedefinieert een in `YAML Ain't Markup Language' (YAML) bestand zodat ze gemakkelijk aangepast en uitgebreid kunnen worden \autocite{Rice2021}. De test worden uitgevoerd op elke individuele node in de cluster waardoor het vooral geschikt is voor kleinere opstellingen.
+\subsection{Kube-Bench} \label{bench}
+\textbf{\textit{Kube-Bench}}\footnote{github.com/aquasecurity/kube-bench} is een \textit{open-source} applicatie geschreven in \textit{Go}\footnote{golang.org/} die controleert of k8s veilig is geïmplementeerd door controles uit te voeren op de cluster. De controles zijn gebaseerd op enkele guidelines die het \textit{Center for Internet Security}\footnote{cisecurity.org/benchmark/kubernetes/} (CIS), een organisatie die richtlijnen opmaakt voor het schrijven van veilige code, heeft opgesteld. De zogenaamde \textit{CIS Kubernetes Benchmarks} worden geschreven door de Kubernetes \textit{community} en worden door de CIS gecontrolleerd en gebundeld. \textit{Kube-Bench} controleert niet alleen of er fouten in de beveiliging van een cluster zitten, het geeft ook mogelijke oplossingen. Enkele van de controles die gebeuren zijn het controleren van gebruikersautorisatie- en -authenticatie, de versleuteling van gegevens en kijken of de cluster het principe van \textit{least privilege} volgt (een gebruiker krijgt enkel toegang tot gegevens die hij echt nodig heeft). De testen worden gedefinieert een in `YAML Ain't Markup Language' (YAML) bestand zodat ze gemakkelijk aangepast en uitgebreid kunnen worden \autocite{Rice2021}. De test worden uitgevoerd op elke individuele node in de cluster waardoor het vooral geschikt is voor kleinere opstellingen.
 
 \subsection{Kube-hunter}
 
 \textbf{\textit{Kube-hunter}}\footnote{github.com/aquasecurity/kube-hunter} is, net zoals \textit{Kube-Bench}, een open-source applicatie gemaakt is door \textit{Aqua Security}\footnote{aquasec.com/}. \textit{Kube-hunter} breidt de functionaliteiten van \textit{Kube-Bench} uit door penetratie testen uit te voeren op de cluster. Dit zorgt ervoor dat administrators problemen met een cluster gemakkelijk kunnen opsporen en verhelpen.
+
+Er zijn drie verschillende manieren om \textit{kube-hunter} te gebruiken. De eerste maakt gebruik van het ip-adres van de cluster om vanop afstand de testen uit te voeren. Bij de tweede manier wordt \textit{kube-hunter} lokaal op één van de machines in de cluster geïnstalleerd om die netwerkinterfaces van die specifieke machine te testen. De derde en laatste manier om \textit{kube-hunter} te gebruiken is om het te installeren in een Pod binnen de cluster. Deze manier kan aantonen wat voor schade er kan aangericht worden als één van de Pods gecompromitteerd zou zijn.
