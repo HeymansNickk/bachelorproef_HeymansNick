@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+        \PYG{n+nt}{apiVersion}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{v1}
+        \PYG{n+nt}{kind}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{Pod}
+        \PYG{n+nt}{metadata}\PYG{p}{:}
+            \PYG{n+nt}{name}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{Example}
+        \PYG{n+nt}{spec}\PYG{p}{:}
+            \PYG{n+nt}{securityContext}\PYG{p}{:}
+                \PYG{n+nt}{runAsUser}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{1000}
+\end{Verbatim}

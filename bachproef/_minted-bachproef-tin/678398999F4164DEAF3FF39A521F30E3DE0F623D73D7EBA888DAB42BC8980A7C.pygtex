@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGZdl{} kubectl get nodes
+NAME                          STATUS   ROLES    AGE    VERSION
+lke25332\PYGZhy{}32960\PYGZhy{}608682818f2e   Ready    \PYGZlt{}none\PYGZgt{}   6d4h   v1.20.5
+lke25332\PYGZhy{}32960\PYGZhy{}60868281f030   Ready    \PYGZlt{}none\PYGZgt{}   6d4h   v1.20.5
+lke25332\PYGZhy{}32960\PYGZhy{}608682824efd   Ready    \PYGZlt{}none\PYGZgt{}   6d4h   v1.20.5
+\end{Verbatim}

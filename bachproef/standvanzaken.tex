@@ -67,11 +67,18 @@ Containers zijn zeer veelzijdig en kunnen dus in veel verschillende omstandighed
 
 
 \section{Docker}
-\textit{Docker}\footnote{docker.com/} is een open source container platform dat sinds de release in 2013 ongelofelijk populair is geworden. In november 2019 stond de teller van aantal \textit{pulls} op de \textit{Docker hub} op 130 miljard, in juli 2020 stond deze al op 242 miljard. Dat is bijna dubbel op minder dan 8 maand tijd \autocite{Kreisa2020}. Docker-containers kunnen overal draaien, in het datacenter, bij een externe serviceprovider of in de cloud. Docker containers kunnen zowel op Linux als op Windows draaien. Containers die op Windows gebaseerd zijn kunnen echter alleen op Windows systemen draaien, maar Linux containers kunnen op zowel Linux systemen en Windows systemen draaien (met behulp van een Linux VM). Dit komt omdat containers ontworpen zijn om het besturingssysteem van de host te gebruiken \autocite{Anil2018}.
+\textit{Docker}\footnote{docker.com/} is een open source container platform dat sinds de release in 2013 ongelofelijk populair is geworden. In november 2019 stond de teller van aantal \textit{pulls} op de \textit{Docker hub} op 130 miljard, in juli 2020 stond deze al op 242 miljard. Dat is bijna een verdubbeling op minder dan 8 maand tijd \autocite{Kreisa2020}. Docker-containers kunnen overal draaien, in het datacenter, bij een externe serviceprovider of in de cloud. Docker containers kunnen zowel op Linux als op Windows draaien. Containers die op Windows gebaseerd zijn kunnen echter alleen op Windows systemen draaien, maar Linux containers kunnen op zowel Linux systemen en Windows systemen draaien (met behulp van een Linux VM). Dit komt omdat containers ontworpen zijn om het besturingssysteem van de host te gebruiken \autocite{Anil2018}.
 
 
 \subsection{Hoe werkt docker}
 Docker gebruikt een \textit{Client-Server} architectuur. Deze werkt als volgt: De Docker \textit{Client} communiceert met de Docker \textit{Deamon} (een proces dat op de achtergrond draait en bepaalde (onderhouds-)taken uitvoert). Deze is verantwoordelijk voor het bouwen, runnen en verspreiden van containers \autocite{Docker2021a}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\linewidth]{img/dockerArchitecture.jpg}
+	\caption{Kubernetes cluster componenten \autocite{Docker2021a}}
+	\label{fig:dockerArch}
+\end{figure}
 
 \subsection{Docker componenten en terminologie}
 
@@ -128,7 +135,6 @@ Kubernetes is een open-source, container cluster manager en orchestratie tool. H
     \item Resource controle: K8s zorgt ervoor dat de beschikbare resources correct en efficiënt verdeeld worden.
     \item \textit{Self-healing}: K8s kan containers heropstarten, vervangen of stopzetten als deze niet meer voldoende correct werken.
 \end{itemize}
-\textbf{\textit{Mogelijks is volzinnen uitschrijven!!!!}}
 
 \subsubsection{Kubernetes componenten en terminologie}
 Zoals beschreven in de documentatie van \textcite{Pedersen2021, RedHat2021a} worden Kubernetes en de bijhorende componenten als volgt gedefinieerd: Kubernetes is een \textit{cluster} bestaande uit 2 grote delen namelijk het \textit{control plane} en de \textit{nodes}. Deze nodes zijn de door K8s georkestreerde containers. Elke cluster bestaat uit uit minstens één, maar meestal meerdere, nodes. De nodes worden gebruikt om \textit{pods} te hosten. Pods zijn de kleinst mogelijke eenheid in een K8s systeem. Een pod bestaat uit één of meerdere containers die opslag- en netwerk resources delen \autocite{RedHat2021a}. In Figuur \ref{fig:K8sComponents} worden de verschillende componenten van een K8s cluster gevisualiseerd.
@@ -140,22 +146,22 @@ Zoals beschreven in de documentatie van \textcite{Pedersen2021, RedHat2021a} wor
     \label{fig:K8sComponents}
 \end{figure}
 
-Het hart van een K8s cluster is de \textbf{\textit{Control plane}}, hierin bevinden zich alle componenten die de cluster controleren.Tevens zitten alle gegevens omtrent de staat van de cluster en de configuratie hierin verbonden. Alle componenten die deel uitmaken van de \textit{Control plane} kunnen op verschillende machines draaien. ierbij wordt aangeraden om wordt aangeraden om deze binnen eenzelfde machine te houden. De verschillende onderdelen en hun plaats binnen een cluster worden hieronder besproken.
+Het hart van een K8s cluster is de \textbf{\textit{Control plane}}, hierin bevinden zich alle componenten die de cluster controleren. Tevens zitten alle gegevens omtrent de staat van de cluster en de configuratie hierin verbonden. Alle componenten die deel uitmaken van de \textit{Control plane} kunnen op verschillende machines draaien. Hierbij wordt er wel aangeraden om deze binnen eenzelfde machine te houden. De verschillende onderdelen en hun plaats binnen een cluster worden hieronder besproken.
 
-De \textbf{\textit{kube-apiserver}} wordt gezien als de \textit{Front-end} van een Kubernetes cluster. Deze is de link tussen \textit{nodes} en \textit{pods} van de cluster en de \textit{Control plane}. Het doel van deze apiserver is om de communicatie van de nodes en de Kubernetes API to bolwerken. De apiserver is ontworpen om horizontaal te schalen als deze te zwaar belast wordt. Hierbij creëert hij nieuwe instanties van zichzelf.
+De \textbf{\textit{kube-apiserver}} wordt gezien als de \textit{Front-end} van een Kubernetes cluster. Deze is de link tussen \textit{nodes} en \textit{pods} van de cluster en de \textit{Control plane}. Het doel van deze apiserver is om de communicatie van de nodes en de Kubernetes API to bolwerken. De apiserver is ontworpen om horizontaal te schalen als deze te zwaar belast wordt. Hierbij creëert die nieuwe instanties van zichzelf.
 
-Alle data en informatie met betrekking tot de status van de cluser wordt opgeslagen in \textbf{\textit{etcd}}, een \textit{key-value store database}.
+Alle data en informatie met betrekking tot de status van de cluster wordt opgeslagen in \textbf{\textit{etcd}}, een \textit{key-value store database}.
 
 De \textbf{\textit{kube-scheduler}} is verantwoordelijk voor het toekennen van pods aan nodes en voor het verdelen van de resources tussen de verschillende Nodes. Het toekennen van een Node aan een Pod gebeurdt aan de hand van verschillende factoren. De mogelijke factoren zijn onder andere de benodigde resources van een Pod en eventuele harware- en sofware beperkingen.
 
-Een \textbf{\textit{kube-controller-manager}} bestaat uit verschillende \textit{controllers} die allemaal een verschillende taak op zich nemen. Enkele van deze \textins{controllers} zijn:
+Een \textbf{\textit{kube-controller-manager}} bestaat uit verschillende \textit{controllers} die allemaal een verschillende taak op zich nemen. Enkele van deze \textit{controllers} zijn:
 \begin{itemize}
     \item \textit{Node controller}: Het hoofddoel van deze controller is om op te merken en reageren als er Pods zouden wegvallen.
     \item \textit{Job controller}: Deze zoekt naar zogenaamde \textit{job-objecten}, die eenmalige taken voorstellen, en creëert bijgevolg de nodige Pods om deze taken uit te voeren.
     \item \textit{Service Account \& Token controllers}: Deze creëert standaard accounts en \textit{API access tokens} voor nieuwe Pods.
 \end{itemize}
 
-Als het \textit{Control plane} het hart van een K8s cluster is dan kunnen we de \textit{Nodes} het lichaam noemen. Deze doen namelijk al het zware werk en worden bestuurd door de \textit{Control plane}.
+Als het \textit{Control plane} het hart van een K8s cluster is dan kunnen we de \textit{Nodes} het lichaam noemen. Deze doen namelijk al het zware werk en worden bestuurt door de \textit{Control plane}.
 
 Het eerste onderdeel van een Node is de \textbf{\textit{kubelet}}, een kleine applicatie die op elke Node aanwezig is. De \textit{kubelet} houdt de gezondheid en status van de Pods, die binnen zijn Node draaien, in het oog. Wanneer de \textit{Control plane} wil dat er iets gebeurd met de Node zorgt de \textit{kubelet} ervoor dat deze acties correct uitgevoerdt worden.
 
@@ -168,37 +174,68 @@ Ten slotte zijn er nog enkele extra \textit{addons} die gebruikt kunnen worden o
 
 \section{Security}
 
-Hier word het \textit{security} aspect van containers en container orkestratie besproken. In dit hoofdstuk tracht ik antwoord te geven op de onderzoeksvragen ``Wat zijn de belangrijkste security risico's?'' en ``Welke \textit{security tools} zijn er en hoe werken ze?''.
+Hier zal het \textit{security} aspect van containers en container orkestratie besproken worden. In dit hoofdstuk tracht ik antwoord te geven op de onderzoeksvragen ``Wat zijn de belangrijkste security risico's?'' en ``Welke \textit{security tools} zijn er en hoe werken ze?''.
 
-Uit een raport van \autocite{Tripwire2019} blijkt dat 94\% van bevraagden bezorgd zijn over de veiligheid van hun containers. Uit hetzelfde rapport blijkt ook dat 47\% weet dat ze mogelijks kwetsbare containers gebruiken in hun productieomgeving. Het beveiligen van een K8s cluster is dan ook een zeer grote en complexe taak. Dit vooral omdat er veel verschillende onderdelen zijn die allemaal andere veiligheidsproblemen met zich mee kunnen meebrengen. Door de hoeveelheid tijd en middelen die nodig zijn voor het implementeren van goede veiligheidsmaatregelen wordt het door veel bedrijven gezien als een \textit{nice to have} in plaats van een \textit{need to have}.
+Uit een raport van \textcite{Tripwire2019} blijkt dat 94\% van bevraagden bezorgd zijn over de veiligheid van hun containers. Uit hetzelfde rapport blijkt ook dat 47\% zich bewust is van feit dat ze mogelijks kwetsbare containers gebruiken in hun productieomgeving. Het beveiligen van een K8s cluster is dan ook een zeer grote en complexe taak. Dit is omdat er veel verschillende onderdelen zijn die allemaal andere veiligheidsproblemen met zich mee kunnen meebrengen. Vanwege de hoeveelheid tijd en middelen die er nodig zijn voor het implementeren van goede veiligheidsmaatregelen wordt het door veel bedrijven gezien als een \textit{nice to have} in plaats van een \textit{need to have}.
 
 \subsection{Meest voorkomende security problemen}
 %Uitleg over hoe k8s security eruit ziet + wat voor exploits daarmee onmogeleijk gemaakt worden
-Een van de meest voorkomende veiligheidsproblemen bij het opzetten van een K8s cluster is het fout definiëren van parameters. Dit kan er mogelijks voor zorgen dat een aanvaller kan `ontsnappen` uit een container (lees toegang krijgen tot het host systeem).
+Een van de meest voorkomende veiligheidsproblemen bij het opzetten van een K8s cluster is het fout, of zelf helemaal niet, definiëren van parameters. Dit kan er mogelijks voor zorgen dat een aanvaller kan `ontsnappen` uit een container (lees toegang krijgen tot het host systeem). Ook het gebruik van ongecontrolleerd Docker images kan ervoor zorgen dat een cluster van binnenuit gecomprimeerd kan worden.
 
-Een ander probleem zijn de onvermijdelijk \textit{bugs} in K8s zelf. Dit is een van de gemakkelijkste veiligheidsproblemen om op te lossen, namelijk door altijd de laatste versie van Kubernetes te installeren. Als er een \textit{bug} of kwetsbaarheid wordt ontdekt, is deze in de meeste gevallen binnen enkele dagen weggewerkt door het K8s security team.
+Een ander probleem zijn de onvermijdelijk \textit{bugs} in K8s zelf. Deze is tevens wel een van de gemakkelijkste veiligheidsproblemen om op te lossen, namelijk door altijd de laatste versie van Kubernetes te installeren. Als er een \textit{bug} of kwetsbaarheid wordt ontdekt, wordt deze in de meeste gevallen binnen enkele dagen weggewerkt door het K8s security team.
 
 \subsection{Hoe een container cluster beveiligen}
-In dit hoofdstuk (\textbf{\textit{Alt. Hieronder}}) zullen er enkele mogelijke manieren om een container cluser te beveiligen besproken worden.
+Hieronder zullen er enkele mogelijke manieren om een container cluster te beveiligen besproken worden.
 
-\textcite{Rice2019, Lewis2019} geven enkele tips voor het veilig opzetten van een K8s cluster. Ten eerste wordt het gebruik van \textit{Role Based Access Control}(RBAC) stevig aangemoedigd. Door gebruik te maken is het mogelijk om rollen toe te kennen aan bepaalde gebruikers. Deze rollen dicteren welke applicaties de gebruiker kan gebruiken wat die ermee kan doen.
+\textcite{Rice2019, Lewis2019} geven enkele tips voor het veilig opzetten van een K8s cluster. Ten eerste wordt het gebruik van \textit{Role Based Access Control} (RBAC) stevig aangemoedigd. Door hiervan gebruik te maken, is het mogelijk om rollen toe te kennen aan bepaalde gebruikers. Deze rollen dicteren welke applicaties de gebruiker kan gebruiken en wat die ermee kan doen.
 
-Vervolgens wordt er aangeraden van enkel administrator (ook wel \textit{root} genoemd) rechten te gebruiken als het echt niet anders kan. Dit kan ervoor zorgen dat als een aanvaller controle krijgt over de cluster, hij nog steeds gelimiteerd door de restricties die aan gewone accounts worden toegekend met RBAC. Ook de anonieme toegang tot de API kan men beter ontzeggen en vervangen door een gecontroleerde toegang met RBAC. Het gebruiken van een normaal gebruikers account kan ook afgedwongen worden door gebruik te maken van de ingebouwde parameter \textit{RunAsUser}.
-\textbf{\textit{hier komt een voorbeeld van RunAsUser}}
+Vervolgens wordt er aangeraden om nooit de administrator (ook wel \textit{root} genoemd) rechten te gebruiken, enkel als het nodig is voor de specifieke applicatie (i.e, \textit{KubeDNS}). Dit kan ervoor zorgen dat wanneer een aanvaller controle krijgt over de cluster, hij nog steeds gelimiteerd is door de restricties die aan gewone accounts worden toegekend met RBAC. Men kan tevens beter de anonieme toegang tot de API ontzeggen en vervangen door een gecontroleerde toegang met RBAC.
 
-De communicatie tussen Pods kan gecontroleerd worden aan de hand van zogenaamde \textbf{\textit{Network policies}}. Dit zijn regels die aanduiden welke pods met elkaar kunnen communiceren en welke soort data er kan uitgewisseld worden. De \textit{Network policies} kunnen handmatig worden geconfigureerd  of er kan ook gebruik gemaakt worden van een zogenaamde \textit{Container Network Interface} (CNI). Een CNI helpt met het configureren en onderhouden van de \textit{Network policies}. In sectie \ref{Calico} wordt één van de meest prominente CNI's besproken, namelijk \textit{Project Calico}.
+Het gebruiken van een normaal gebruikers account kan ook afgedwongen worden door gebruik te maken van een bepaalde \textit{Security Policies} parameter, namelijk \verb|RunAsUser|. Dit wordt geïllustreerd in voorbeeld \ref{runasuser}. Een \textit{Security Policy} controleert de meer veiligheidsgevoelige aspecten van een cluster. Zo kan via de \verb|seLinux| policy het gebruik van SELinux afgedwongen worden. De \verb|volumes| policy geeft dan weer controle over de soorten volumes die gebruikt kunnen worden.
 
+\begin{figure}[h!] \label{runasuser}
+    \begin{minted}{yaml}
+        apiVersion: v1
+        kind: Pod
+        metadata:
+            name: Example
+        spec:
+            securityContext:
+                runAsUser: 1000
+    \end{minted}
+\end{figure}
 
-\textbf{\textit{hier komt een voorbeeld van een network policy}}
+De communicatie tussen de Pods kan gecontroleerd worden aan de hand van zogenaamde \textbf{\textit{Network policies}}. Dit zijn regels die aanduiden welke pods met elkaar kunnen communiceren en welke soort data er uitgewisseld kan worden. In voorbeeld \ref{netpolicy} wordt inkomend verkeer naar pods met label ``color: blue'' alleen toegestaan als het afkomstig is van een pod met label ``color: red'' en dit enkel op poort 80. De \textit{Network policies} kunnen handmatig worden geconfigureerd of er kan gebruik gemaakt worden van een zogenaamde \textit{Container Network Interface} (CNI). Een CNI helpt met het configureren en onderhouden van de \textit{Network policies}. In sectie \ref{Calico} wordt één van de meest prominente CNI's besproken, namelijk \textit{Project Calico}.
 
-Fouten maken is menselijk, dus het is perfect mogelijk dat er tijdens het opstellen van de configuratie files enkele fouten insluipen. Hierdoor wordt het aangeraden om automatische \textit{configutation checks} uit te voeren zodat de fouten vroegtijdig opgemerkt kunnen worden. Een tool die hiervoor vaak gebruikt wordt, namelijk \textbf{\textit{kube-bench}}, wordt besproken in sectie \ref{bench}.
+\begin{figure}[h!] \label{netpolicy}
+    \begin{minted}{yaml}
+        kind: NetworkPolicy
+        apiVersion: networking.k8s.io/v1
+        metadata:
+          name: allow-same-namespace
+          namespace: default
+        spec:
+          podSelector:
+            matchLabels:
+              color: blue
+          ingress:
+            - from:
+              - podSelector:
+                  matchLabels:
+                    color: red
+              ports:
+                - port: 80
+    \end{minted}
+\end{figure}
 
-\textbf{\textit{uitleg over Linux security features zoals SELinux/seccomp/apparmor}}
+Fouten maken is menselijk, dus het is perfect mogelijk dat er tijdens het opstellen van de configuratie files enkele fouten insluipen. Daarom wordt het aangeraden om automatische \textit{configutation checks} uit te voeren zodat deze fouten vroegtijdig opgemerkt kunnen worden. Een tool die hiervoor vaak gebruikt wordt, namelijk \textbf{\textit{kube-bench}}, wordt besproken in sectie \ref{bench}.
 
-Het spreekwoord `De ketting is maar zo sterk als zijn zwakste schakel` is ook hier van toepassing. De cluster kan ongelooflijk zwaar beveiligt zijn, als er gebruik wordt gemaakt van onveilige containers is al die moeite voor niets geweest.
+%\textbf{\textit{uitleg over Linux security features zoals SELinux/seccomp/apparmor}}
+
+Het spreekwoord `De ketting is maar zo sterk als zijn zwakste schakel` is ook hier van toepassing. De cluster kan ongelooflijk zwaar beveiligt zijn, maar als er gebruik wordt gemaakt van onveilige containers is al die moeite voor niets geweest.
 
 Volgens \textcite{Lewis2019} zijn er verschillende manieren om ervoor te zorgen dat er enkel veilige containers gebruikt worden. De eerste is het gebruik maken van zogenaamde \textit{trusted base images}. Dit zijn containers die volledig ontwikkeld zijn door het bedrijf dat ze in gebruik neemt. Het \textit{Base} gedeelte van de naam komt van het feit dat deze containers meestal zeer simpel zijn. Zo kan elke container applicatie gebaseerd worden op dezelfde veilige container \textit{image}.
-Een extra veiligheidsmaatregel die vaak aangeraden wordt is het gebruik van een \textit{private registry}. Wat een \textit{registry} precies is werd al reeds verduidelijkt in sectie \ref{registry}. Een \textit{private registry} is niets anders dan een \textit{registry} die volledig door het bedrijf wordt gecontrolleerd en enkel door hen wordt gebruikt. Zij kiezen zelf welke \textit{images} er wel of niet worden toegevoegd. Zo kan vermeden worden dat er per ongeluk een onveilige container wordt gebruikt binnen een cluster.
+Een extra veiligheidsmaatregel die vaak aangeraden wordt is het gebruiken van een \textit{private registry}. Wat een \textit{registry} precies is werd al reeds verduidelijkt in sectie \ref{registry}. Een \textit{private registry} is niets anders dan een \textit{registry} die volledig door het bedrijf wordt gecontrolleerd en enkel door hen wordt gebruikt. Zij kiezen zelf welke \textit{images} er wel of niet worden toegevoegd. Hierdoor vermijdt men dat er per ongeluk een onveilige container wordt gebruikt binnen een cluster.
 
 Spijtig genoeg is niet iedereen die met container clusters werkt even bezorgt over de veiligheid ervan. Om het gebruik van onveilige Pods te vermijden kan men een \textit{policy agent} gebruiken. Hiermee kan er automatisch gecontroleerd worden of de Pods aan alle veiligheidsvoorschriften voldoen, alvorens ze in gebruik te nemen. Een voorbeeld van een \textit{policy agent} is de \textbf{\textit{Open Policy Agent}}\footnote{openpolicyagent.org/}, onwikkeld door de \textit{text Cloud Native Computing Foundation (CNCF)}\footnote{cncf.io/}.
 
@@ -219,7 +256,7 @@ Een andere manier om een K8s cluster verder te beveiligen is door gebruik te mak
 
 \subsection{Project Calico} \label{Calico}
 
-\textbf{\textit{Project Calico}}\footnote{projectcalico.org/} is volledig \textit{open source} en volgens \textcite{Armstrong2021} de meeste gebruikte security tool voor K8s. Calico is niet enkel een K8s security tool maar is ook volledig geïntegreerd met vele andere platformen. Figuur \ref{fig:CalicaEco} geeft een overzicht van de door Calico ondersteunde platformen. Project Calico creert een soort van \textit{microfirewall} rond elke service. De policies die ingesteld kunnen worden in Calico worden automatisch omgezet naar firewall regels. Deze worden vervolgens toegepast op elke service. Calico heeft zich onlangs aangesloten bij de Cloud Native Computing Foundation, waardoor het onder deskundig toezicht staat en nog beter geïntegreerd is in het Kubernetes ecosysteem.
+\textbf{\textit{Project Calico}}\footnote{projectcalico.org/} is volledig \textit{open source} en volgens \textcite{Armstrong2021} de meeste gebruikte security tool voor K8s. Calico is niet enkel een K8s security tool maar is tevens volledig geïntegreerd met vele andere platformen. Figuur \ref{fig:CalicaEco} geeft een overzicht van de door Calico ondersteunde platformen. Project Calico creert een soort van \textit{microfirewall} rond elke service. De policies die ingesteld kunnen worden in Calico worden automatisch omgezet naar firewall regels. Deze worden vervolgens toegepast op elke service. Calico heeft zich onlangs aangesloten bij de Cloud Native Computing Foundation, waardoor het onder deskundig toezicht staat en nog beter geïntegreerd is in het Kubernetes ecosysteem.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\linewidth]{img/Calico-Ecosystem.png}
@@ -228,10 +265,10 @@ Een andere manier om een K8s cluster verder te beveiligen is door gebruik te mak
 \end{figure}
 
 \subsection{Kube-Bench} \label{bench}
-\textbf{\textit{Kube-Bench}}\footnote{github.com/aquasecurity/kube-bench} is een \textit{open-source} applicatie geschreven in \textit{Go}\footnote{golang.org/} die controleert of k8s veilig is geïmplementeerd door controles uit te voeren op de cluster. De controles zijn gebaseerd op enkele guidelines die het \textit{Center for Internet Security}\footnote{cisecurity.org/benchmark/kubernetes/} (CIS), een organisatie die richtlijnen opmaakt voor het schrijven van veilige code, heeft opgesteld. De zogenaamde \textit{CIS Kubernetes Benchmarks} worden geschreven door de Kubernetes \textit{community} en worden door de CIS gecontrolleerd en gebundeld. \textit{Kube-Bench} controleert niet alleen of er fouten in de beveiliging van een cluster zitten, het geeft ook mogelijke oplossingen. Enkele van de controles die gebeuren zijn het controleren van gebruikersautorisatie- en -authenticatie, de versleuteling van gegevens en kijken of de cluster het principe van \textit{least privilege} volgt (een gebruiker krijgt enkel toegang tot gegevens die hij echt nodig heeft). De testen worden gedefinieert een in `YAML Ain't Markup Language' (YAML) bestand zodat ze gemakkelijk aangepast en uitgebreid kunnen worden \autocite{Rice2021}. De test worden uitgevoerd op elke individuele node in de cluster waardoor het vooral geschikt is voor kleinere opstellingen.
+\textbf{\textit{Kube-Bench}}\footnote{github.com/aquasecurity/kube-bench} is een \textit{open-source} applicatie geschreven in \textit{Go}\footnote{golang.org/} die controleert of k8s veilig is geïmplementeerd door middel van controles uit te voeren op de cluster. De controles zijn gebaseerd op enkele guidelines die het \textit{Center for Internet Security}\footnote{cisecurity.org/benchmark/kubernetes/} (CIS), een organisatie die richtlijnen opmaakt voor het schrijven van veilige code, heeft opgesteld. De zogenaamde \textit{CIS Kubernetes Benchmarks} worden geschreven door de Kubernetes \textit{community} en worden door de CIS gecontrolleerd en gebundeld. \textit{Kube-Bench} controleert niet alleen of er fouten in de beveiliging van een cluster zitten, het geeft ook mogelijke oplossingen. Mogelijke controles zijn het controleren van gebruikersautorisatie- en -authenticatie, de versleuteling van gegevens en kijken of de cluster het principe van \textit{least privilege} volgt (een gebruiker krijgt enkel toegang tot gegevens die hij echt nodig heeft). De testen worden gedefinieert een in `YAML Ain't Markup Language' (YAML) bestand zodat ze gemakkelijk aangepast en uitgebreid kunnen worden \autocite{Rice2021}. De testen worden uitgevoerd op elke individuele node in de cluster waardoor het vooral geschikt is voor kleinere opstellingen.
 
 \subsection{Kube-hunter}
 
 \textbf{\textit{Kube-hunter}}\footnote{github.com/aquasecurity/kube-hunter} is, net zoals \textit{Kube-Bench}, een open-source applicatie gemaakt is door \textit{Aqua Security}\footnote{aquasec.com/}. \textit{Kube-hunter} breidt de functionaliteiten van \textit{Kube-Bench} uit door penetratie testen uit te voeren op de cluster. Dit zorgt ervoor dat administrators problemen met een cluster gemakkelijk kunnen opsporen en verhelpen.
 
-Er zijn drie verschillende manieren om \textit{kube-hunter} te gebruiken. De eerste maakt gebruik van het ip-adres van de cluster om vanop afstand de testen uit te voeren. Bij de tweede manier wordt \textit{kube-hunter} lokaal op één van de machines in de cluster geïnstalleerd om die netwerkinterfaces van die specifieke machine te testen. De derde en laatste manier om \textit{kube-hunter} te gebruiken is om het te installeren in een Pod binnen de cluster. Deze manier kan aantonen wat voor schade er kan aangericht worden als één van de Pods gecompromitteerd zou zijn.
+Er zijn drie verschillende manieren om \textit{kube-hunter} te gebruiken. De eerste maakt gebruik van het ip-adres van de cluster om vanop afstand de testen uit te voeren. Bij de tweede manier wordt \textit{kube-hunter} lokaal op één van de machines in de cluster geïnstalleerd om die netwerkinterfaces van die specifieke machine te testen. De derde en laatste manier om \textit{kube-hunter} te gebruiken is om het te installeren in een Pod binnen de cluster. Deze manier kan aantonen wat voor potentiële schade er kan aangericht worden als één van de Pods gecompromitteerd zou worden.

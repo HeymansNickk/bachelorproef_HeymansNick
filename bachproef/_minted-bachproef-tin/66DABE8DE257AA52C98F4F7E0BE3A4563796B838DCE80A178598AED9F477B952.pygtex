@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+        \PYG{n+nt}{kind}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{NetworkPolicy}
+        \PYG{n+nt}{apiVersion}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{networking.k8s.io/v1}
+        \PYG{n+nt}{metadata}\PYG{p}{:}
+          \PYG{n+nt}{name}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{allow\PYGZhy{}same\PYGZhy{}namespace}
+          \PYG{n+nt}{namespace}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{default}
+        \PYG{n+nt}{spec}\PYG{p}{:}
+          \PYG{n+nt}{podSelector}\PYG{p}{:}
+            \PYG{n+nt}{matchLabels}\PYG{p}{:}
+              \PYG{n+nt}{color}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{blue}
+          \PYG{n+nt}{ingress}\PYG{p}{:}
+            \PYG{p+pIndicator}{\PYGZhy{}} \PYG{n+nt}{from}\PYG{p}{:}
+              \PYG{p+pIndicator}{\PYGZhy{}} \PYG{n+nt}{podSelector}\PYG{p}{:}
+                  \PYG{n+nt}{matchLabels}\PYG{p}{:}
+                    \PYG{n+nt}{color}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{red}
+              \PYG{n+nt}{ports}\PYG{p}{:}
+                \PYG{p+pIndicator}{\PYGZhy{}} \PYG{n+nt}{port}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{80}
+\end{Verbatim}

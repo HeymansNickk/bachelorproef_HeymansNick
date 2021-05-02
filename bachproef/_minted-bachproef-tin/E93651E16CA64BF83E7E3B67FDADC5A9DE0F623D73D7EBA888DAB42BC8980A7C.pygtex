@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGZdl{} \PYG{n+nb}{export} \PYG{n+nv}{KUBECONFIG}\PYG{o}{=}\PYGZlt{}pad naar file\PYGZgt{}/kubeconfig.yaml
+\end{Verbatim}
