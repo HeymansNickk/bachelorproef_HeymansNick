@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is 'bachproef-tin.blg'
 [141] biber-MSWIN64:340> INFO - === 
@@ -18,3 +19,25 @@
 [739] bbl.pm:654> INFO - Writing 'bachproef-tin.bbl' with encoding 'UTF-8'
 [753] bbl.pm:757> INFO - Output to bachproef-tin.bbl
 [758] Biber.pm:128> INFO - WARNINGS: 1
+=======
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'bachproef-tin.blg'
+[141] biber-MSWIN64:340> INFO - === 
+[185] Biber.pm:415> INFO - Reading 'bachproef-tin.bcf'
+[346] Biber.pm:952> INFO - Found 24 citekeys in bib section 0
+[365] Biber.pm:4340> INFO - Processing section 0
+[379] Biber.pm:4531> INFO - Looking for bibtex format file 'bachproef-tin.bib' for section 0
+[430] bibtex.pm:1689> INFO - LaTeX decoding ...
+[463] bibtex.pm:1494> INFO - Found BibTeX data source 'bachproef-tin.bib'
+[572] Biber.pm:4531> INFO - Looking for bibtex format file '../voorstel/voorstel.bib' for section 0
+[629] bibtex.pm:1689> INFO - LaTeX decoding ...
+[648] bibtex.pm:1494> INFO - Found BibTeX data source '../voorstel/voorstel.bib'
+[649] Utils.pm:395> WARN - Duplicate entry key: 'Tripwire2019' in file '../voorstel/voorstel.bib', skipping ...
+[709] UCollate.pm:68> INFO - Overriding locale 'nl-NL' defaults 'variable = shifted' with 'variable = non-ignorable'
+[709] UCollate.pm:68> INFO - Overriding locale 'nl-NL' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[709] Biber.pm:4168> INFO - Sorting list 'apa/global//global/global' of type 'entry' with template 'apa' and locale 'nl-NL'
+[709] Biber.pm:4174> INFO - No sort tailoring available for locale 'nl-NL'
+[739] bbl.pm:654> INFO - Writing 'bachproef-tin.bbl' with encoding 'UTF-8'
+[753] bbl.pm:757> INFO - Output to bachproef-tin.bbl
+[758] Biber.pm:128> INFO - WARNINGS: 1
+>>>>>>> 354701ff8e58b0aa18aa0ae57e97ea783053a2b5

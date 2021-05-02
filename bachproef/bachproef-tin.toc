@@ -59,11 +59,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.6}Security tools}{29}{section.2.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6.1}Project Calico}{29}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.1}Project Calico}{30}{subsection.2.6.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.6.2}Kube-Bench}{30}{subsection.2.6.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6.3}Kube-hunter}{30}{subsection.2.6.3}%
+\contentsline {subsection}{\numberline {2.6.3}Kube-hunter}{31}{subsection.2.6.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Methodologie}{33}{chapter.3}%
 \defcounter {refsection}{0}\relax 
@@ -100,6 +100,4 @@
 \contentsline {section}{\numberline {A.4}Verwachte conclusies}{45}{section.A.4}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {A.5}Bijlagen}{45}{section.A.5}%
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliografie}{47}{appendix*.16}%
 \contentsfinish 
