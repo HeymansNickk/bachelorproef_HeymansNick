@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nt}{apiVersion}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{apps/v1}
+\PYG{n+nt}{kind}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{Deployment}
+\PYG{n+nt}{metadata}\PYG{p}{:}
+  \PYG{n+nt}{name}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{networkchuckcoffee\PYGZhy{}deployment}
+  \PYG{n+nt}{labels}\PYG{p}{:}
+    \PYG{n+nt}{app}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{nccoffee}
+\PYG{n+nt}{spec}\PYG{p}{:}
+  \PYG{n+nt}{replicas}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{3}
+  \PYG{n+nt}{selector}\PYG{p}{:}
+    \PYG{n+nt}{matchLabels}\PYG{p}{:}
+      \PYG{n+nt}{app}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{nccoffee}
+  \PYG{n+nt}{template}\PYG{p}{:}
+    \PYG{n+nt}{metadata}\PYG{p}{:}
+      \PYG{n+nt}{labels}\PYG{p}{:}
+        \PYG{n+nt}{app}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{nccoffee}
+    \PYG{n+nt}{spec}\PYG{p}{:}
+      \PYG{n+nt}{containers}\PYG{p}{:}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{n+nt}{name}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{static\PYGZhy{}site}
+        \PYG{n+nt}{image}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{thenetworkchuck/nccoffee:pourover}
+        \PYG{n+nt}{imagePullPolicy}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{Always}
+        \PYG{n+nt}{ports}\PYG{p}{:}
+        \PYG{p+pIndicator}{\PYGZhy{}} \PYG{n+nt}{containerPort}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{80}
+\end{Verbatim}

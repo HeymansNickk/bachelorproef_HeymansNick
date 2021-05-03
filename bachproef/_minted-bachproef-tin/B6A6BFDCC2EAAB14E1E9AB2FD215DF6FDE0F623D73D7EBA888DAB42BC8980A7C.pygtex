@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGZdl{} kubectl describe services coffee\PYGZhy{}service
+\end{Verbatim}

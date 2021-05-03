@@ -5,7 +5,8 @@
 
 \PYG{n+nt}{clusters}\PYG{p}{:}
 \PYG{p+pIndicator}{\PYGZhy{}} \PYG{n+nt}{cluster}\PYG{p}{:}
-    \PYG{n+nt}{certificate\PYGZhy{}authority\PYGZhy{}data}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0txvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dn}
+    \PYG{n+nt}{certificate\PYGZhy{}authority\PYGZhy{}data}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0txvd0ZURVRNQkVHQT}
+    \PYG{l+lScalar+lScalarPlain}{FVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dn}
     \PYG{n+nt}{server}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{https://e08328fb\PYGZhy{}02d7\PYGZhy{}49a6\PYGZhy{}9f12\PYGZhy{}b4bdeb98510c.eu\PYGZhy{}central\PYGZhy{}2.linodelke.net:443}
   \PYG{n+nt}{name}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{lke25796}
 
@@ -13,7 +14,8 @@
 \PYG{p+pIndicator}{\PYGZhy{}} \PYG{n+nt}{name}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{lke25796\PYGZhy{}admin}
   \PYG{n+nt}{user}\PYG{p}{:}
     \PYG{n+nt}{as\PYGZhy{}user\PYGZhy{}extra}\PYG{p}{:} \PYG{p+pIndicator}{\PYGZob{}\PYGZcb{}}
-    \PYG{n+nt}{token}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{eyJhbGciOiJSUzI1NiIsImtpZCI6IlZ1a29MSDNqVVhXS1YyMjFNNVhJeHFjTFNXaXhwYVhNT3FWb2NjTWFOV2MifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZ}
+    \PYG{n+nt}{token}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{eyJhbGciOiJSUzI1NiIsImtpZCI6IlZ1a29MSDNqVVhXS1YyMjFNNVhJeHFjTFN}
+    \PYG{l+lScalar+lScalarPlain}{XaXhwYVhNT3FWb2NjTWFOV2MifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZ}
 
 \PYG{n+nt}{contexts}\PYG{p}{:}
 \PYG{p+pIndicator}{\PYGZhy{}} \PYG{n+nt}{context}\PYG{p}{:}

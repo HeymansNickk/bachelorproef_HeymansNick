@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGZdl{} kubectl delete service \PYGZlt{}Service naam\PYGZgt{}
+\end{Verbatim}

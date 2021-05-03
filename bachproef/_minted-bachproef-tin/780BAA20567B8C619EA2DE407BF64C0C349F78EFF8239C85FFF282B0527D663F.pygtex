@@ -1,0 +1,34 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Please edit the object below. Lines beginning with a \PYGZsq{}\PYGZsh{}\PYGZsq{} will be ignored,}
+\PYG{c+c1}{\PYGZsh{} and an empty file will abort the edit. If an error occurs while saving this file will be}
+\PYG{c+c1}{\PYGZsh{} reopened with the relevant failures.}
+\PYG{c+c1}{\PYGZsh{}}
+\PYG{n+nt}{apiVersion}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{apps/v1}
+\PYG{n+nt}{kind}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{Deployment}
+\PYG{n+nt}{metadata}\PYG{p}{:}
+  \PYG{n+nt}{annotations}\PYG{p}{:}
+    \PYG{n+nt}{deployment.kubernetes.io/revision}\PYG{p}{:} \PYG{l+s}{\PYGZdq{}1\PYGZdq{}}
+    \PYG{n+nt}{kubectl.kubernetes.io/last\PYGZhy{}applied\PYGZhy{}configuration}\PYG{p}{:} \PYG{p+pIndicator}{|}
+    \PYG{p+pIndicator}{\PYGZob{}}\PYG{l+s}{\PYGZdq{}apiVersion\PYGZdq{}}\PYG{p+pIndicator}{:}\PYG{l+s}{\PYGZdq{}apps/v1\PYGZdq{}}\PYG{p+pIndicator}{,}\PYG{l+s}{\PYGZdq{}kind\PYGZdq{}}\PYG{p+pIndicator}{:}\PYG{l+s}{\PYGZdq{}Deployment\PYGZdq{}}\PYG{p+pIndicator}{,}\PYG{n+nv}{metadata\PYGZdq{}}\PYG{p+pIndicator}{:\PYGZob{}}\PYG{l+s}{\PYGZdq{}annotations\PYGZdq{}}\PYG{p+pIndicator}{:\PYGZob{}\PYGZcb{}}
+    \PYG{p+pIndicator}{,}\PYG{l+s}{\PYGZdq{}labels\PYGZdq{}}\PYG{p+pIndicator}{:\PYGZob{}}\PYG{l+s}{\PYGZdq{}app\PYGZdq{}}\PYG{p+pIndicator}{:}\PYG{l+s}{\PYGZdq{}nccoffee\PYGZdq{}}\PYG{p+pIndicator}{\PYGZcb{},}  \PYG{l+s}{\PYGZdq{}name\PYGZdq{}}\PYG{p+pIndicator}{:}\PYG{l+s}{\PYGZdq{}networkchuckcoffee\PYGZhy{}deployment\PYGZdq{}}
+    \PYG{p+pIndicator}{,}\PYG{l+s}{\PYGZdq{}namespace\PYGZdq{}}\PYG{p+pIndicator}{:}\PYG{l+s}{\PYGZdq{}default\PYGZdq{}}\PYG{p+pIndicator}{\PYGZcb{},}\PYG{l+s}{\PYGZdq{}spec\PYGZdq{}}\PYG{p+pIndicator}{:\PYGZob{}}\PYG{l+s}{\PYGZdq{}replicas\PYGZdq{}}\PYG{p+pIndicator}{:}\PYG{n+nv}{3}\PYG{p+pIndicator}{,}\PYG{l+s}{\PYGZdq{}selector\PYGZdq{}}\PYG{p+pIndicator}{:\PYGZob{}}\PYG{l+s}{\PYGZdq{}matchLabels\PYGZdq{}}\PYG{p+pIndicator}{:\PYGZob{}}\PYG{l+s}{\PYGZdq{}app\PYGZdq{}}\PYG{p+pIndicator}{:}\PYG{l+s}{\PYGZdq{}nccoffee\PYGZdq{}}\PYG{p+pIndicator}{\PYGZcb{}\PYGZcb{}}
+    \PYG{p+pIndicator}{,}\PYG{l+s}{\PYGZdq{}template\PYGZdq{}}\PYG{p+pIndicator}{:\PYGZob{}}\PYG{l+s}{\PYGZdq{}metadata\PYGZdq{}}\PYG{p+pIndicator}{:\PYGZob{}}\PYG{l+s}{\PYGZdq{}labels\PYGZdq{}}\PYG{p+pIndicator}{:\PYGZob{}}\PYG{l+s}{\PYGZdq{}app\PYGZdq{}}\PYG{p+pIndicator}{:}\PYG{l+s}{\PYGZdq{}nccoffee\PYGZdq{}}\PYG{p+pIndicator}{\PYGZcb{}\PYGZcb{}}
+    \PYG{p+pIndicator}{,}\PYG{l+s}{\PYGZdq{}spec\PYGZdq{}}\PYG{p+pIndicator}{:\PYGZob{}}\PYG{l+s}{\PYGZdq{}containers\PYGZdq{}}\PYG{p+pIndicator}{:[\PYGZob{}}\PYG{l+s}{\PYGZdq{}image\PYGZdq{}}\PYG{p+pIndicator}{:}\PYG{l+s}{\PYGZdq{}thenetworkchuck/nccoffee:pourover\PYGZdq{}}
+    \PYG{p+pIndicator}{,}\PYG{l+s}{\PYGZdq{}imagePullPolicy\PYGZdq{}}\PYG{p+pIndicator}{:}\PYG{l+s}{\PYGZdq{}Always\PYGZdq{}}\PYG{p+pIndicator}{,}\PYG{l+s}{\PYGZdq{}name\PYGZdq{}}\PYG{p+pIndicator}{:}\PYG{l+s}{\PYGZdq{}static\PYGZhy{}site\PYGZdq{}}
+    \PYG{p+pIndicator}{,}\PYG{l+s}{\PYGZdq{}ports\PYGZdq{}}\PYG{p+pIndicator}{:[\PYGZob{}}\PYG{l+s}{\PYGZdq{}containerPort\PYGZdq{}}\PYG{p+pIndicator}{:}\PYG{n+nv}{80}\PYG{p+pIndicator}{\PYGZcb{}]\PYGZcb{}]\PYGZcb{}\PYGZcb{}\PYGZcb{}\PYGZcb{}}
+    \PYG{n+nt}{creationTimestamp}\PYG{p}{:} \PYG{l+s}{\PYGZdq{}2021\PYGZhy{}05\PYGZhy{}03T16:07:03Z\PYGZdq{}}
+    \PYG{n+nt}{generation}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{1}
+    \PYG{n+nt}{labels}\PYG{p}{:}
+      \PYG{n+nt}{app}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{nccoffee}
+    \PYG{n+nt}{name}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{networkchuckcoffee\PYGZhy{}deployment}
+    \PYG{n+nt}{namespace}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{default}
+    \PYG{n+nt}{resourceVersion}\PYG{p}{:} \PYG{l+s}{\PYGZdq{}75837\PYGZdq{}}
+    \PYG{n+nt}{uid}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{c3ca052e\PYGZhy{}01d6\PYGZhy{}4083\PYGZhy{}a9ac\PYGZhy{}de1f8ff48170}
+\PYG{n+nt}{spec}\PYG{p}{:}
+    \PYG{n+nt}{progressDeadlineSeconds}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{600}
+    \PYG{n+nt}{replicas}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{3}
+    \PYG{n+nt}{revisionHistoryLimit}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{10}
+    \PYG{n+nt}{selector}\PYG{p}{:}
+    \PYG{n+nt}{matchLabels}\PYG{p}{:}
+      \PYG{n+nt}{app}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{nccoffee}
+\end{Verbatim}
