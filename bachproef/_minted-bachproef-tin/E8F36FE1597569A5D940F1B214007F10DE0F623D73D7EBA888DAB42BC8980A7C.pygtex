@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGZdl{} sftp root@172.105.86.96
+root@172.105.86.96 s password:
+Connected to \PYG{l+m}{172}.105.86.96.
+sftp\PYGZgt{} lcd /home/nick/Desktop
+sftp\PYGZgt{} get CpuGebruikDag8.csv
+Fetching /root/CpuGebruikDag8.csv to CpuGebruikDag8.csv
+\end{Verbatim}

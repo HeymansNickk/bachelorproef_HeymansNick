@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{library}\PYG{p}{(}\PYG{n}{readr}\PYG{p}{)}
+\PYG{n+nf}{library}\PYG{p}{(}\PYG{n}{ggplot2}\PYG{p}{)}
+\PYG{n}{TestRam} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{read\PYGZus{}table2}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}TestRam.csv\PYGZdq{}}\PYG{p}{,} \PYG{n}{skip} \PYG{o}{=} \PYG{l+m}{1}\PYG{p}{)}
+
+\PYG{n+nf}{names}\PYG{p}{(}\PYG{n}{TestRam}\PYG{p}{)[}\PYG{n+nf}{names}\PYG{p}{(}\PYG{n}{TestRam}\PYG{p}{)} \PYG{o}{==} \PYG{l+s}{\PYGZdq{}\PYGZpc{}memused\PYGZdq{}}\PYG{p}{]} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{l+s}{\PYGZdq{}RAM\PYGZdq{}}
+\PYG{n}{ram} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{TestRam}\PYG{p}{[}\PYG{l+m}{4}\PYG{p}{]}
+
+\PYG{n}{RAMBoxPlot} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{ggplot}\PYG{p}{(}\PYG{n}{ram}\PYG{p}{,}\PYG{n+nf}{aes}\PYG{p}{(}\PYG{n}{x}\PYG{o}{=}\PYG{n}{RAM}\PYG{p}{))} \PYG{o}{+} \PYG{n+nf}{geom\PYGZus{}boxplot}\PYG{p}{()}
+
+\PYG{n}{RAMBoxPlot} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{RAMBoxPlot} \PYG{o}{+} \PYG{n+nf}{theme}\PYG{p}{(}\PYG{n}{axis.text.y} \PYG{o}{=} \PYG{n+nf}{element\PYGZus{}blank}\PYG{p}{(),} \PYG{n}{axis.ticks.y} \PYG{o}{=} \PYG{n+nf}{element\PYGZus{}blank}\PYG{p}{())}
+
+\PYG{n}{RAMBoxPlot} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{RAMBoxPlot} \PYG{o}{+} \PYG{n+nf}{labs}\PYG{p}{(}\PYG{n}{x} \PYG{o}{=} \PYG{l+s}{\PYGZdq{}Ram gebruik in \PYGZpc{}\PYGZdq{}}\PYG{p}{)}
+
+\PYG{n}{RAMBoxPlot}
+\end{Verbatim}

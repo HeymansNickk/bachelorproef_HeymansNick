@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGZdl{} sar \PYGZhy{}f /var/log/sysstat/sa08 \PYGZgt{}\PYGZgt{} /root/CpuGebruikDag8.csv
+\end{Verbatim}

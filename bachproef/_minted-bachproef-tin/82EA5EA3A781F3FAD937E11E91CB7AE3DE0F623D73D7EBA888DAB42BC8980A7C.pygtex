@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGZdl{} sar \PYGZhy{}f /var/log/sysstat/sa08 \PYGZhy{}r \PYGZgt{}\PYGZgt{} /root/RAMGebruikDag8.csv
+\end{Verbatim}

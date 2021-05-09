@@ -102,15 +102,81 @@ $ kubectl delete service <Service naam>
 \end{minted}
 	
 \subsection{Gegevens- verzameling en verwerking}
-Om conclusies te kunnen trekken uit dit onderzoek hebben we gegevens nodig. Meerbepaald gegevens over de bovengenoemde criteria, namelijk het resource gebruik, de stabiliteit en de opstarttijd van de cluster. Deze gegevens zullen gebruikt worden om de onderzoeksvraag ``Welke impact hebben \textit{best practices} en \textit{security tools} op de criteria?'' te beantwoorden. De verzameling van deze gegevens zal gebeuren via sysstat \footnote{github.com/sysstat/sysstat}. Dit is open source tool die ons in staat stelt om een hele hoop verschillende soorten data van ons systeem te exporteren naar bruikbare formaten (zoals JSON, CSV en XML). Deze bestanden kunnen we dan later in RStudio gebruiken om er statistische modellen mee te maken. Sysstat zal op een van de nodes in de cluster worden geinstalleerd door een ssh verbinding op te zetten en dan volgend commando uit te voeren.
+Om conclusies te kunnen trekken uit dit onderzoek hebben we gegevens nodig. Meer bepaald gegevens over de bovengenoemde criteria, namelijk het resource gebruik, de stabiliteit en de opstarttijd van de cluster. Deze gegevens zullen gebruikt worden om de onderzoeksvraag ``Welke impact hebben \textit{best practices} en \textit{security tools} op de criteria?'' te beantwoorden. De verzameling van deze gegevens zal gebeuren via \textit{sysstat}\footnote{github.com/sysstat/sysstat}. Dit is open source tool die ons in staat stelt om een hele hoop verschillende soorten data van ons systeem te exporteren naar bruikbare formaten (zoals JSON, CSV en XML). Deze bestanden kunnen we dan later in RStudio gebruiken om er statistische modellen mee te maken. Sysstat zal op een van de nodes in de cluster worden geïnstalleerd door een ssh verbinding op te zetten en dan volgend commando uit te voeren.
 \begin{minted}{bash} 
 $ sudo apt-get install sysstat
 \end{minted}
 
+Vervolgens moeten we de data collectie aanzetten door in het bestand \verb|/etc/default/sysstat| de variabele \verb|ENABLED| van\textit{''false''} naar \textit{''true''} om te zetten. Vanaf nu zal een van de meegeleverde tools, namelijk sar, elke 10 minuten een nieuwe entry maken in het bestand \verb|/var/log/sysstat/sa<dag van de maand>|. We kunnen deze bestanden uitlezen met behulp van het \verb|sar| commando. Om het CPU gebruik van het systeem om te zetten naar een csv bestand, het het later in RStudio te verwerken, kunnen we het volgende commando gebruiken. In figuur \ref{CPUDataPreview} is het net gecreeerde csv bestand te zien.
 
-De gegevens zullen vergeleken worden door ze in RStudio te verwerken tot grafieken. Meerbepaald <INSERT GRAFIEKEN + UITLEG>.
-%Welke data er verzameld zal worden (CPU en RAM gebruik, Boot time, stability aka spikes per time) en waarom
-%Uitleg over hoe deze data zal verzameld worden(sysstat) en welke grafieken er zullen gebruikt worden om een vergelijking te kunnen maken (R code tonen).
+\begin{minted}{bash} 
+$ sar -f /var/log/sysstat/sa08 >> /root/CpuGebruikDag8.csv
+\end{minted}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{img/CPUDataPreview.png}
+	\caption{Klein deel van het gebruikte csv bestand}
+	\label{fig:CPUDataPreview}
+\end{figure}
+
+Vervolgens kunnen we door andere \textit{flags} mee te geven aan het sar commando verschillende soorten data uit de logbestanden halen. Het RAM gebruik kan bijvoorbeeld met volgend commando in een csv bestand worden opgeslagen.
+
+\begin{minted}{bash} 
+$ sar -f /var/log/sysstat/sa08 -r >> /root/RAMGebruikDag8.csv
+\end{minted}
+
+Als laatste moeten de gegevens lokaal op de computer beschikbaar zijn. Dit wordt gedaan door een SFTP verbinding te maken met de node waar sysstat op geïnstalleerd is en de volgende commando's uit te voeren. 
+
+\begin{minted}{bash} 
+$ sftp root@172.105.86.96
+root@172.105.86.96 s password:
+Connected to 172.105.86.96.
+sftp> lcd /home/nick/Desktop
+sftp> get CpuGebruikDag8.csv
+Fetching /root/CpuGebruikDag8.csv to CpuGebruikDag8.csv
+\end{minted}
+
+Nu alle nodige gegevens zijn verzamelt kan er begonnen worden aan het verwerken van deze gegevens. Dit wordt gedaan door gebruik te maken van R en Rstudio. 
+
+Het eerste criteria is het vergelijken van het gemiddeld resource gebruik van zowel de CPU als het RAM geheugen. Dit kan simpelweg door de laatste rij van het csv bestand af te lezen. Hier wordt door sar automatisch het gemiddelde berekent. 
+
+Het tweede criteria is de stabiliteit van het systeem. Dit zal onderzocht worden door een Boxplot te maken op basis van de verzamelde gegevens om de hoeveelheid routiers visueel voor te stellen. De R code om dit te doen voor het CPU gebruik staat in figuur \ref{CPUBox}. In dit R script wordt het csv bestand eerst ingelezen zonder de eerste rij omdat deze niet nuttig is voor het verdere onderzoek. Vervolgens nemen we enkel de achtste kolom over omdat hier de hoeveelheid ongebruikte CPU kracht staat. Deze wordt dan afgetrokken van honderd om zo tot de gebruikte hoeveelheid CPU te komen. Als laatste wordt de naam van kolom veranderd zodat het gemakkelijker is om deze te gebruiken bij het maken van de boxplot. De laatste lijnen van het script zijn verantwoordelijk voor het creëren en opmaken van de boxplot. Een voorbeeld van de bekomen boxplot is te zien in figuur \ref{fig:CPUBoxEx}.
+
+\begin{figure}[h] 
+	\inputminted[fontsize=\footnotesize,linenos]{R}{files/dataCpuBox.R}
+	\caption{R code om boxplot van CPU gegevens te bekomen}
+	\label{CPUBox}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{img/CPUBoxEx.png}
+	\caption{Voorbeeld boxplot CPU data}
+	\label{fig:CPUBoxEx}
+\end{figure}
+
+Voor de gegevens van het RAM gebruik wordt op dezelfde manier te werk gegaan. De R code om de gegevens met betrekking tot het RAM geheugen wordt beschreven in figuur 
+\begin{figure}[h] 
+	\inputminted[fontsize=\footnotesize,linenos]{R}{files/dataRAMBox.R}
+	\caption{R code om boxplot van CPU gegevens te bekomen}
+	\label{CPUBox}
+\end{figure}
+
+
+Het algemene resource gebruik van de cluster kan ook voorgesteld worden als een gewone grafiek waarin het resourcegebruik van zowel de CPU als het RAM geheugen worden voorgesteld ten opzichte van de tijd. Het R script om dit te bekomen staat in figuur \ref{CPUGraph}. Een voorbeeld van een bekomen grafiek is te zien in figuur \ref{fig:CPUgraphEx}
+\begin{figure}[h] 
+	\inputminted[fontsize=\footnotesize,linenos]{R}{files/dataCpuGraph.R}
+	\caption{R code om grafiek van CPU gegevens te bekomen}
+	\label{CPUGraph}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{img/CPUGraphEx.png}
+	\caption{Voorbeeld grafiek CPU data}
+	\label{fig:CPUgraphEx}
+\end{figure}
 
 \clearpage
 \section{Scenario 1: Cluster opstelling zonder oog voor security}
@@ -215,6 +281,7 @@ $ kubectl describe services coffee-service
 	\label{fig:demoSite1}
 \end{figure}
 
+\subsection{Verzamelen en analyseren van de data}
 
 \clearpage
 \section{Scenario 2: Cluster opstelling met gebruik van best practices}
