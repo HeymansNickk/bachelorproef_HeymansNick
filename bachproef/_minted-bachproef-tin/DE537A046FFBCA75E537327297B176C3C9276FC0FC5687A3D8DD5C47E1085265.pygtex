@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nt}{kind}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{RoleBinding}
+\PYG{n+nt}{apiVersion}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{rbac.authorization.k8s.io/v1beta1}
+\PYG{n+nt}{metadata}\PYG{p}{:}
+  \PYG{n+nt}{name}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{deployment\PYGZhy{}manager\PYGZhy{}binding}
+  \PYG{n+nt}{namespace}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{default}
+\PYG{n+nt}{subjects}\PYG{p}{:}
+\PYG{p+pIndicator}{\PYGZhy{}} \PYG{n+nt}{kind}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{User}
+  \PYG{n+nt}{name}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{tester}
+  \PYG{n+nt}{apiGroup}\PYG{p}{:} \PYG{l+s}{\PYGZdq{}\PYGZdq{}}
+\PYG{n+nt}{roleRef}\PYG{p}{:}
+  \PYG{n+nt}{kind}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{Role}
+  \PYG{n+nt}{name}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{deployment\PYGZhy{}manager}
+  \PYG{n+nt}{apiGroup}\PYG{p}{:} \PYG{l+s}{\PYGZdq{}\PYGZdq{}}
+\end{Verbatim}

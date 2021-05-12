@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGZdl{} kubectl create \PYGZhy{}f role\PYGZhy{}deployement.yaml
+role.rbac.authorization.k8s.io/deployment\PYGZhy{}manager created
+\PYGZdl{} kukubectl create \PYGZhy{}f rolebinding\PYGZhy{}deployment.yaml
+rolebinding.rbac.authorization.k8s.io/deployment\PYGZhy{}manager\PYGZhy{}binding created
+\end{Verbatim}

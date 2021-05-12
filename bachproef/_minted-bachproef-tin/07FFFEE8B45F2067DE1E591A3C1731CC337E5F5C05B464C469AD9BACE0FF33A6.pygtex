@@ -1,0 +1,35 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+docker run \PYGZhy{}it \PYGZhy{}\PYGZhy{}rm \PYGZhy{}\PYGZhy{}network host aquasec/kube\PYGZhy{}hunter
+Choose one of the options below:
+\PYG{l+m}{1}. Remote scanning      \PYG{o}{(}scans one or more specific IPs or DNS names\PYG{o}{)}
+\PYG{l+m}{2}. Interface scanning   \PYG{o}{(}scans subnets on all \PYG{n+nb}{local} network interfaces\PYG{o}{)}
+\PYG{l+m}{3}. IP range scanning    \PYG{o}{(}scans a given IP range\PYG{o}{)}
+Your choice: \PYG{l+m}{1}
+Remotes \PYG{o}{(}separated by a \PYG{l+s+s1}{\PYGZsq{},\PYGZsq{}}\PYG{o}{)}: \PYG{l+m}{45}.79.249.208
+\PYG{l+m}{2021}\PYGZhy{}05\PYGZhy{}12 \PYG{l+m}{16}:15:19,611 INFO kube\PYGZus{}hunter.modules.report.collector
+ Started hunting
+\PYG{l+m}{2021}\PYGZhy{}05\PYGZhy{}12 \PYG{l+m}{16}:15:19,611 INFO kube\PYGZus{}hunter.modules.report.collector 
+Discovering Open Kubernetes Services
+\PYG{l+m}{2021}\PYGZhy{}05\PYGZhy{}12 \PYG{l+m}{16}:15:19,688 INFO kube\PYGZus{}hunter.modules.report.collector 
+Found open service \PYG{l+s+s2}{\PYGZdq{}Kubelet API\PYGZdq{}} at \PYG{l+m}{45}.79.249.208:10250
+
+Nodes
++\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+
+\PYG{p}{|} TYPE        \PYG{p}{|} LOCATION      \PYG{p}{|}
++\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+
+\PYG{p}{|} Node/Master \PYG{p}{|} \PYG{l+m}{45}.79.249.208 \PYG{p}{|}
++\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+
+
+Detected Services
++\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+
+\PYG{p}{|} SERVICE     \PYG{p}{|} LOCATION            \PYG{p}{|} DESCRIPTION          \PYG{p}{|}
++\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+
+\PYG{p}{|} Kubelet API \PYG{p}{|} \PYG{l+m}{45}.79.249.208:10250 \PYG{p}{|} The Kubelet is the   \PYG{p}{|}
+\PYG{p}{|}             \PYG{p}{|}                     \PYG{p}{|} main component \PYG{k}{in}    \PYG{p}{|}
+\PYG{p}{|}             \PYG{p}{|}                     \PYG{p}{|} every Node, all pod  \PYG{p}{|}
+\PYG{p}{|}             \PYG{p}{|}                     \PYG{p}{|} operations goes      \PYG{p}{|}
+\PYG{p}{|}             \PYG{p}{|}                     \PYG{p}{|} through the kubelet  \PYG{p}{|}
++\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+
+
+No vulnerabilities were found
+\end{Verbatim}

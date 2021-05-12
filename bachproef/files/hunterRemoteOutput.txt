@@ -1,0 +1,33 @@
+docker run -it --rm --network host aquasec/kube-hunter
+Choose one of the options below:
+1. Remote scanning      (scans one or more specific IPs or DNS names)
+2. Interface scanning   (scans subnets on all local network interfaces)
+3. IP range scanning    (scans a given IP range)
+Your choice: 1
+Remotes (separated by a ','): 45.79.249.208
+2021-05-12 16:15:19,611 INFO kube_hunter.modules.report.collector
+ Started hunting
+2021-05-12 16:15:19,611 INFO kube_hunter.modules.report.collector 
+Discovering Open Kubernetes Services
+2021-05-12 16:15:19,688 INFO kube_hunter.modules.report.collector 
+Found open service "Kubelet API" at 45.79.249.208:10250
+
+Nodes
++-------------+---------------+
+| TYPE        | LOCATION      |
++-------------+---------------+
+| Node/Master | 45.79.249.208 |
++-------------+---------------+
+
+Detected Services
++-------------+---------------------+----------------------+
+| SERVICE     | LOCATION            | DESCRIPTION          |
++-------------+---------------------+----------------------+
+| Kubelet API | 45.79.249.208:10250 | The Kubelet is the   |
+|             |                     | main component in    |
+|             |                     | every Node, all pod  |
+|             |                     | operations goes      |
+|             |                     | through the kubelet  |
++-------------+---------------------+----------------------+
+
+No vulnerabilities were found

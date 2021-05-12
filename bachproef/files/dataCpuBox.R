@@ -2,7 +2,7 @@
 
 library(readr)
 library(ggplot2)
-CpuData <- read_table2("CPUGebruik.csv", skip = 1)
+CpuData <- read_table2("SC1_CpuGebruikDag9.csv", skip = 1)
 
 CpuData <- CpuData[8]
 CpuUsage <- 100-CpuData

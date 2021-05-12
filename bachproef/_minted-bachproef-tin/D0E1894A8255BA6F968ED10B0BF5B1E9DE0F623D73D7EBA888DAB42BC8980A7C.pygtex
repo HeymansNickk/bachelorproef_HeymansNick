@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGZdl{} curl \PYGZhy{}L https://github.com/aquasecurity/kube\PYGZhy{}bench/releases/download/
+v0.3.1/kube\PYGZhy{}bench\PYGZus{}0.3.1\PYGZus{}linux\PYGZus{}amd64.deb
+\PYGZhy{}o kube\PYGZhy{}bench\PYGZus{}0.3.1\PYGZus{}linux\PYGZus{}amd64.deb
+\PYGZdl{} sudo apt install ./kube\PYGZhy{}bench\PYGZus{}0.3.1\PYGZus{}linux\PYGZus{}amd64.deb \PYGZhy{}f
+\end{Verbatim}

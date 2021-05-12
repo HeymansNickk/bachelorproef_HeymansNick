@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGZdl{} docker run \PYGZhy{}it \PYGZhy{}\PYGZhy{}rm \PYGZhy{}\PYGZhy{}network host aquasec/kube\PYGZhy{}hunter
+Choose one of the options below:
+\PYG{l+m}{1}. Remote scanning      \PYG{o}{(}scans one or more specific IPs or DNS names\PYG{o}{)}
+\PYG{l+m}{2}. Interface scanning   \PYG{o}{(}scans subnets on all \PYG{n+nb}{local} network interfaces\PYG{o}{)}
+\PYG{l+m}{3}. IP range scanning    \PYG{o}{(}scans a given IP range\PYG{o}{)}
+Your choice: \PYG{l+m}{2}
+\end{Verbatim}

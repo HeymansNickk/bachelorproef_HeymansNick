@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYGZdl{} kubectl logs kube\PYGZhy{}hunter\PYGZhy{}zwwsz
+\PYG{l+m}{2021}\PYGZhy{}05\PYGZhy{}12 \PYG{l+m}{16}:31:13,364 INFO kube\PYGZus{}hunter.modules.report.collector Started hunting
+\PYG{l+m}{2021}\PYGZhy{}05\PYGZhy{}12 \PYG{l+m}{16}:31:13,373 INFO kube\PYGZus{}hunter.modules.report.collector
+Discovering Open Kubernetes Services
+\PYG{l+m}{2021}\PYGZhy{}05\PYGZhy{}12 \PYG{l+m}{16}:31:13,378 INFO kube\PYGZus{}hunter.modules.report.collector
+Found vulnerability \PYG{l+s+s2}{\PYGZdq{}CAP\PYGZus{}NET\PYGZus{}RAW Enabled\PYGZdq{}} \PYG{k}{in} Local to Pod \PYG{o}{(}kube\PYGZhy{}hunter\PYGZhy{}zwwsz\PYG{o}{)}
+\PYG{l+m}{2021}\PYGZhy{}05\PYGZhy{}12 \PYG{l+m}{16}:31:13,378 INFO kube\PYGZus{}hunter.modules.report.collector
+Found vulnerability \PYG{l+s+s2}{\PYGZdq{}Read access to pod\PYGZsq{}s service account token\PYGZdq{}} \PYG{k}{in} Local to Pod \PYG{o}{(}kube\PYGZhy{}hunter\PYGZhy{}zwwsz\PYG{o}{)}
+\PYG{l+m}{2021}\PYGZhy{}05\PYGZhy{}12 \PYG{l+m}{16}:31:13,378 INFO kube\PYGZus{}hunter.modules.report.collector
+Found vulnerability \PYG{l+s+s2}{\PYGZdq{}Access to pod\PYGZsq{}s secrets\PYGZdq{}} \PYG{k}{in} Local to Pod \PYG{o}{(}kube\PYGZhy{}hunter\PYGZhy{}zwwsz\PYG{o}{)}
+\PYG{l+m}{2021}\PYGZhy{}05\PYGZhy{}12 \PYG{l+m}{16}:31:36,101 INFO kube\PYGZus{}hunter.modules.report.collector
+Found open service \PYG{l+s+s2}{\PYGZdq{}API Server\PYGZdq{}} at \PYG{l+m}{10}.128.0.1:443
+\PYG{l+m}{2021}\PYGZhy{}05\PYGZhy{}12 \PYG{l+m}{16}:31:36,157 INFO kube\PYGZus{}hunter.modules.report.collector
+Found vulnerability \PYG{l+s+s2}{\PYGZdq{}K8s Version Disclosure\PYGZdq{}} \PYG{k}{in} \PYG{l+m}{10}.128.0.1:443
+\PYG{l+m}{2021}\PYGZhy{}05\PYGZhy{}12 \PYG{l+m}{16}:31:36,162 INFO kube\PYGZus{}hunter.modules.report.collector
+Found vulnerability \PYG{l+s+s2}{\PYGZdq{}Access to API using service account token\PYGZdq{}} \PYG{k}{in} \PYG{l+m}{10}.128.0.1:443
+
+Nodes
++\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+
+\PYG{p}{|} TYPE        \PYG{p}{|} LOCATION   \PYG{p}{|}
++\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+
+\PYG{p}{|} Node/Master \PYG{p}{|} \PYG{l+m}{10}.128.0.1 \PYG{p}{|}
++\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+
+\end{Verbatim}

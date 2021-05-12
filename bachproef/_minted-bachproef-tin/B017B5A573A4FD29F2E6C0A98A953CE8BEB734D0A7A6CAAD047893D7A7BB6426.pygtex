@@ -3,7 +3,7 @@
 
 \PYG{n+nf}{library}\PYG{p}{(}\PYG{n}{readr}\PYG{p}{)}
 \PYG{n+nf}{library}\PYG{p}{(}\PYG{n}{ggplot2}\PYG{p}{)}
-\PYG{n}{CpuData} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{read\PYGZus{}table2}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}CPUGebruik.csv\PYGZdq{}}\PYG{p}{,} \PYG{n}{skip} \PYG{o}{=} \PYG{l+m}{1}\PYG{p}{)}
+\PYG{n}{CpuData} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{read\PYGZus{}table2}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}SC1\PYGZus{}CpuGebruikDag9.csv\PYGZdq{}}\PYG{p}{,} \PYG{n}{skip} \PYG{o}{=} \PYG{l+m}{1}\PYG{p}{)}
 
 \PYG{n}{CpuData} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{CpuData}\PYG{p}{[}\PYG{l+m}{8}\PYG{p}{]}
 \PYG{n}{CpuUsage} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{l+m}{100}\PYG{o}{\PYGZhy{}}\PYG{n}{CpuData}

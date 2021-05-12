@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nt}{kind}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{Role}
+\PYG{n+nt}{apiVersion}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{rbac.authorization.k8s.io/v1}
+\PYG{n+nt}{metadata}\PYG{p}{:}
+  \PYG{n+nt}{namespace}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{default}
+  \PYG{n+nt}{name}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{deployment\PYGZhy{}manager}
+\PYG{n+nt}{rules}\PYG{p}{:}
+\PYG{p+pIndicator}{\PYGZhy{}} \PYG{n+nt}{apiGroups}\PYG{p}{:} \PYG{p+pIndicator}{[}\PYG{l+s}{\PYGZdq{}\PYGZdq{}}\PYG{p+pIndicator}{,} \PYG{l+s}{\PYGZdq{}extensions\PYGZdq{}}\PYG{p+pIndicator}{,} \PYG{l+s}{\PYGZdq{}apps\PYGZdq{}}\PYG{p+pIndicator}{]}
+  \PYG{n+nt}{resources}\PYG{p}{:} \PYG{p+pIndicator}{[}\PYG{l+s}{\PYGZdq{}deployments\PYGZdq{}}\PYG{p+pIndicator}{,} \PYG{l+s}{\PYGZdq{}pods\PYGZdq{}}\PYG{p+pIndicator}{]}
+  \PYG{n+nt}{verbs}\PYG{p}{:} \PYG{p+pIndicator}{[}\PYG{l+s}{\PYGZdq{}*\PYGZdq{}}\PYG{p+pIndicator}{]}
+\end{Verbatim}

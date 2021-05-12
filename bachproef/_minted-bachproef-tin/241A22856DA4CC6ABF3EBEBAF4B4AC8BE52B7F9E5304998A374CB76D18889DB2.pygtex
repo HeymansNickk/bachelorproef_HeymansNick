@@ -1,0 +1,27 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nt}{apiVersion}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{policy/v1beta1}
+\PYG{n+nt}{kind}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{PodSecurityPolicy}
+\PYG{n+nt}{metadata}\PYG{p}{:}
+  \PYG{n+nt}{name}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{restricted}
+  \PYG{n+nt}{annotations}\PYG{p}{:}
+    \PYG{n+nt}{seccomp.security.alpha.kubernetes.io/allowedProfileNames}\PYG{p}{:} \PYG{l+s}{\PYGZsq{}docker/default,runtime/default\PYGZsq{}}
+    \PYG{n+nt}{apparmor.security.beta.kubernetes.io/allowedProfileNames}\PYG{p}{:} \PYG{l+s}{\PYGZsq{}runtime/default\PYGZsq{}}
+    \PYG{n+nt}{seccomp.security.alpha.kubernetes.io/defaultProfileName}\PYG{p}{:}  \PYG{l+s}{\PYGZsq{}runtime/default\PYGZsq{}}
+    \PYG{n+nt}{apparmor.security.beta.kubernetes.io/defaultProfileName}\PYG{p}{:}  \PYG{l+s}{\PYGZsq{}runtime/default\PYGZsq{}}
+  \PYG{n+nt}{spec}\PYG{p}{:}
+  \PYG{n+nt}{privileged}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{false}
+  \PYG{n+nt}{allowPrivilegeEscalation}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{false}
+  \PYG{n+nt}{hostNetwork}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{false}
+  \PYG{n+nt}{hostIPC}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{false}
+  \PYG{n+nt}{hostPID}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{false}
+  \PYG{n+nt}{runAsUser}\PYG{p}{:}
+    \PYG{n+nt}{rule}\PYG{p}{:} \PYG{l+s}{\PYGZsq{}MustRunAsNonRoot\PYGZsq{}}
+  \PYG{n+nt}{seLinux}\PYG{p}{:}
+    \PYG{n+nt}{rule}\PYG{p}{:} \PYG{l+s}{\PYGZsq{}RunAsAny\PYGZsq{}}
+  \PYG{n+nt}{supplementalGroups}\PYG{p}{:}
+    \PYG{n+nt}{rule}\PYG{p}{:} \PYG{l+s}{\PYGZsq{}MustRunAs\PYGZsq{}}
+    \PYG{n+nt}{ranges}\PYG{p}{:}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{n+nt}{min}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{1}
+        \PYG{n+nt}{max}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{65535}
+  \PYG{n+nt}{readOnlyRootFilesystem}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{false}
+\end{Verbatim}

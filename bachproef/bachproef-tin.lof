@@ -27,33 +27,59 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.5}{\ignorespaces R code om boxplot van CPU gegevens te bekomen}}{39}{figure.3.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Voorbeeld boxplot CPU data}}{40}{figure.3.6}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces R code om boxplot van CPU gegevens te bekomen}}{39}{figure.3.6}%
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.7}{\ignorespaces R code om boxplot van CPU gegevens te bekomen}}{40}{figure.3.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.8}{\ignorespaces R code om grafiek van CPU gegevens te bekomen}}{41}{figure.3.8}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces R code om grafiek van CPU gegevens te bekomen}}{40}{figure.3.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Voorbeeld grafiek CPU data}}{41}{figure.3.9}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces deployment.yaml}}{41}{figure.3.9}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.10}{\ignorespaces deployment.yaml}}{42}{figure.3.10}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Pods worden klaargemaakt}}{42}{figure.3.10}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Pods worden klaargemaakt}}{43}{figure.3.11}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Output ``kubectl edit deployment'' commando}}{43}{figure.3.11}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Output ``kubectl edit deployment'' commando}}{44}{figure.3.12}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Pods worden klaargemaakt}}{44}{figure.3.12}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Pods worden klaargemaakt}}{45}{figure.3.13}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces service.yaml}}{44}{figure.3.13}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.14}{\ignorespaces service.yaml}}{45}{figure.3.14}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Informatie over de loadbalancer service.}}{44}{figure.3.14}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Informatie over de loadbalancer service.}}{45}{figure.3.15}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces De demo website is nu zichtbaar vanop het internet.}}{45}{figure.3.15}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.16}{\ignorespaces De demo website is nu zichtbaar vanop het internet.}}{46}{figure.3.16}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces securePol.yaml}}{47}{figure.3.16}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.17}{\ignorespaces role-deployment.yaml}}{48}{figure.3.17}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.18}{\ignorespaces rolebinding-deployement.yaml}}{48}{figure.3.18}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Output kube-bench commando}}{50}{figure.3.19}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Output kube-hunter remote scanning}}{51}{figure.3.20}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Output kube-hunter remote scanning}}{52}{figure.3.21}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.22}{\ignorespaces Output kube-hunter remote scanning}}{52}{figure.3.22}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Gemiddeld CPU gebruik (100 - Laatste Kolom).}}{53}{figure.3.23}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Gemiddeld RAM gebruik}}{53}{figure.3.24}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.25}{\ignorespaces Boxplot van het CPU gebruik}}{54}{figure.3.25}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.26}{\ignorespaces Boxplot van het RAM gebruik}}{54}{figure.3.26}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.27}{\ignorespaces Lijngrafiek van het CPU gebruik.}}{54}{figure.3.27}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.28}{\ignorespaces Lijngrafiek van het RAM gebruik.}}{54}{figure.3.28}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.29}{\ignorespaces Opstarttijd van de Node}}{54}{figure.3.29}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Verwachte opstart tijd}}{54}{figure.A.1}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Verwachte opstart tijd}}{60}{figure.A.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Verwacht resource gebruik}}{54}{figure.A.2}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Verwacht resource gebruik}}{60}{figure.A.2}%
 \contentsfinish 

@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nn}{\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{n+nt}{apiVersion}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{batch/v1}
+\PYG{n+nt}{kind}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{Job}
+\PYG{n+nt}{metadata}\PYG{p}{:}
+  \PYG{n+nt}{name}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{kube\PYGZhy{}hunter}
+\PYG{n+nt}{spec}\PYG{p}{:}
+  \PYG{n+nt}{template}\PYG{p}{:}
+    \PYG{n+nt}{spec}\PYG{p}{:}
+      \PYG{n+nt}{containers}\PYG{p}{:}
+        \PYG{p+pIndicator}{\PYGZhy{}} \PYG{n+nt}{name}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{kube\PYGZhy{}hunter}
+          \PYG{n+nt}{image}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{aquasec/kube\PYGZhy{}hunter}
+          \PYG{n+nt}{command}\PYG{p}{:} \PYG{p+pIndicator}{[}\PYG{l+s}{\PYGZdq{}kube\PYGZhy{}hunter\PYGZdq{}}\PYG{p+pIndicator}{]}
+          \PYG{n+nt}{args}\PYG{p}{:} \PYG{p+pIndicator}{[}\PYG{l+s}{\PYGZdq{}\PYGZhy{}\PYGZhy{}pod\PYGZdq{}}\PYG{p+pIndicator}{]}
+      \PYG{n+nt}{restartPolicy}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{Never}
+  \PYG{n+nt}{backoffLimit}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{4}
+\end{Verbatim}

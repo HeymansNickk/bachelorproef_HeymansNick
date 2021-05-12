@@ -38,7 +38,7 @@ Aangezien Kubectl op zowel Linux, Windows als MacOS kan draaien, en de cluster z
 Voor dit onderzoek zal gebruik gemaakt worden van de ingebouwde ``Linode Kubernetes Engine''(LKE). Deze installeert automatisch de correcte onderdelen op de verschillende worker nodes en creëert ook een gratis master node. Hiervoor werd gekozen omdat het volledig opzetten van een K8s cluster niet binnen de scope van dit onderzoek ligt. Door gebruik te maken van de LKE kunnen we ons dus focussen op de security van de cluster. 
 
 \subsection{Linode Kubernetes cluster}
-In dit hoofdstuk zullen de verschillende stappen die doorlopen zijn bij het opzetten van een Linode K8s cluster beschreven worden.
+Hieronder worden de verschillende stappen die doorlopen zijn bij het opzetten van een Linode K8s cluster beschreven.
 
 Voor het creëren van een cluster in Linode hebben we enkel een Linode account nodig. Het aanmaken van de cluster zelf is zeer gemakkelijk en gebeurt via cloud.linode.com > Kubernetes > Create Cluster. Vul dan de naam, regio en versie van de cluster in zoals in figuur \ref{fig:LinodeNaam}.
 
@@ -101,13 +101,13 @@ Het verwijderen van een service verloopt op dezelfde manier.
 $ kubectl delete service <Service naam>
 \end{minted}
 	
-\subsection{Gegevens- verzameling en verwerking}
+\subsection{Gegevens- verzameling en verwerking} \label{ch:gegevens}
 Om conclusies te kunnen trekken uit dit onderzoek hebben we gegevens nodig. Meer bepaald gegevens over de bovengenoemde criteria, namelijk het resource gebruik, de stabiliteit en de opstarttijd van de cluster. Deze gegevens zullen gebruikt worden om de onderzoeksvraag ``Welke impact hebben \textit{best practices} en \textit{security tools} op de criteria?'' te beantwoorden. De verzameling van deze gegevens zal gebeuren via \textit{sysstat}\footnote{github.com/sysstat/sysstat}. Dit is open source tool die ons in staat stelt om een hele hoop verschillende soorten data van ons systeem te exporteren naar bruikbare formaten (zoals JSON, CSV en XML). Deze bestanden kunnen we dan later in RStudio gebruiken om er statistische modellen mee te maken. Sysstat zal op een van de nodes in de cluster worden geïnstalleerd door een ssh verbinding op te zetten en dan volgend commando uit te voeren.
 \begin{minted}{bash} 
 $ sudo apt-get install sysstat
 \end{minted}
 
-Vervolgens moeten we de data collectie aanzetten door in het bestand \verb|/etc/default/sysstat| de variabele \verb|ENABLED| van\textit{''false''} naar \textit{''true''} om te zetten. Vanaf nu zal een van de meegeleverde tools, namelijk sar, elke 10 minuten een nieuwe entry maken in het bestand \verb|/var/log/sysstat/sa<dag van de maand>|. We kunnen deze bestanden uitlezen met behulp van het \verb|sar| commando. Om het CPU gebruik van het systeem om te zetten naar een csv bestand, het het later in RStudio te verwerken, kunnen we het volgende commando gebruiken. In figuur \ref{CPUDataPreview} is het net gecreeerde csv bestand te zien.
+Vervolgens moeten we de data collectie aanzetten door in het bestand \verb|/etc/default/sysstat| de variabele \verb|ENABLED| van\textit{''false''} naar \textit{''true''} om te zetten. Vanaf nu zal een van de meegeleverde tools, namelijk sar, elke 10 minuten een nieuwe entry maken in het bestand \verb|/var/log/sysstat/sa<dag van de maand>|. We kunnen deze bestanden uitlezen met behulp van het \verb|sar| commando. Om het CPU gebruik van het systeem om te zetten naar een csv bestand, het het later in RStudio te verwerken, kunnen we het volgende commando gebruiken. In figuur \ref{CPUDataPreview} is het net gecreëerde csv bestand te zien.
 
 \begin{minted}{bash} 
 $ sar -f /var/log/sysstat/sa08 >> /root/CpuGebruikDag8.csv
@@ -139,54 +139,74 @@ Fetching /root/CpuGebruikDag8.csv to CpuGebruikDag8.csv
 
 Nu alle nodige gegevens zijn verzamelt kan er begonnen worden aan het verwerken van deze gegevens. Dit wordt gedaan door gebruik te maken van R en Rstudio. 
 
-Het eerste criteria is het vergelijken van het gemiddeld resource gebruik van zowel de CPU als het RAM geheugen. Dit kan simpelweg door de laatste rij van het csv bestand af te lezen. Hier wordt door sar automatisch het gemiddelde berekent. 
+Het eerste criteria is het vergelijken van het gemiddeld resource gebruik van zowel de CPU als het RAM geheugen. Voor het CPu gebruik kan dit simpelweg door de laatste rij van het csv bestand af te lezen. Het gemiddeld gebruik van het RAM geheugen wordt niet automatisch gegenereerd door sar en moet nog berekent worden. De R code om dit te doen wordt beschreven in figuur \ref{RAMAVG}.
 
-Het tweede criteria is de stabiliteit van het systeem. Dit zal onderzocht worden door een Boxplot te maken op basis van de verzamelde gegevens om de hoeveelheid routiers visueel voor te stellen. De R code om dit te doen voor het CPU gebruik staat in figuur \ref{CPUBox}. In dit R script wordt het csv bestand eerst ingelezen zonder de eerste rij omdat deze niet nuttig is voor het verdere onderzoek. Vervolgens nemen we enkel de achtste kolom over omdat hier de hoeveelheid ongebruikte CPU kracht staat. Deze wordt dan afgetrokken van honderd om zo tot de gebruikte hoeveelheid CPU te komen. Als laatste wordt de naam van kolom veranderd zodat het gemakkelijker is om deze te gebruiken bij het maken van de boxplot. De laatste lijnen van het script zijn verantwoordelijk voor het creëren en opmaken van de boxplot. Een voorbeeld van de bekomen boxplot is te zien in figuur \ref{fig:CPUBoxEx}.
+\begin{figure}[h] 
+	\inputminted[fontsize=\footnotesize,linenos]{R}{files/dataRAMAVG.R}
+	\caption{R code om boxplot van CPU gegevens te bekomen}
+	\label{RAMAVG}
+\end{figure}
+%
+
+Het tweede criteria is de stabiliteit van het systeem. Dit zal onderzocht worden door een Boxplot te maken op basis van de verzamelde gegevens om de hoeveelheid outliers visueel voor te stellen. De R code om dit te doen voor het CPU gebruik staat in figuur \ref{CPUBox}. In dit R script wordt het csv bestand eerst ingelezen zonder de eerste rij omdat deze niet nuttig is voor het verdere onderzoek. Vervolgens nemen we enkel de achtste kolom over omdat hier de hoeveelheid ongebruikte CPU kracht staat. Deze wordt dan afgetrokken van honderd om zo tot de gebruikte hoeveelheid CPU te komen. Als laatste wordt de naam van kolom veranderd zodat het gemakkelijker is om deze te gebruiken bij het maken van de boxplot. De laatste lijnen van het script zijn verantwoordelijk voor het creëren en opmaken van de boxplot.
+%Een voorbeeld van de bekomen boxplot is te zien in figuur \ref{fig:CPUBoxEx}.
 
 \begin{figure}[h] 
 	\inputminted[fontsize=\footnotesize,linenos]{R}{files/dataCpuBox.R}
 	\caption{R code om boxplot van CPU gegevens te bekomen}
 	\label{CPUBox}
 \end{figure}
+%
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[width=\linewidth]{img/CPUBoxEx.png}
+%	\caption{Voorbeeld boxplot CPU data}
+%	\label{fig:CPUBoxEx}
+%\end{figure}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\linewidth]{img/CPUBoxEx.png}
-	\caption{Voorbeeld boxplot CPU data}
-	\label{fig:CPUBoxEx}
-\end{figure}
-
-Voor de gegevens van het RAM gebruik wordt op dezelfde manier te werk gegaan. De R code om de gegevens met betrekking tot het RAM geheugen wordt beschreven in figuur 
+Voor de gegevens van het RAM gebruik wordt op dezelfde manier te werk gegaan. De R code om de gegevens met betrekking tot het RAM geheugen wordt beschreven in figuur \ref{RAMBox}.
 \begin{figure}[h] 
 	\inputminted[fontsize=\footnotesize,linenos]{R}{files/dataRAMBox.R}
 	\caption{R code om boxplot van CPU gegevens te bekomen}
-	\label{CPUBox}
+	\label{RAMBox}
 \end{figure}
 
+Om ervoor te zorgen dat we de stabiliteit van de verschillende scenatios met elkaar kunnen vergelijken is het ook nodig om te weten hoeveel outliers er precies aanwezig zijn. Dit is niet altijd zo gemakkelijk te tellen als deze kort bij elkaar liggen. De outliers kunnen allemaal opgelijst worden met het volgend commando.
+\begin{minted}{bash} 
+> boxplot(ram)$out
+[1] 60.90 60.96 61.01 61.07 61.06 61.16 61.20 61.21 61.31 61.29 61.35
+[12] 61.49 61.44 61.49 61.55 61.59 61.68 61.72 61.78 61.76 61.80 61.84
+[23] 61.95 61.95 61.99 62.04 62.13 62.17 62.30 62.43 62.39 62.43 62.47
+\end{minted}
 
-Het algemene resource gebruik van de cluster kan ook voorgesteld worden als een gewone grafiek waarin het resourcegebruik van zowel de CPU als het RAM geheugen worden voorgesteld ten opzichte van de tijd. Het R script om dit te bekomen staat in figuur \ref{CPUGraph}. Een voorbeeld van een bekomen grafiek is te zien in figuur \ref{fig:CPUgraphEx}
+Als derde criteria zal er gekeken worden naar het algemene resource gebruik van de cluster. Deze zal voorgesteld worden als een lijngrafiek waarin het resource gebruik van zowel de CPU als het RAM geheugen worden voorgesteld ten opzichte van de tijd. Het R script om dit te bekomen staat in figuur \ref{CPUGraph}. 
+%Een voorbeeld van een bekomen grafiek is te zien in figuur \ref{fig:CPUgraphEx}
 \begin{figure}[h] 
 	\inputminted[fontsize=\footnotesize,linenos]{R}{files/dataCpuGraph.R}
 	\caption{R code om grafiek van CPU gegevens te bekomen}
 	\label{CPUGraph}
 \end{figure}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\linewidth]{img/CPUGraphEx.png}
-	\caption{Voorbeeld grafiek CPU data}
-	\label{fig:CPUgraphEx}
-\end{figure}
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[width=\linewidth]{img/CPUGraphEx.png}
+%	\caption{Voorbeeld grafiek CPU data}
+%	\label{fig:CPUgraphEx}
+%\end{figure}
+Als laatste criteria zal de tijd die de node nodig heeft om op te starten vergeleken worden. Dit kan simpelweg door het volgende commando uit te voeren op de node.
+\begin{minted}{bash} 
+$ systemd-analyze
+\end{minted}
 
 \clearpage
 \section{Scenario 1: Cluster opstelling zonder oog voor security}
-\begin{itemize}
-	\item Basic deployment van een statische website uitleggen aan de hand van commando's, screenshots en config files. 
-	\item deployment YAML tonen en deels uitleggen
-	\item Service YAML tonen en deels uitleggen
-	\item Nodige gegevens uit de cluster halen met sysstat
-	\item Verzamelde gegevens verwerken met RStudio en grafieken/statistieken tonen en uitleggen.
-\end{itemize}
+%\begin{itemize}
+%	\item Basic deployment van een statische website uitleggen aan de hand van commando's, screenshots en config files. 
+%	\item deployment YAML tonen en deels uitleggen
+%	\item Service YAML tonen en deels uitleggen
+%	\item Nodige gegevens uit de cluster halen met sysstat
+%	\item Verzamelde gegevens verwerken met RStudio en grafieken/statistieken tonen en uitleggen.
+%\end{itemize}
 
 %Het eerste scenario bestaat eruit om een simpele cluster op te zetten zonder specifiek oog te hebben voor de beveiliging. De deployment die zal gebruikt worden wordt in figuur \ref{basicDeploy} weergegeven. Hierin wordt een simpele demo website opgezet door gebruik te maken van de image \verb|thenetworkchuck/nccoffee:pourover|. Het aantal pods dat wordt gecreëerd wordt bepaald door de waarde van de \verb| replicas| variabele, in dit geval worden er 3 pods gecreëerd. Er wordt aangeraden om in een productieomgeving het aantal pods en nodes ongeveer gelijk te houden. De variabele \verb|imagePullPolicy: Always| zorgt ervoor dat de Docker image telkens moet worden gedownload van de registry, ook al is deze locaal aanwezig. 
 Het eerste scenario bestaat eruit om een simpele cluster op te zetten zonder specifiek oog te hebben voor de beveiliging. De deployment die zal gebruikt worden wordt in figuur \ref{basicDeploy} weergegeven. Enkele van de variabelen worden hieronder uitgelegt: 
@@ -281,28 +301,302 @@ $ kubectl describe services coffee-service
 	\label{fig:demoSite1}
 \end{figure}
 
-\subsection{Verzamelen en analyseren van de data}
-
 \clearpage
 \section{Scenario 2: Cluster opstelling met gebruik van best practices}
-\begin{itemize}
-	\item Basic deployment van een statische website met best proctices uitleggen aan de hand van commando's, screenshots en config files. 
-	\item Vooral RunAsUser en network policy's
-	\item deployment YAML tonen en best practices uitleggen
-	\item Service YAML tonen en best practices uitleggen
-	\item Nodige gegevens uit de cluster halen met sysstat
-	\item Verzamelde gegevens verwerken met RStudio en grafieken/statistieken tonen en uitleggen
-\end{itemize}
+Het tweede scenario bestaat eruit om een simpele cluster op te zetten en gebruik te maken van enkele security ``best-practices''. Best-practices zoals het gebruik maken van een \textit{trusted base image} en een \textit{privite registry} zullen niet gebruikt worden omdat deze vooral dienen om de ontwikkeling van een container applicatie te beveiligen. \textit{Pod Security Policies} en \textit{RBAC} zullen wel toegepast worden op de cluster. 
+
+Als eerste zullen er enkele Security Policies geconfigureerd worden. Het ``PodSecurityPolicy.YAML'' bestand is te zien in figuur \ref{securePol}, enkele van de variabelen worden hieronder uitgelegd: 
+
+%https://kubernetes.io/docs/concepts/policy/pod-security-policy/
+
+\textbf{seccomp.security.alpha.kubernetes.io/defaultProfileName:'runtime/default'}: Door Linode te gebruiken wordt AppArmor automatisch gebruikt op een nieuwe Node. Deze variabele zorgt ervoor dat de standaard ``container runtime'' profiel wordt gebruikt. Het is ook bijvoorbeeld mogelijk om het gebruik van de ``Docker runtime engine'' op te leggen (in dit geval werd deze al als standaard gebruikt).
+
+\textbf{privileged: false} beslist of er geprivilegieerde pods aangemaakt kunnen worden. Dit staat standaard op ``false'' en moet enkel op ``true'' gezet worden wanneer een pod andere onderdelen van host nodig heeft om te werken. 
+
+\textbf{allowPrivilegeEscalation: false}: Dit zorgt ervoor dat de user ID niet kan veranderd worden. Een ``child-process'' kan hierdoor dus ook nooit meer privileges krijgen dan de ``Parent-process''. Door deze boolean op ``false'' te zetten wordt het moeilijker voor een aanvaller om aan ``privilege escalation'' te doen.
+
+\textbf{hostNetwork: false}: Deze variabele geeft een pod de mogelijkheid om het netwerk van de host te gebruiken. Zo kan deze ook applicaties die de via de localhost werken te zien en aan te passen. Het wordt hier op ``false'' gezet omdat deze functie niet nodig is.
+
+\textbf{runAsUser: MustRunAsNonRoot}: Hier wordt de user ID gecontroleerd waarmee de nodes worden aangemaakt. De waarde ``MustRunAsNonRoot'' zorgt ervoor dat de containers niet door de root gebruiker kunnen worden aangemaakt. Dit wordt vooral gebruikt om te voorkomen dat iemand die (ongewenst) root privileges heeft verkregen nieuwe (onveilige) containers kan creëren.
+
+\textbf{SupplementalGroups: 'MustRunAs'} verplicht hier het gebruik van een ``non-root'' groep bij het aanmaken van nieuwe pods. 
+
+\textbf{ReadOnlyRootFilesystem: false} laat het aanmaken van containers met een aanpasbare ``root filesystem'' toe. Door deze variabele op ``true'' te zetten zou elke nieuwe container aangemaakt worden met een ``Read-only root filesystem''.
+
+\begin{figure}[h] 
+	\centering
+	\inputminted[fontsize=\footnotesize,linenos]{yaml}{files/securePol.yaml}
+	\caption{securePol.yaml}
+	\label{securePol}
+\end{figure}
+
+Nadat de PodSecurityPolicy is opgesteld kan deze met volgend commando op de cluster toegepast worden.
+\begin{minted}{bash} 
+$ kubectl create -f securePol.yaml
+\end{minted}
+
+De PodSecurityPolicies die op de cluster actief zijn kunnen met volgend commando opgevraagd worden.
+
+\begin{minted}{bash} 
+$ kubectl get psp
+NAME        PRIV   SELINUX    RUNASUSER         SUPGROUP  READONLYROOTFS   
+restricted  false  RunAsAny   MustRunAsNonRoot  MustRunAs false          
+\end{minted}
+
+
+Vervolgens zal er een zeer simpele testimplementatie van RBAC opgesteld worden. In figuur \ref{roleDeploy} is een kleine role gedefinieerd, deze is verantwoordelijk voor \textbf{<Uitleg over Roles>}. Het YAML bestand om de roleBinding te implementeren is te zien in figuur \ref{roleBindDeploy}. \textbf{<Uitleg over rolebindings>}
+\begin{figure}[h] 
+	\centering
+	\inputminted[fontsize=\footnotesize,linenos]{yaml}{files/role-deployment.yaml}
+	\caption{role-deployment.yaml}
+	\label{roleDeploy}
+\end{figure}
+
+\begin{figure}[h] 
+	\centering
+	\inputminted[fontsize=\footnotesize,linenos]{yaml}{files/rolebinding-deployment.yaml}
+	\caption{rolebinding-deployement.yaml}
+	\label{roleBindDeploy}
+\end{figure}
+
+De role en rolebinding kunnen op de cluster worden uitgevoerd de volgende ``create'' commando's.
+
+\begin{minted}{bash} 
+$ kubectl create -f role-deployement.yaml
+role.rbac.authorization.k8s.io/deployment-manager created
+$ kukubectl create -f rolebinding-deployment.yaml
+rolebinding.rbac.authorization.k8s.io/deployment-manager-binding created
+\end{minted}
+
+
+%\begin{itemize}
+%	\item Basic deployment van een statische website met best proctices uitleggen aan de hand van commando's, screenshots en config files. 
+%	\item Vooral RunAsUser en network policy's
+%	\item deployment YAML tonen en best practices uitleggen
+%	\item Service YAML tonen en best practices uitleggen
+%	\item Nodige gegevens uit de cluster halen met sysstat
+%	\item Verzamelde gegevens verwerken met RStudio en grafieken/statistieken tonen en uitleggen
+%\end{itemize}
 
 
 \clearpage
 \section{Scenario 3: Cluster opstelling met security tools}
+In dit laatste scenario zal er gewerkt worden de security tools die besproken zijn in sectie \ref{tools}. Project Calico zal niet worden getest aangezien dat deze automatisch wordt gebruik in de LKE en het niet mogelijk is om deze te configureren. Kube-bench en Kube-hunter zullen wel uitgetest worden. De installatie en gebruik van deze tools wordt hieronder gedemonstreerd.
+
+Als eerste is Kube-bench aan de beurt. Zoals beschreven in sectie \ref{bench} zal Kube-bench de node gaan testen tegen de \textit{CIS kubernetes Benchmarks} en een overzicht geven van de conformiteit ervan. Om Kube-bench te installeren is het nodig om een ssh verbinding op te zetten met een node in de cluster. Wanneer de verbinding gemaakt is kunnen de volgende commando's uitgevoerd worden om de installatie te voltooien.
+
+\begin{minted}{bash} 
+$ curl -L https://github.com/aquasecurity/kube-bench/releases/download/
+v0.3.1/kube-bench_0.3.1_linux_amd64.deb
+-o kube-bench_0.3.1_linux_amd64.deb
+$ sudo apt install ./kube-bench_0.3.1_linux_amd64.deb -f
+\end{minted}
+
+Kube-bench kan nu gebruikt worden om de conformiteit van de cluster te controleren. Dit kan op verschillende manieren door enkele \textit{flags} mee te geven aan de applicatie. Enkele mogelijke manieren waarop kube-bench kan gebruikt worden zijn:
 \begin{itemize}
-	\item Basic deployment van een statische website met enkele security tools uitleggen aan de hand van commando's, screenshots en config files. 
-	\item Vooral Kubehunter en KubeBench uitleggen en praktisch voorstellen
-	\item YAML files / commandos tonen en de werking uitleggen
-	\item deployment YAML tonen en best practices uitleggen
-	\item Service YAML tonen en best practices uitleggen
-	\item Nodige gegevens uit de cluster halen met sysstat
-	\item Verzamelde gegevens verwerken met RStudio en grafieken/statistieken tonen en uitleggen
+	\item \verb|$ kube-bench --benchmark cis-1.5| zal er voor zorgen dat de node wordt controlleerd op basis van de \textit{CIS benchmark} versie 1.5. Andere opties zijn: cis-1.6, gke-1.0(Google K8s engine), eks-1.0(Elastic K8s engine) en ack-1.0. GKE, EKS en ACK staan respectievelijk voor Google Kubernetes Engine, Elastic Kubernetes Engine en AWS Controllers for Kubernetes. Deze drie opties zorgen ervoor dat er checks worden uitgevoerd die specifiek voor die platformen zijn geschreven.
+	\item \verb|$ kube-bench run --targets master,node|: Door dit commando uit te voeren worden enkel de test met betrekking tot de master- en worker nodes uitgevoerd.
 \end{itemize}
+
+Om het effect van Kube-bench op het resource gebruik aan te tonen zal de cluster getest worden tegen de cis 1.5 benchmarks. De output van dit commando is te zien in figuur \ref{benchOut}. Kube-bench geeft hierin een overzicht van welke delen van de cluster wel of niet voldoen aan de benchmarks. Verder geeft het ook nog tips over hoe deze problemen kunnen opgelost worden.
+
+\begin{figure}[h] 
+	\centering
+	\inputminted[fontsize=\footnotesize,linenos]{bash}{files/benchOutput.txt}
+	\caption{Output kube-bench commando}
+	\label{benchOut}
+\end{figure}
+
+Als tweede security tool zal \textit{Kube-hunter} uitgetest worden. Zoals besproken in sectie \ref{hunter} kan kube-hunter op drie verschillende manieren worden gebruikt. In dit deel van het scenario zulle alle 3 de delen aan bod komen.
+
+De eerste manier om Kube-hunter te gebruiken is om het node te installeren zodat het alle netwerkinterfaces kan scannen. Ook hier zijn er verschillende manieren om dit te doen, namlijk via het commando \verb|pip3 install kube-hunter| of met behulp van een Docker container. Hier werd voor de tweede optie gekozen. Met volgend commando wordt de docker container op de node geïnstalleerd en geconfigureerd.
+\begin{minted}{bash} 
+$ docker run -it --rm --network host aquasec/kube-hunter
+Choose one of the options below:
+1. Remote scanning      (scans one or more specific IPs or DNS names)
+2. Interface scanning   (scans subnets on all local network interfaces)
+3. IP range scanning    (scans a given IP range)
+Your choice: 2
+\end{minted}
+Dit zal ons een zeer gedetailleerd beeld geven over hoe welke nodes en services er aanwezig zijn in het lokale netwerk van de node. Het geeft ook een overzicht van de, al dan niet, gevonden zwakheden in het netwerk.
+
+De tweede manier om kube-hunter te gebruiken is om het op een machine te installeren die buiten de cluster staat. Deze manier geeft ons een overzicht van hoe de cluster er voor een aanvaller uitziet. Dit kan aan de hand van dezelfde Docker container maar dan met de eerste optie, namelijk het ``remote scanning''. De output van dit commando wordt hieronder getoont.
+
+\begin{figure}[h] 
+	\centering
+	\inputminted[fontsize=\footnotesize,linenos]{bash}{files/hunterRemoteOutput.txt}
+	\caption{Output kube-hunter remote scanning}
+	\label{benchOut}
+\end{figure}
+
+
+De derde, en laaste, manier waarop kube-hunter kan gebruikt worden is door het als pod binnen de cluster to installeren. Dit simuleert wat er zou kunnen gebeuren als er gebruik wordt gemaakt van een gecompromitteerde pod. Dit kan simpelweg door het volgende commando uit te voeren om een ``job'' op te starten. De job zelf is te zien in figuur \ref{hunterjob}.
+
+\begin{minted}{bash} 
+$ kubectl create -f ./job.yaml
+\end{minted}
+
+Als de job aangemaakt is kunnen we op zoek naar de naam van de pod. Dit kan met volgend commando.
+\begin{minted}{bash} 
+$ kubectl describe job kube-hunter
+\end{minted}
+
+De resultaten van de interne scan kunnen opgevraagd worden door naar de logs van de pod te kijken. Figuur \ref{hunterOut} toont het commando en de bijhorende output.
+\begin{figure}[h] 
+	\centering
+	\begin{minted}[fontsize=\footnotesize,linenos]{bash} 
+	$ kubectl logs kube-hunter-zwwsz
+2021-05-12 16:31:13,364 INFO kube_hunter.modules.report.collector Started hunting
+2021-05-12 16:31:13,373 INFO kube_hunter.modules.report.collector 
+Discovering Open Kubernetes Services
+2021-05-12 16:31:13,378 INFO kube_hunter.modules.report.collector 
+Found vulnerability "CAP_NET_RAW Enabled" in Local to Pod (kube-hunter-zwwsz)
+2021-05-12 16:31:13,378 INFO kube_hunter.modules.report.collector 
+Found vulnerability "Read access to pod's service account token" in Local to Pod (kube-hunter-zwwsz)
+2021-05-12 16:31:13,378 INFO kube_hunter.modules.report.collector 
+Found vulnerability "Access to pod's secrets" in Local to Pod (kube-hunter-zwwsz)
+2021-05-12 16:31:36,101 INFO kube_hunter.modules.report.collector 
+Found open service "API Server" at 10.128.0.1:443
+2021-05-12 16:31:36,157 INFO kube_hunter.modules.report.collector 
+Found vulnerability "K8s Version Disclosure" in 10.128.0.1:443
+2021-05-12 16:31:36,162 INFO kube_hunter.modules.report.collector 
+Found vulnerability "Access to API using service account token" in 10.128.0.1:443
+
+Nodes
++-------------+------------+
+| TYPE        | LOCATION   |
++-------------+------------+
+| Node/Master | 10.128.0.1 |
++-------------+------------+
+	\end{minted}
+	\caption{Output kube-hunter remote scanning}
+	\label{hunterOut}
+\end{figure}
+
+\begin{figure}[h] 
+	\centering
+	\inputminted[fontsize=\footnotesize,linenos]{yaml}{files/hunterJob.yaml}
+	\caption{Output kube-hunter remote scanning}
+	\label{hunterjob}
+\end{figure}
+
+\clearpage
+\section{Data analyse} 
+In dit hoofdstuk zal de verzamelde data van de drie scenario's verwerkt en geanalyseerd worden. Dit zal gebeuren zoals beschreven in sectie \ref{ch:gegevens}. De drie scenario's zullen vervolgens aan de hand van deze analyse met elkaar vergeleken worden.
+
+\subsection{Scenario 1}
+% node 172.105.86.96 wordt gebruikt
+Als eerste zal het gemiddelde gebruik van zowel de CPU als het RAM geheugen verzameld worden. Voor de CPU is dit 10\% zoals te zien in figuur \ref{fig:SC1_CPUAVG}. Het gemiddelde RAM gebruik is af te lezen wanneer we de code uit figuur \ref{RAMAVG} uitvoeren op de dataset. De uitvoer hiervan is 86.73, zoals in figuur \ref{SC1_RAMAVG} te zien is.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{img/SC1_CPUAVG.png}
+	\caption{Gemiddeld CPU gebruik (100 - Laatste Kolom).}
+	\label{fig:SC1_CPUAVG}
+\end{figure}
+\begin{figure}
+	\centering
+	\begin{minted}{bash} 
+	> summary(ram)
+	RAM       
+	Min.   :84.74  
+	1st Qu.:85.78  
+	Median :86.73  
+	Mean   :86.73  
+	3rd Qu.:87.70  
+	Max.   :88.63
+	\end{minted}
+	\caption{Gemiddeld RAM gebruik}
+	\label{SC1_RAMAVG}
+\end{figure}
+
+Ten tweede zullen de gegevens in verband met de stabiliteit van het systeem bekeken worden. In figuur \ref{fig:SC1_CPUBox} en \ref{fig:SC1_RAMBox} zijn de boxplots voor zowel het CPU als RAM gebruik te zien. 
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{img/SC1_CPUBox.png}
+		\caption{Boxplot van het CPU gebruik}
+		\label{fig:SC1_CPUBox}
+	\end{minipage}
+	\quad
+	\begin{minipage}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{img/SC1_RAMBox.png}
+		\caption{Boxplot van het RAM gebruik}
+		\label{fig:SC1_RAMBox}
+	\end{minipage}
+\end{figure}
+%
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[width=\linewidth]{img/SC1_CPUBox.png}
+%	\caption{Boxplot van het CPU gebruik}
+%	\label{fig:SC1_CPUBox}
+%\end{figure}
+%
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[width=\linewidth]{img/SC1_RAMBox.png}
+%	\caption{Boxplot van het RAM gebruik}
+%	\label{fig:SC1_RAMBox}
+%\end{figure}
+
+Als derde criteria worden de gegevens van het algemene CPU en RAM gebruik bekeken. Deze worden gevisualiseerd aan de hand van een lijngrafiek. Het resultaat van scenario 1 is te zien in figuur \ref{fig:SC1_CPUGraph} en \ref{fig:SC1_RAMGraph}. In figuur \ref{fig:SC1_RAMGraph} zien wa dat het gebruikte RAM geheugen steeds stijgt. Als er via het \verb|top| of \verb|htop| commando naar het resource gebruik wordt gekeken zien we dat de ``Kubelet'' het meeste gebruikt. Vermoedelijk is dit omdat de ``Kubelet'' steeds de gezondheids-status van de node wegschrijft naar het RAM geheugen.
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[b]{0.45\linewidth}
+			\includegraphics[width=\linewidth]{img/SC1_CPUGraph.png}
+		\caption{Lijngrafiek van het CPU gebruik.}
+		\label{fig:SC1_CPUGraph}
+	\end{minipage}
+	\quad
+	\begin{minipage}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{img/SC1_RAMGraph.png}
+		\caption{Lijngrafiek van het RAM gebruik.}
+		\label{fig:SC1_RAMGraph}
+	\end{minipage}
+\end{figure}
+%
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[width=\linewidth]{img/SC1_CPUGraph.png}
+%	\caption{Lijngrafiek van het CPU gebruik.}
+%	\label{fig:SC1_CPUGraph}
+%\end{figure}
+%
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[width=\linewidth]{img/SC1_RAMGraph.png}
+%	\caption{Lijngrafiek van het RAM gebruik.}
+%	\label{fig:SC1_RAMGraph}
+%\end{figure}
+
+Het laatste criteria is de opstarttijd van de node. Deze kan men simpelweg vinden aan de hand van het \verb|systemd-analyze| commando. De uitvoer van dit commando is te zien in figuur \ref{SC1_StartTime}.
+
+\begin{figure}
+	\centering
+	\begin{minted}{bash} 
+$ systemd-analyze
+Startup finished in 6.121s (kernel) + 3.296s (userspace) = 9.418s
+	\end{minted}
+	\caption{Opstarttijd van de Node}
+	\label{SC1_StartTime}
+\end{figure}
+
+%1e is gemiddelde
+%2e is boxplot
+%3e is Graph
+%4e is opstarttijd
+
+
+\subsection{Scenario 2}
+% Node 45.79.249.208 wordt gebruikt
+%Data verzamelen over kube-bench door ./repeat.sh uit te voeren zodat dit zichtbaar is in de sar logs
+
+\subsection{Scenario 3}
+% node 172.105.86.96 wordt gebruikt
+Kubebench even laten runnen zodat er een spike komt
+
+Kube hunter op de drie manieren uitvoeren op deze cluster 
+	op een node installeren
+	een node van de andere cluster scannen
+	een bad pod erin smijten

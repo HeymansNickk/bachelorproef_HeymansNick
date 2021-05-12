@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGZdl{} kubectl get psp
+NAME        PRIV   SELINUX    RUNASUSER         SUPGROUP  READONLYROOTFS
+restricted  \PYG{n+nb}{false}  RunAsAny   MustRunAsNonRoot  MustRunAs \PYG{n+nb}{false}
+\end{Verbatim}
