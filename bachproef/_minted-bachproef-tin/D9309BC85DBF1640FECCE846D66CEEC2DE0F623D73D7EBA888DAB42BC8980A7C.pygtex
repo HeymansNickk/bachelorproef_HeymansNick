@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYGZgt{} summary\PYG{o}{(}ram\PYG{o}{)}
+	RAM
+	Min.   :51.12
+	1st Qu.:57.34
+	Median :59.45
+	Mean   :65.16
+	3rd Qu.:74.53
+	Max.   :76.88
+\end{Verbatim}

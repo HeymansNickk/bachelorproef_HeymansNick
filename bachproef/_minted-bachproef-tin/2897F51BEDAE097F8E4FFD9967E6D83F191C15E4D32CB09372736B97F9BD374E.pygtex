@@ -1,15 +1,20 @@
 \begin{Verbatim}[commandchars=\\\{\}]
 \PYG{n+nf}{library}\PYG{p}{(}\PYG{n}{readr}\PYG{p}{)}
 \PYG{n+nf}{library}\PYG{p}{(}\PYG{n}{ggplot2}\PYG{p}{)}
-\PYG{n}{CPUoverTime} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{read\PYGZus{}table2}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}SC1\PYGZus{}CpuGebruikDag9.csv\PYGZdq{}}\PYG{p}{,} \PYG{n}{skip} \PYG{o}{=} \PYG{l+m}{1}\PYG{p}{)}
+\PYG{n}{CPUoverTime} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{read\PYGZus{}table2}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}SC2\PYGZus{}CPUGebruikDag12.csv\PYGZdq{}}\PYG{p}{,} \PYG{n}{skip} \PYG{o}{=} \PYG{l+m}{1}\PYG{p}{)}
+\PYG{n}{CPUoverTime} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{head}\PYG{p}{(}\PYG{n}{CPUoverTime}\PYG{p}{,} \PYG{o}{\PYGZhy{}} \PYG{l+m}{2}\PYG{p}{)}
 
 \PYG{c+c1}{\PYGZsh{}CPUoverTime \PYGZlt{}\PYGZhy{} CPUoverTime[1:8]}
 \PYG{n+nf}{names}\PYG{p}{(}\PYG{n}{CPUoverTime}\PYG{p}{)[}\PYG{n+nf}{names}\PYG{p}{(}\PYG{n}{CPUoverTime}\PYG{p}{)} \PYG{o}{==} \PYG{l+s}{\PYGZdq{}00:00:01\PYGZdq{}}\PYG{p}{]} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{l+s}{\PYGZdq{}Tijd\PYGZdq{}}
 \PYG{n+nf}{names}\PYG{p}{(}\PYG{n}{CPUoverTime}\PYG{p}{)[}\PYG{n+nf}{names}\PYG{p}{(}\PYG{n}{CPUoverTime}\PYG{p}{)} \PYG{o}{==} \PYG{l+s}{\PYGZdq{}\PYGZpc{}idle\PYGZdq{}}\PYG{p}{]} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{l+s}{\PYGZdq{}Cpu\PYGZdq{}}
 
+\PYG{n}{CPUoverTime}\PYG{p}{[}\PYG{l+m}{8}\PYG{p}{]} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{l+m}{100} \PYG{o}{\PYGZhy{}} \PYG{n}{CPUoverTime}\PYG{p}{[}\PYG{l+m}{8}\PYG{p}{]}
+
 \PYG{n}{CPUGraph} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n+nf}{ggplot}\PYG{p}{(}\PYG{n}{CPUoverTime}\PYG{p}{,} \PYG{n+nf}{aes}\PYG{p}{(}\PYG{n}{Tijd}\PYG{p}{,}\PYG{n}{Cpu}\PYG{p}{,}\PYG{n}{group} \PYG{o}{=} \PYG{l+m}{1}\PYG{p}{))} \PYG{o}{+} \PYG{n+nf}{geom\PYGZus{}line}\PYG{p}{()}
 
 \PYG{n}{CPUGraph} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{CPUGraph} \PYG{o}{+} \PYG{n+nf}{theme}\PYG{p}{(}\PYG{n}{axis.ticks.x} \PYG{o}{=} \PYG{n+nf}{element\PYGZus{}blank}\PYG{p}{(),} \PYG{n}{axis.text.x} \PYG{o}{=} \PYG{n+nf}{element\PYGZus{}blank}\PYG{p}{())}
+
+\PYG{n}{CPUGraph} \PYG{o}{\PYGZlt{}\PYGZhy{}} \PYG{n}{CPUGraph} \PYG{o}{+} \PYG{n+nf}{coord\PYGZus{}cartesian}\PYG{p}{(}\PYG{n}{ylim} \PYG{o}{=} \PYG{n+nf}{c}\PYG{p}{(}\PYG{l+m}{5}\PYG{p}{,} \PYG{l+m}{15}\PYG{p}{))}
 
 \PYG{n}{CPUGraph}
 \end{Verbatim}

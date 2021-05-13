@@ -107,7 +107,7 @@ Om conclusies te kunnen trekken uit dit onderzoek hebben we gegevens nodig. Meer
 $ sudo apt-get install sysstat
 \end{minted}
 
-Vervolgens moeten we de data collectie aanzetten door in het bestand \verb|/etc/default/sysstat| de variabele \verb|ENABLED| van\textit{''false''} naar \textit{''true''} om te zetten. Vanaf nu zal een van de meegeleverde tools, namelijk sar, elke 10 minuten een nieuwe entry maken in het bestand \verb|/var/log/sysstat/sa<dag van de maand>|. We kunnen deze bestanden uitlezen met behulp van het \verb|sar| commando. Om het CPU gebruik van het systeem om te zetten naar een csv bestand, het het later in RStudio te verwerken, kunnen we het volgende commando gebruiken. In figuur \ref{CPUDataPreview} is het net gecreëerde csv bestand te zien.
+Vervolgens moeten we de data collectie aanzetten door in het bestand \verb|/etc/default/sysstat| de variabele \verb|ENABLED| van\textit{''false''} naar \textit{''true''} om te zetten. Vanaf nu zal een van de meegeleverde tools, namelijk sar, elke 10 minuten een nieuwe entry maken in het bestand \verb|/var/log/sysstat/sa<dag van de maand>|. We kunnen deze bestanden uitlezen met behulp van het \verb|sar| commando. Om het CPU gebruik van het systeem om te zetten naar een csv bestand, het het later in RStudio te verwerken, kunnen we het volgende commando gebruiken. In figuur \ref{fig:CPUDataPreview} is het net gecreëerde csv bestand te zien.
 
 \begin{minted}{bash} 
 $ sar -f /var/log/sysstat/sa08 >> /root/CpuGebruikDag8.csv
@@ -420,13 +420,13 @@ Your choice: 2
 \end{minted}
 Dit zal ons een zeer gedetailleerd beeld geven over hoe welke nodes en services er aanwezig zijn in het lokale netwerk van de node. Het geeft ook een overzicht van de, al dan niet, gevonden zwakheden in het netwerk.
 
-De tweede manier om kube-hunter te gebruiken is om het op een machine te installeren die buiten de cluster staat. Deze manier geeft ons een overzicht van hoe de cluster er voor een aanvaller uitziet. Dit kan aan de hand van dezelfde Docker container maar dan met de eerste optie, namelijk het ``remote scanning''. De output van dit commando wordt hieronder getoont.
+De tweede manier om kube-hunter te gebruiken is om het op een machine te installeren die buiten de cluster staat. Deze manier geeft ons een overzicht van hoe de cluster er voor een aanvaller uitziet. Dit kan aan de hand van dezelfde Docker container maar dan met de eerste optie, namelijk het ``remote scanning''. De output van dit commando wordt in figuur \ref{remoteHunt} getoont.
 
 \begin{figure}[h] 
 	\centering
 	\inputminted[fontsize=\footnotesize,linenos]{bash}{files/hunterRemoteOutput.txt}
 	\caption{Output kube-hunter remote scanning}
-	\label{benchOut}
+	\label{remoteHunt}
 \end{figure}
 
 
@@ -484,16 +484,17 @@ Nodes
 \section{Data analyse} 
 In dit hoofdstuk zal de verzamelde data van de drie scenario's verwerkt en geanalyseerd worden. Dit zal gebeuren zoals beschreven in sectie \ref{ch:gegevens}. De drie scenario's zullen vervolgens aan de hand van deze analyse met elkaar vergeleken worden.
 
+\clearpage
 \subsection{Scenario 1}
 % node 172.105.86.96 wordt gebruikt
-Als eerste zal het gemiddelde gebruik van zowel de CPU als het RAM geheugen verzameld worden. Voor de CPU is dit 10\% zoals te zien in figuur \ref{fig:SC1_CPUAVG}. Het gemiddelde RAM gebruik is af te lezen wanneer we de code uit figuur \ref{RAMAVG} uitvoeren op de dataset. De uitvoer hiervan is 86.73, zoals in figuur \ref{SC1_RAMAVG} te zien is.
+Als eerste zal het gemiddelde gebruik van zowel de CPU als het RAM geheugen verzameld worden. Voor de CPU is dit 10\% zoals te zien in figuur \ref{fig:SC1_CPUAVG}. Het gemiddelde RAM gebruik is af te lezen wanneer we de code uit figuur \ref{RAMAVG} uitvoeren op de dataset. De uitvoer hiervan is 86.73\%, zoals in figuur \ref{SC1_RAMAVG} te zien is.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\linewidth]{img/SC1_CPUAVG.png}
 	\caption{Gemiddeld CPU gebruik (100 - Laatste Kolom).}
 	\label{fig:SC1_CPUAVG}
 \end{figure}
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\begin{minted}{bash} 
 	> summary(ram)
@@ -509,76 +510,64 @@ Als eerste zal het gemiddelde gebruik van zowel de CPU als het RAM geheugen verz
 	\label{SC1_RAMAVG}
 \end{figure}
 
-Ten tweede zullen de gegevens in verband met de stabiliteit van het systeem bekeken worden. In figuur \ref{fig:SC1_CPUBox} en \ref{fig:SC1_RAMBox} zijn de boxplots voor zowel het CPU als RAM gebruik te zien. 
+Ten tweede zullen de gegevens in verband met de stabiliteit van het systeem bekeken worden. In figuur \ref{fig:SC1_CPUBox} en \ref{fig:SC1_RAMBox} zijn de boxplots voor zowel het CPU als RAM gebruik te zien. We kunnen zien dat bij het CPU gebruik er maar 3 outliers zijn en bij het RAM gebruik zijn er zelf geen outliers. 
 
-\begin{figure}[ht]
+%\begin{figure}[ht]
+%	\centering
+%	\begin{minipage}[b]{0.75\linewidth}
+%		\includegraphics[width=\linewidth]{img/SC1_CPUBox.png}
+%		\caption{Boxplot van het CPU gebruik in Scenario 1}
+%		\label{fig:SC1_CPUBox}
+%	\end{minipage}
+%	\quad
+%	\begin{minipage}[b]{0.75\linewidth}
+%		\includegraphics[width=\linewidth]{img/SC1_RAMBox.png}
+%		\caption{Boxplot van het RAM gebruik in Scenario 1}
+%		\label{fig:SC1_RAMBox}
+%	\end{minipage}
+%\end{figure}
+%
+\begin{figure}[h]
 	\centering
-	\begin{minipage}[b]{0.45\linewidth}
-		\includegraphics[width=\linewidth]{img/SC1_CPUBox.png}
-		\caption{Boxplot van het CPU gebruik}
-		\label{fig:SC1_CPUBox}
-	\end{minipage}
-	\quad
-	\begin{minipage}[b]{0.45\linewidth}
-		\includegraphics[width=\linewidth]{img/SC1_RAMBox.png}
-		\caption{Boxplot van het RAM gebruik}
-		\label{fig:SC1_RAMBox}
-	\end{minipage}
+	\includegraphics[width=0.75\linewidth]{img/SC1_CPUBox.png}
+	\caption{Boxplot van het CPU gebruik in Scenario 1}
+	\label{fig:SC1_CPUBox}
 \end{figure}
-%
-%\begin{figure}[h]
-%	\centering
-%	\includegraphics[width=\linewidth]{img/SC1_CPUBox.png}
-%	\caption{Boxplot van het CPU gebruik}
-%	\label{fig:SC1_CPUBox}
-%\end{figure}
-%
-%\begin{figure}[h]
-%	\centering
-%	\includegraphics[width=\linewidth]{img/SC1_RAMBox.png}
-%	\caption{Boxplot van het RAM gebruik}
-%	\label{fig:SC1_RAMBox}
-%\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.75\linewidth]{img/SC1_RAMBox.png}
+	\caption{Boxplot van het RAM gebruik in Scenario 1}
+	\label{fig:SC1_RAMBox}
+\end{figure}
 
 Als derde criteria worden de gegevens van het algemene CPU en RAM gebruik bekeken. Deze worden gevisualiseerd aan de hand van een lijngrafiek. Het resultaat van scenario 1 is te zien in figuur \ref{fig:SC1_CPUGraph} en \ref{fig:SC1_RAMGraph}. In figuur \ref{fig:SC1_RAMGraph} zien wa dat het gebruikte RAM geheugen steeds stijgt. Als er via het \verb|top| of \verb|htop| commando naar het resource gebruik wordt gekeken zien we dat de ``Kubelet'' het meeste gebruikt. Vermoedelijk is dit omdat de ``Kubelet'' steeds de gezondheids-status van de node wegschrijft naar het RAM geheugen.
-\begin{figure}[ht]
+
+\begin{figure}[h]
 	\centering
 	\begin{minipage}[b]{0.45\linewidth}
 			\includegraphics[width=\linewidth]{img/SC1_CPUGraph.png}
-		\caption{Lijngrafiek van het CPU gebruik.}
+		\caption{Lijngrafiek van het CPU gebruik in Scenario 1.}
 		\label{fig:SC1_CPUGraph}
 	\end{minipage}
 	\quad
 	\begin{minipage}[b]{0.45\linewidth}
 		\includegraphics[width=\linewidth]{img/SC1_RAMGraph.png}
-		\caption{Lijngrafiek van het RAM gebruik.}
+		\caption{Lijngrafiek van het RAM gebruik in Scenario 1.}
 		\label{fig:SC1_RAMGraph}
 	\end{minipage}
 \end{figure}
-%
-%\begin{figure}[h]
-%	\centering
-%	\includegraphics[width=\linewidth]{img/SC1_CPUGraph.png}
-%	\caption{Lijngrafiek van het CPU gebruik.}
-%	\label{fig:SC1_CPUGraph}
-%\end{figure}
-%
-%\begin{figure}[h]
-%	\centering
-%	\includegraphics[width=\linewidth]{img/SC1_RAMGraph.png}
-%	\caption{Lijngrafiek van het RAM gebruik.}
-%	\label{fig:SC1_RAMGraph}
-%\end{figure}
+
 
 Het laatste criteria is de opstarttijd van de node. Deze kan men simpelweg vinden aan de hand van het \verb|systemd-analyze| commando. De uitvoer van dit commando is te zien in figuur \ref{SC1_StartTime}.
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\begin{minted}{bash} 
 $ systemd-analyze
 Startup finished in 6.121s (kernel) + 3.296s (userspace) = 9.418s
 	\end{minted}
-	\caption{Opstarttijd van de Node}
+	\caption{Opstarttijd van de Node in Scenario 1}
 	\label{SC1_StartTime}
 \end{figure}
 
@@ -587,16 +576,240 @@ Startup finished in 6.121s (kernel) + 3.296s (userspace) = 9.418s
 %3e is Graph
 %4e is opstarttijd
 
-
+\clearpage
 \subsection{Scenario 2}
 % Node 45.79.249.208 wordt gebruikt
-%Data verzamelen over kube-bench door ./repeat.sh uit te voeren zodat dit zichtbaar is in de sar logs
+Als eerste zal het gemiddelde gebruik van zowel de CPU als het RAM geheugen verzameld worden. Voor de CPU is dit 10.15\% zoals te zien in figuur \ref{fig:SC2_CPUAVG}. Het gemiddelde RAM gebruik is af te lezen wanneer we de code uit figuur \ref{RAMAVG} uitvoeren op de dataset. De uitvoer hiervan is 65.16\%, zoals in figuur \ref{SC2_RAMAVG} te zien is.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{img/SC2_CPUAVG.png}
+	\caption{Gemiddeld CPU gebruik (100 - Laatste Kolom).}
+	\label{fig:SC2_CPUAVG}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\begin{minted}{bash} 
+	> summary(ram)
+	RAM       
+	Min.   :51.12  
+	1st Qu.:57.34  
+	Median :59.45  
+	Mean   :65.16  
+	3rd Qu.:74.53  
+	Max.   :76.88  
+	\end{minted}
+	\caption{Gemiddeld RAM gebruik in Scenario 2}
+	\label{SC2_RAMAVG}
+\end{figure}
 
+Ten tweede zullen de gegevens in verband met de stabiliteit van het systeem bekeken worden. In figuur \ref{fig:SC2_CPUBox} en \ref{fig:SC2_RAMBox} zijn de boxplots voor zowel het CPU als RAM gebruik te zien. We kunnen zien dat bij het CPU gebruik er 4 outliers zijn en bij het RAM gebruik zijn er zelf geen outliers. 
+
+%\begin{figure}[ht]
+%	\centering
+%	\begin{minipage}[b]{0.75\linewidth}
+%		\includegraphics[width=\linewidth]{img/SC2_CPUBox.png}
+%		\caption{Boxplot van het CPU gebruik in Scenario 2.}
+%		\label{fig:SC2_CPUBox}
+%	\end{minipage}
+%	\quad
+%	\begin{minipage}[b]{0.75\linewidth}
+%		\includegraphics[width=\linewidth]{img/SC2_RAMBox.png}
+%		\caption{Boxplot van het RAM gebruik in Scenario 2.}
+%		\label{fig:SC2_RAMBox}
+%	\end{minipage}
+%\end{figure}
+%
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.75\linewidth]{img/SC2_CPUBox.png}
+	\caption{Boxplot van het CPU gebruik in Scenario 2}
+	\label{fig:SC2_CPUBox}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.75\linewidth]{img/SC2_RAMBox.png}
+	\caption{Boxplot van het RAM gebruik in Scenario 2}
+	\label{fig:SC2_RAMBox}
+\end{figure}
+
+
+Als derde criteria worden de gegevens van het algemene CPU en RAM gebruik bekeken. Deze worden gevisualiseerd aan de hand van een lijngrafiek. Het resultaat van scenario 1 is te zien in figuur \ref{fig:SC2_CPUGraph} en \ref{fig:SC2_RAMGraph}. 
+\begin{figure}[h]
+	\centering
+	\begin{minipage}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{img/SC2_CPUGraph.png}
+		\caption{Lijngrafiek van het CPU gebruik in Scenario 2.}
+		\label{fig:SC2_CPUGraph}
+	\end{minipage}
+	\quad
+	\begin{minipage}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{img/SC2_RAMGraph.png}
+		\caption{Lijngrafiek van het RAM gebruik in Scenario 2.}
+		\label{fig:SC2_RAMGraph}
+	\end{minipage}
+\end{figure}
+
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[width=0.75\linewidth]{img/SC2_CPUGraph.png}
+%	\caption{Boxplot van het CPU gebruik in Scenario 2}
+%	\label{fig:SC2_CPUGraph}
+%\end{figure}
+%
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[width=0.75\linewidth]{img/SC2_RAMGraph.png}
+%	\caption{Boxplot van het RAM gebruik in Scenario 2}
+%	\label{fig:SC2_RAMGraph}
+%\end{figure}
+
+
+Het laatste criteria is de opstarttijd van de node. Deze kan men simpelweg vinden aan de hand van het \verb|systemd-analyze| commando. De uitvoer van dit commando is te zien in figuur \ref{SC2_StartTime}.
+
+\begin{figure}[h]
+	\centering
+	\begin{minted}{bash} 
+	$ systemd-analyze
+	Startup finished in 6.246s (kernel) + 2.997s (userspace) = 9.243s
+	\end{minted}
+	\caption{Opstarttijd van de Node}
+	\label{SC2_StartTime}
+\end{figure}
+
+\clearpage
 \subsection{Scenario 3}
 % node 172.105.86.96 wordt gebruikt
-Kubebench even laten runnen zodat er een spike komt
+%Data verzamelen over kube-bench door ./repeat.sh uit te voeren zodat dit zichtbaar is in de sar logs
+%Kubebench even laten runnen zodat er een spike komt
+%
+%Kube hunter op de drie manieren uitvoeren op deze cluster 
+%	op een node installeren
+%	een node van de andere cluster scannen
+%	een bad pod erin smijten
 
-Kube hunter op de drie manieren uitvoeren op deze cluster 
-	op een node installeren
-	een node van de andere cluster scannen
-	een bad pod erin smijten
+Als eerste zal het gemiddelde gebruik van zowel de CPU als het RAM geheugen verzameld worden. Voor de CPU is dit 12.3\% zoals te zien in figuur \ref{fig:SC3_CPUAVG}. Het gemiddelde RAM gebruik is af te lezen wanneer we de code uit figuur \ref{RAMAVG} uitvoeren op de dataset. De uitvoer hiervan is 86.47\%, zoals in figuur \ref{SC3_RAMAVG} te zien is.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{img/SC3_CPUAVG.png}
+	\caption{Gemiddeld CPU gebruik (100 - Laatste Kolom).}
+	\label{fig:SC3_CPUAVG}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\begin{minted}{bash} 
+	summary(ram)
+	RAM       
+	Min.   :80.38  
+	1st Qu.:84.83  
+	Median :85.37  
+	Mean   :86.47  
+	3rd Qu.:90.85  
+	Max.   :91.30  
+	\end{minted}
+	\caption{Gemiddeld RAM gebruik}
+	\label{SC3_RAMAVG}
+\end{figure}
+
+Ten tweede zullen de gegevens in verband met de stabiliteit van het systeem bekeken worden. In figuur \ref{fig:SC3_CPUBox} en \ref{fig:SC3_RAMBox} zijn de boxplots voor zowel het CPU als RAM gebruik te zien. Bij het CPU gebruik zien we 11 outliers en bij het RAM gebruik zijn er geen outliers.
+
+%\begin{figure}[ht]
+%	\centering
+%	\begin{minipage}[b]{0.75\linewidth}
+%		\includegraphics[width=\linewidth]{img/SC3_CPUBox.png}
+%		\caption{Boxplot van het CPU gebruik in Scenario 3}
+%		\label{fig:SC3_CPUBox}
+%	\end{minipage}
+%	\quad
+%	\begin{minipage}[b]{0.75\linewidth}
+%		\includegraphics[width=\linewidth]{img/SC3_RAMBox.png}
+%		\caption{Boxplot van het RAM gebruik in Scenario 3}
+%		\label{fig:SC3_RAMBox}
+%	\end{minipage}
+%\end{figure}
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.75\linewidth]{img/SC3_CPUBox.png}
+	\caption{Boxplot van het CPU gebruik in Scenario 3}
+	\label{fig:SC3_CPUBox}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.75\linewidth]{img/SC3_RAMBox.png}
+	\caption{Boxplot van het RAM gebruik in Scenario 3}
+	\label{fig:SC3_RAMBox}
+\end{figure}
+
+
+Als derde criteria worden de gegevens van het algemene CPU en RAM gebruik bekeken. Deze worden gevisualiseerd aan de hand van een lijngrafiek. Het resultaat van scenario 1 is te zien in figuur \ref{fig:SC3_CPUGraph} en \ref{fig:SC3_RAMGraph}. De eerste piek is te wijten aan het gebruik van Kube-bench terwijl de tweede en derde piek zijn veroorzaakt door het gebruik van Kube-hunter.
+\begin{figure}[h]
+	\centering
+	\begin{minipage}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{img/SC3_CPUGraph.png}
+		\caption{Lijngrafiek van het CPU gebruik in Scenario 3.}
+		\label{fig:SC3_CPUGraph}
+	\end{minipage}
+	\quad
+	\begin{minipage}[b]{0.45\linewidth}
+		\includegraphics[width=\linewidth]{img/SC3_RAMGraph.png}
+		\caption{Lijngrafiek van het RAM gebruik in Scenario 3.}
+		\label{fig:SC3_RAMGraph}
+	\end{minipage}
+\end{figure}
+
+
+Het laatste criteria is de opstarttijd van de node. Deze kan men simpelweg vinden aan de hand van het \verb|systemd-analyze| commando. De uitvoer van dit commando is te zien in figuur \ref{SC3_StartTime}.
+
+\begin{figure}[h]
+	\centering
+	\begin{minted}{bash} 
+	$ systemd-analyze
+	Startup finished in 6.153s (kernel) + 5.180s (userspace) = 11.334s
+	\end{minted}
+	\caption{Opstarttijd van de Node in Scenario 3}
+	\label{SC3_StartTime}
+\end{figure}
+
+\clearpage
+\subsection{Vergelijken van de data}
+Nu alle gegevens verzameld en verwerkt zijn kunne we deze met elkaar gaan vergelijken. Als eerste zal het gemiddeld resource gebruik van de verschillende scenario's besproken worden. Tabel \ref{tab:AVGResource} geeft een overzicht van de data. In deze tabel is duidelijk te zien dat zowel de ``Best practices'' als de ``Security tools'' een invloed hebben gehad op de CPU. De hoeveelheid gebruikte RAM is daarentegen hetzelfde gebleven bij zowel Scenario één als drie en is in scenario twee zelfs gezakt. Ook al werden in scenario drie de tools maar sporadisch gebruikt, toch hebben deze een aanzienlijke impact op het gemiddeld resource gebruik van de cluster gehad. 
+\begin{table}[h]
+	\centering
+	\begin{tabular}{lccc}
+		Gemiddeld resource gebruik & Scenario1 & Scenario2 & Scenario3 \\ \hline
+		CPU                        & 10        & 11.85        & 12.3      \\ \hline
+		Ram                        & 86.73     & 65.16        & 86.47    
+	\end{tabular}
+	\caption{Gemiddeld resource gebruik van de scenario's}
+	\label{tab:AVGResource}
+\end{table}
+
+Het tweede criteria dat onderzocht werd is de stabiliteit van de cluster, dit door het aantal outliers te tellen. In tabel \ref{tab:Outliers} is te zien hoeveel outliers er per scenario werden gedetecteerd. Geen enkel scenario had effect op de stabiliteit van het RAM gebruik maar het CPU gebruik werd wel iets onstabieler in scenario twee. De grote hoeveelheid outliers in scenario drie is te wijten aan het feit da de security tools niet constant werken. De outliers komen hier dus overeen met de momenten waarop de tools actief werden gebruikt. Hieruit is te concluderen dat best practices een kleine (bijna verwaarloosbare) impact hebben op de stabiliteit. Alsook dat security tools een tijdelijke maar toch aanzienlijk effect hebben op de data.
+%
+\begin{table}[h]
+	\centering
+	\begin{tabular}{lccc}
+		Aantal outliers & Scenario1 & Scenario2 & Scenario3 \\ \hline
+		CPU             & 3         & 4         & 11        \\ \hline
+		Ram             & 0         & 0         & 0        
+	\end{tabular}
+	\caption{Aantal outliers van de scenario's}
+	\label{tab:Outliers}
+\end{table}
+
+Het laatste criteria dat werd onderzocht is de opstart tijd van een node in de cluster. Tabel \ref{tab:BootTime} toont de hoeveelheid seconden de node in elk scenario nodig had om op te starten. Deze tabel maakt duidelijk dat best practices geen (of in dit geval een positief) effect hebben op de opstarttijd van een cluster. Aan de andere kant deed de node er wel twee seconden langer over om op te starten. 
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{lccc}
+		& Scenario1 & Scenario2 & Scenario3 \\ \hline
+		Opstarttijd & 9.418     & 9.243     & 11.334   
+	\end{tabular}
+	\caption{Tijd die de Node nodig had om op te starten}
+	\label{tab:BootTime}
+\end{table}
+
+

@@ -5,81 +5,109 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Type 1 \& Type 2 Hypervisor \autocite {VMWare2021}}}{20}{figure.2.1}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Type 1 \& Type 2 Hypervisor \autocite {VMWare2021}}}{22}{figure.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Container vs. virtuele machine \autocite {Google2016}}}{21}{figure.2.2}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Container vs. virtuele machine \autocite {Google2016}}}{23}{figure.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Kubernetes cluster componenten \autocite {Docker2021a}}}{22}{figure.2.3}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Kubernetes cluster componenten \autocite {Docker2021a}}}{24}{figure.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Kubernetes cluster componenten \autocite {Kubernetes2021}}}{25}{figure.2.4}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Kubernetes cluster componenten \autocite {Kubernetes2021}}}{27}{figure.2.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Platformen die ondersteunt zorden door Calico \autocite {Tigera2021}}}{30}{figure.2.5}%
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Aanmaken Linode cluster}}{35}{figure.3.1}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Toevoegen van nodes aan cluster}}{36}{figure.3.2}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.3}{\ignorespaces kubeconfig.yaml}}{37}{figure.3.3}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Klein deel van het gebruikte csv bestand}}{38}{figure.3.4}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.5}{\ignorespaces R code om boxplot van CPU gegevens te bekomen}}{39}{figure.3.5}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.6}{\ignorespaces R code om boxplot van CPU gegevens te bekomen}}{39}{figure.3.6}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.7}{\ignorespaces R code om boxplot van CPU gegevens te bekomen}}{40}{figure.3.7}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.8}{\ignorespaces R code om grafiek van CPU gegevens te bekomen}}{40}{figure.3.8}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.9}{\ignorespaces deployment.yaml}}{41}{figure.3.9}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Pods worden klaargemaakt}}{42}{figure.3.10}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Output ``kubectl edit deployment'' commando}}{43}{figure.3.11}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Pods worden klaargemaakt}}{44}{figure.3.12}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.13}{\ignorespaces service.yaml}}{44}{figure.3.13}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Informatie over de loadbalancer service.}}{44}{figure.3.14}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.15}{\ignorespaces De demo website is nu zichtbaar vanop het internet.}}{45}{figure.3.15}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.16}{\ignorespaces securePol.yaml}}{47}{figure.3.16}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.17}{\ignorespaces role-deployment.yaml}}{48}{figure.3.17}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.18}{\ignorespaces rolebinding-deployement.yaml}}{48}{figure.3.18}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.19}{\ignorespaces Output kube-bench commando}}{50}{figure.3.19}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.20}{\ignorespaces Output kube-hunter remote scanning}}{51}{figure.3.20}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.21}{\ignorespaces Output kube-hunter remote scanning}}{52}{figure.3.21}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.22}{\ignorespaces Output kube-hunter remote scanning}}{52}{figure.3.22}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.23}{\ignorespaces Gemiddeld CPU gebruik (100 - Laatste Kolom).}}{53}{figure.3.23}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.24}{\ignorespaces Gemiddeld RAM gebruik}}{53}{figure.3.24}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.25}{\ignorespaces Boxplot van het CPU gebruik}}{54}{figure.3.25}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.26}{\ignorespaces Boxplot van het RAM gebruik}}{54}{figure.3.26}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.27}{\ignorespaces Lijngrafiek van het CPU gebruik.}}{54}{figure.3.27}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.28}{\ignorespaces Lijngrafiek van het RAM gebruik.}}{54}{figure.3.28}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.29}{\ignorespaces Opstarttijd van de Node}}{54}{figure.3.29}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Platformen die ondersteunt zorden door Calico \autocite {Tigera2021}}}{32}{figure.2.5}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Aanmaken Linode cluster}}{37}{figure.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Toevoegen van nodes aan cluster}}{38}{figure.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.3}{\ignorespaces kubeconfig.yaml}}{39}{figure.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Klein deel van het gebruikte csv bestand}}{40}{figure.3.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.5}{\ignorespaces R code om boxplot van CPU gegevens te bekomen}}{41}{figure.3.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.6}{\ignorespaces R code om boxplot van CPU gegevens te bekomen}}{41}{figure.3.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.7}{\ignorespaces R code om boxplot van CPU gegevens te bekomen}}{42}{figure.3.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.8}{\ignorespaces R code om grafiek van CPU gegevens te bekomen}}{42}{figure.3.8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.9}{\ignorespaces deployment.yaml}}{44}{figure.3.9}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Pods worden klaargemaakt}}{45}{figure.3.10}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Output ``kubectl edit deployment'' commando}}{46}{figure.3.11}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Pods worden klaargemaakt}}{47}{figure.3.12}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.13}{\ignorespaces service.yaml}}{47}{figure.3.13}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Informatie over de loadbalancer service.}}{47}{figure.3.14}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.15}{\ignorespaces De demo website is nu zichtbaar vanop het internet.}}{48}{figure.3.15}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.16}{\ignorespaces securePol.yaml}}{50}{figure.3.16}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.17}{\ignorespaces role-deployment.yaml}}{51}{figure.3.17}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.18}{\ignorespaces rolebinding-deployement.yaml}}{51}{figure.3.18}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Output kube-bench commando}}{53}{figure.3.19}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Output kube-hunter remote scanning}}{54}{figure.3.20}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Output kube-hunter remote scanning}}{55}{figure.3.21}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.22}{\ignorespaces Output kube-hunter remote scanning}}{55}{figure.3.22}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Gemiddeld CPU gebruik (100 - Laatste Kolom).}}{57}{figure.3.23}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Gemiddeld RAM gebruik}}{57}{figure.3.24}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.25}{\ignorespaces Boxplot van het CPU gebruik in Scenario 1}}{57}{figure.3.25}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.26}{\ignorespaces Boxplot van het RAM gebruik in Scenario 1}}{58}{figure.3.26}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.27}{\ignorespaces Lijngrafiek van het CPU gebruik in Scenario 1.}}{58}{figure.3.27}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.28}{\ignorespaces Lijngrafiek van het RAM gebruik in Scenario 1.}}{58}{figure.3.28}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.29}{\ignorespaces Opstarttijd van de Node in Scenario 1}}{58}{figure.3.29}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.30}{\ignorespaces Gemiddeld CPU gebruik (100 - Laatste Kolom).}}{59}{figure.3.30}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.31}{\ignorespaces Gemiddeld RAM gebruik in Scenario 2}}{59}{figure.3.31}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.32}{\ignorespaces Boxplot van het CPU gebruik in Scenario 2}}{59}{figure.3.32}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.33}{\ignorespaces Boxplot van het RAM gebruik in Scenario 2}}{60}{figure.3.33}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.34}{\ignorespaces Lijngrafiek van het CPU gebruik in Scenario 2.}}{60}{figure.3.34}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.35}{\ignorespaces Lijngrafiek van het RAM gebruik in Scenario 2.}}{60}{figure.3.35}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.36}{\ignorespaces Opstarttijd van de Node}}{60}{figure.3.36}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.37}{\ignorespaces Gemiddeld CPU gebruik (100 - Laatste Kolom).}}{61}{figure.3.37}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.38}{\ignorespaces Gemiddeld RAM gebruik}}{61}{figure.3.38}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.39}{\ignorespaces Boxplot van het CPU gebruik in Scenario 3}}{61}{figure.3.39}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.40}{\ignorespaces Boxplot van het RAM gebruik in Scenario 3}}{62}{figure.3.40}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.41}{\ignorespaces Lijngrafiek van het CPU gebruik in Scenario 3.}}{62}{figure.3.41}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.42}{\ignorespaces Lijngrafiek van het RAM gebruik in Scenario 3.}}{62}{figure.3.42}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.43}{\ignorespaces Opstarttijd van de Node in Scenario 3}}{62}{figure.3.43}%
+\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Verwachte opstart tijd}}{60}{figure.A.1}%
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Verwacht resource gebruik}}{60}{figure.A.2}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Verwachte opstart tijd}}{70}{figure.A.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Verwacht resource gebruik}}{70}{figure.A.2}%
 \contentsfinish 

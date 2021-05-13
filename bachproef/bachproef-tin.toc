@@ -1,115 +1,117 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \babel@toc {dutch}{}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {1}Inleiding}{15}{chapter.1}%
+\contentsline {chapter}{\numberline {1}Inleiding}{17}{chapter.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.1}Probleemstelling}{16}{section.1.1}%
+\contentsline {section}{\numberline {1.1}Probleemstelling}{18}{section.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.2}Onderzoeksvraag}{16}{section.1.2}%
+\contentsline {section}{\numberline {1.2}Onderzoeksvraag}{18}{section.1.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.3}Onderzoeksdoelstelling}{16}{section.1.3}%
+\contentsline {section}{\numberline {1.3}Onderzoeksdoelstelling}{18}{section.1.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.4}Opzet van deze bachelorproef}{16}{section.1.4}%
+\contentsline {section}{\numberline {1.4}Opzet van deze bachelorproef}{18}{section.1.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {2}Stand van zaken}{19}{chapter.2}%
+\contentsline {chapter}{\numberline {2}Stand van zaken}{21}{chapter.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}Containers}{19}{section.2.1}%
+\contentsline {section}{\numberline {2.1}Containers}{21}{section.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.1}Container vs. virtuele machine}{20}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.1}Container vs. virtuele machine}{22}{subsection.2.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Hypervisors}{20}{section*.6}%
+\contentsline {subsubsection}{Hypervisors}{22}{section*.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.2}Waarvoor worden containers gebruikt}{21}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.2}Waarvoor worden containers gebruikt}{23}{subsection.2.1.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}Docker}{21}{section.2.2}%
+\contentsline {section}{\numberline {2.2}Docker}{23}{section.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.1}Hoe werkt docker}{22}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.1}Hoe werkt docker}{24}{subsection.2.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.2}Docker componenten en terminologie}{22}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.2}Docker componenten en terminologie}{24}{subsection.2.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Docker Deamon}{22}{section*.7}%
+\contentsline {subsubsection}{Docker Deamon}{24}{section*.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Docker Client}{22}{section*.8}%
+\contentsline {subsubsection}{Docker Client}{24}{section*.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Docker registries}{23}{section*.9}%
+\contentsline {subsubsection}{Docker registries}{25}{section*.9}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Docker objecten}{23}{section*.10}%
+\contentsline {subsubsection}{Docker objecten}{25}{section*.10}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Container orkestratie}{23}{section.2.3}%
+\contentsline {section}{\numberline {2.3}Container orkestratie}{25}{section.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Waarvoor word container orkestratie gebruikt?}{23}{section*.11}%
+\contentsline {subsubsection}{Waarvoor word container orkestratie gebruikt?}{25}{section*.11}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.1}Container orkestratie tools}{24}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.1}Container orkestratie tools}{26}{subsection.2.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Kubernetes}{24}{section*.12}%
+\contentsline {subsubsection}{Kubernetes}{26}{section*.12}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Openshift}{24}{section*.13}%
+\contentsline {subsubsection}{Openshift}{26}{section*.13}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Hasicorp Nomad}{24}{section*.14}%
+\contentsline {subsubsection}{Hasicorp Nomad}{26}{section*.14}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}Kubernetes}{24}{section.2.4}%
+\contentsline {section}{\numberline {2.4}Kubernetes}{26}{section.2.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Kubernetes componenten en terminologie}{25}{section*.15}%
+\contentsline {subsubsection}{Kubernetes componenten en terminologie}{27}{section*.15}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.5}Security}{27}{section.2.5}%
+\contentsline {section}{\numberline {2.5}Security}{29}{section.2.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5.1}Meest voorkomende security problemen}{27}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.1}Meest voorkomende security problemen}{29}{subsection.2.5.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5.2}Hoe een container cluster beveiligen}{27}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.2}Hoe een container cluster beveiligen}{29}{subsection.2.5.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.6}Security tools}{29}{section.2.6}%
+\contentsline {section}{\numberline {2.6}Security tools}{31}{section.2.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6.1}Project Calico}{29}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.1}Project Calico}{31}{subsection.2.6.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6.2}Kube-Bench}{30}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.2}Kube-Bench}{32}{subsection.2.6.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6.3}Kube-hunter}{30}{subsection.2.6.3}%
+\contentsline {subsection}{\numberline {2.6.3}Kube-hunter}{32}{subsection.2.6.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Methodologie}{33}{chapter.3}%
+\contentsline {chapter}{\numberline {3}Methodologie}{35}{chapter.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Opzetten van de Kubernetes cluster}{34}{section.3.1}%
+\contentsline {section}{\numberline {3.1}Opzetten van de Kubernetes cluster}{36}{section.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.1}Linode Kubernetes cluster}{34}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.1}Linode Kubernetes cluster}{36}{subsection.3.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.2}Resetten van cluster}{36}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.2}Resetten van cluster}{38}{subsection.3.1.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.3}Gegevens- verzameling en verwerking}{36}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.3}Gegevens- verzameling en verwerking}{38}{subsection.3.1.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Scenario 1: Cluster opstelling zonder oog voor security}{41}{section.3.2}%
+\contentsline {section}{\numberline {3.2}Scenario 1: Cluster opstelling zonder oog voor security}{44}{section.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Scenario 2: Cluster opstelling met gebruik van best practices}{46}{section.3.3}%
+\contentsline {section}{\numberline {3.3}Scenario 2: Cluster opstelling met gebruik van best practices}{49}{section.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Scenario 3: Cluster opstelling met security tools}{49}{section.3.4}%
+\contentsline {section}{\numberline {3.4}Scenario 3: Cluster opstelling met security tools}{52}{section.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.5}Data analyse}{53}{section.3.5}%
+\contentsline {section}{\numberline {3.5}Data analyse}{56}{section.3.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5.1}Scenario 1}{53}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.1}Scenario 1}{57}{subsection.3.5.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5.2}Scenario 2}{54}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.2}Scenario 2}{59}{subsection.3.5.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5.3}Scenario 3}{54}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.3}Scenario 3}{61}{subsection.3.5.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Conclusie}{55}{chapter.4}%
+\contentsline {subsection}{\numberline {3.5.4}Vergelijken van de data}{63}{subsection.3.5.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Onderzoeksvoorstel}{57}{appendix.A}%
+\contentsline {chapter}{\numberline {4}Conclusie}{65}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.1}Inleiding en State-of-the-art}{57}{section.A.1}%
+\contentsline {chapter}{\numberline {A}Onderzoeksvoorstel}{67}{appendix.A}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.1.1}Wat zijn containers?}{57}{subsection.A.1.1}%
+\contentsline {section}{\numberline {A.1}Inleiding en State-of-the-art}{67}{section.A.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.1.2}Waarom container applicaties?}{58}{subsection.A.1.2}%
+\contentsline {subsection}{\numberline {A.1.1}Wat zijn containers?}{67}{subsection.A.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.1.3}Context voor dit onderzoek}{58}{subsection.A.1.3}%
+\contentsline {subsection}{\numberline {A.1.2}Waarom container applicaties?}{68}{subsection.A.1.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.1.4}Verloop van het onderzoek}{58}{subsection.A.1.4}%
+\contentsline {subsection}{\numberline {A.1.3}Context voor dit onderzoek}{68}{subsection.A.1.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.2}Methodologie}{58}{section.A.2}%
+\contentsline {subsection}{\numberline {A.1.4}Verloop van het onderzoek}{68}{subsection.A.1.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.3}Verwachte resultaten}{59}{section.A.3}%
+\contentsline {section}{\numberline {A.2}Methodologie}{68}{section.A.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.4}Verwachte conclusies}{59}{section.A.4}%
+\contentsline {section}{\numberline {A.3}Verwachte resultaten}{69}{section.A.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.5}Bijlagen}{59}{section.A.5}%
+\contentsline {section}{\numberline {A.4}Verwachte conclusies}{69}{section.A.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliografie}{61}{appendix*.16}%
+\contentsline {section}{\numberline {A.5}Bijlagen}{69}{section.A.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliografie}{71}{appendix*.16}%
 \contentsfinish 

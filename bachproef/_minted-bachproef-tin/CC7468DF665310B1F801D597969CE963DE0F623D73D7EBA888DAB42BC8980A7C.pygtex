@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYGZdl{} systemd\PYGZhy{}analyze
+	Startup finished \PYG{k}{in} \PYG{l+m}{6}.246s \PYG{o}{(}kernel\PYG{o}{)} + \PYG{l+m}{2}.997s \PYG{o}{(}userspace\PYG{o}{)} \PYG{o}{=} \PYG{l+m}{9}.243s
+\end{Verbatim}
