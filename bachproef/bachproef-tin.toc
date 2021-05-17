@@ -23,7 +23,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.2}Docker}{23}{section.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.1}Hoe werkt docker}{24}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.1}Hoe werkt Docker}{24}{subsection.2.2.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.2}Docker componenten en terminologie}{24}{subsection.2.2.2}%
 \defcounter {refsection}{0}\relax 
@@ -37,7 +37,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.3}Container orkestratie}{25}{section.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Waarvoor word container orkestratie gebruikt?}{25}{section*.11}%
+\contentsline {subsubsection}{Waarvoor wordt container orkestratie gebruikt?}{25}{section*.11}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.1}Container orkestratie tools}{26}{subsection.2.3.1}%
 \defcounter {refsection}{0}\relax 
@@ -51,19 +51,19 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Kubernetes componenten en terminologie}{27}{section*.15}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.5}Security}{29}{section.2.5}%
+\contentsline {section}{\numberline {2.5}Security}{30}{section.2.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5.1}Meest voorkomende security problemen}{29}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.1}Meest voorkomende security problemen}{30}{subsection.2.5.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5.2}Hoe een container cluster beveiligen}{29}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.2}Hoe een container cluster beveiligen}{30}{subsection.2.5.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.6}Security tools}{31}{section.2.6}%
+\contentsline {section}{\numberline {2.6}Security tools}{32}{section.2.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6.1}Project Calico}{31}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.1}Project Calico}{32}{subsection.2.6.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6.2}Kube-Bench}{32}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.2}Kube-Bench}{33}{subsection.2.6.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6.3}Kube-hunter}{32}{subsection.2.6.3}%
+\contentsline {subsection}{\numberline {2.6.3}Kube-hunter}{34}{subsection.2.6.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Methodologie}{35}{chapter.3}%
 \defcounter {refsection}{0}\relax 

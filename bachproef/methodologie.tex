@@ -11,7 +11,7 @@
 %% op deze manier te werk gegaan bent. Je moet kunnen aantonen dat je de best
 %% mogelijke manier toegepast hebt om een antwoord te vinden op de
 %% onderzoeksvraag.
-Om het effect van zowel K8s ``best-practice'' als K8s security tools op een cluster te onderzoeken werd er gekozen om het onderzoek in 3 scenario's onder te verdelen. Met als doel gegevens te verzamelen over enkele criteria, namelijk het resource gebruik, de stabiliteit en de opstarttijd van de cluster. Voordat we aan de scenario's kunnen beginnen, worden eerst nog alle stappen doorlopen voor het opzetten van de cluster. Nadat de cluster opgezet is zullen we beginnen met het eerste scenario namelijk het opzetten van een basis cluster om de functionaliteit van K8s aan te tonen en om baseline gegevens te verzamelen voor het onderzoek. Deze cluster zal dienen als basis om verdere scenario's verder uit te werken. Als tweede worden er enkele ``best-practice'' gehanteerd bij het opzetten en de configuratie van de cluster, dit om te onderzoeken wat voor effect deze hebben op de cluster. Ten slotte zal er bij het opzetten en configureren van de cluster gebruik gemaakt worden van enkele K8s security tools, dit om te testen wat deze precies doen en wat voor effect deze kunnen hebben op de criteria. 
+Om het effect van zowel K8s \textit{best-practices} als K8s security tools op een cluster te onderzoeken werd er gekozen om het onderzoek in 3 scenario's onder te verdelen. Met als doel gegevens te verzamelen over enkele criteria, namelijk het resource gebruik, de stabiliteit en de opstarttijd van de cluster. Voordat we aan de scenario's kunnen beginnen, worden eerst nog alle stappen doorlopen voor het opzetten van de cluster. Nadat de cluster opgezet is zullen we beginnen met het eerste scenario, namelijk het opzetten van een basis cluster om de functionaliteit van K8s aan te tonen en om baseline gegevens te verzamelen voor het onderzoek. Deze cluster zal dienen als basis om verdere scenario's verder uit te werken. Als tweede worden er enkele ``best-practice'' gehanteerd bij het opzetten en de configuratie van de cluster, dit om te onderzoeken wat voor effect deze hebben op de cluster. Ten slotte zal er bij het opzetten en configureren van de cluster gebruik gemaakt worden van enkele K8s security tools, dit om te testen wat deze precies doen en wat voor effect deze kunnen hebben op de criteria. 
 
 Gedurende dit onderzoek werd er gebruik gemaakt van de volgende hardware en software:
 
@@ -20,7 +20,7 @@ Gedurende dit onderzoek werd er gebruik gemaakt van de volgende hardware en soft
 	\item Host systeem: MSI GL62 7REX
 	\item Kernel: 5.11.0-7614-generic (Linux)
 	\item Cloud provider: Linode\footnote{cloud.linode.com/}
-	\item Nodes: 3 X Linode 2GB (1CPU core, 2GB RAM, 50GB opslag)
+	\item Nodes: 3 X Linode 2GB (1CPU core, 2GB RAM, 50GB opslag, Debian 5.10.24-1)
 \end{itemize}
 
 \section{Opzetten van de Kubernetes cluster}
@@ -29,13 +29,13 @@ In dit hoofdstuk zal de basis cluster opgezet worden. Deze manier van werken zal
 Voor het opzetten van de cluster zijn er maar drie onderdelen nodig. 
 \begin{itemize}
 	\item Account bij een cloud provider, in dit geval Linode.
-	\item Kubectl om de cluster besturen.
+	\item Kubectl om de cluster te besturen.
 	\item De Docker image om een applicatie te deployen op de cluster.
 \end{itemize}
 
 Aangezien Kubectl op zowel Linux, Windows als MacOS kan draaien, en de cluster zelf bij de cloud provider wordt gehost kunnen deze scenario's op bijna elke computer worden nagebootst. De stappen in volgende hoofdstukken worden allemaal uitgevoerd op een Linux systeem en kunnen dus verschillen op Windows of MacOS. Het is ook aangeraden om een nieuwe directory aan te maken zodat alle bestanden op eenzelfde plaats te vinden zijn.
 
-Voor dit onderzoek zal gebruik gemaakt worden van de ingebouwde ``Linode Kubernetes Engine''(LKE). Deze installeert automatisch de correcte onderdelen op de verschillende worker nodes en creëert ook een gratis master node. Hiervoor werd gekozen omdat het volledig opzetten van een K8s cluster niet binnen de scope van dit onderzoek ligt. Door gebruik te maken van de LKE kunnen we ons dus focussen op de security van de cluster. 
+Voor dit onderzoek zal gebruik gemaakt worden van de ingebouwde ``Linode Kubernetes Engine''(LKE). Deze installeert automatisch de correcte onderdelen op de verschillende worker nodes en creëert ook een gratis master node. Hiervoor werd gekozen omdat het volledig opzetten van een K8s cluster niet binnen de scope van dit onderzoek ligt. Door gebruik te maken van de LKE kunnen we ons dus focussen op de beveiliging van de cluster. 
 
 \subsection{Linode Kubernetes cluster}
 Hieronder worden de verschillende stappen die doorlopen zijn bij het opzetten van een Linode K8s cluster beschreven.
@@ -84,7 +84,7 @@ lke25332-32960-60868281f030   Ready    <none>   6d4h   v1.20.5
 lke25332-32960-608682824efd   Ready    <none>   6d4h   v1.20.5
 \end{minted}
 
-Nu Kubectl in contact staat met de ``kube-apiserver'' dewelke op de master node staat, kunnen we beginnen met het configureren van onze cluster. Dit kan zowel met ``ad-hoc'' commando's als met zogenaamde deployments die werken via het ``principle of desired state''. Met andere woorden specificeren de deployments de verschillende  aspecten van de cluster waarbij K8s ervoor zorgen dat aan deze specificaties voldaan worden.
+Nu Kubectl in contact staat met de ``kube-apiserver'' dewelke op de master node draait, kunnen we beginnen met het configureren van onze cluster. Dit kan zowel met ``ad-hoc'' commando's als met zogenaamde deployments die werken via het \textit{principle of desired state}. Met andere woorden specificeren de deployments de verschillende  aspecten van de cluster waarbij K8s ervoor zorgt dat aan deze specificaties voldaan worden.
 
 Een deployment is eigenlijk niets anders dan een YAML bestand waarin beschreven wordt hoe de cluster er moet gaan uitzien. Via het volgende commando wordt een deployment op een cluster gezet.
 \begin{minted}{bash}
@@ -102,7 +102,7 @@ $ kubectl delete service <Service naam>
 \end{minted}
 	
 \subsection{Gegevens- verzameling en verwerking} \label{ch:gegevens}
-Om conclusies te kunnen trekken uit dit onderzoek hebben we gegevens nodig. Meer bepaald gegevens over de bovengenoemde criteria, namelijk het resource gebruik, de stabiliteit en de opstarttijd van de cluster. Deze gegevens zullen gebruikt worden om de onderzoeksvraag ``Welke impact hebben \textit{best practices} en \textit{security tools} op de criteria?'' te beantwoorden. De verzameling van deze gegevens zal gebeuren via \textit{sysstat}\footnote{github.com/sysstat/sysstat}. Dit is open source tool die ons in staat stelt om een hele hoop verschillende soorten data van ons systeem te exporteren naar bruikbare formaten (zoals JSON, CSV en XML). Deze bestanden kunnen we dan later in RStudio gebruiken om er statistische modellen mee te maken. Sysstat zal op een van de nodes in de cluster worden geïnstalleerd door een ssh verbinding op te zetten en dan volgend commando uit te voeren.
+Om conclusies te kunnen trekken uit dit onderzoek hebben we gegevens nodig. Meer bepaald gegevens over de bovengenoemde criteria, namelijk het \textit{resource} gebruik, de stabiliteit en de opstarttijd van de cluster. Deze gegevens zullen gebruikt worden om de onderzoeksvraag ``Welke impact hebben \textit{best practices} en \textit{security tools} op de criteria?'' te beantwoorden. De verzameling van deze gegevens zal gebeuren via \textit{sysstat}\footnote{github.com/sysstat/sysstat}. Dit is open source tool die ons in staat stelt om een hele hoop verschillende soorten data van ons systeem te exporteren naar bruikbare formaten (zoals JSON, CSV en XML). Deze bestanden zullen later in RStudio als bron gebruikt worden om statische modellen mee te maken. Sysstat zal op een van de Nodes in de cluster worden geïnstalleerd. Dit door middel van een ssh verbinding op te zetten met één van de Nodes en dan volgend commando uit te voeren. 
 \begin{minted}{bash} 
 $ sudo apt-get install sysstat
 \end{minted}
@@ -139,7 +139,7 @@ Fetching /root/CpuGebruikDag8.csv to CpuGebruikDag8.csv
 
 Nu alle nodige gegevens zijn verzamelt kan er begonnen worden aan het verwerken van deze gegevens. Dit wordt gedaan door gebruik te maken van R en Rstudio. 
 
-Het eerste criteria is het vergelijken van het gemiddeld resource gebruik van zowel de CPU als het RAM geheugen. Voor het CPu gebruik kan dit simpelweg door de laatste rij van het csv bestand af te lezen. Het gemiddeld gebruik van het RAM geheugen wordt niet automatisch gegenereerd door sar en moet nog berekent worden. De R code om dit te doen wordt beschreven in figuur \ref{RAMAVG}.
+Het eerste criteria is het vergelijken van het gemiddeld resource gebruik van zowel de CPU als het RAM geheugen. Voor het CPU gebruik kan dit simpelweg door de laatste rij van het csv bestand af te lezen. Het gemiddeld gebruik van het RAM geheugen wordt niet automatisch gegenereerd door sar en moet nog berekent worden. De R code om dit te doen wordt beschreven in figuur \ref{RAMAVG}.
 
 \begin{figure}[h] 
 	\inputminted[fontsize=\footnotesize,linenos]{R}{files/dataRAMAVG.R}
@@ -171,7 +171,7 @@ Voor de gegevens van het RAM gebruik wordt op dezelfde manier te werk gegaan. De
 	\label{RAMBox}
 \end{figure}
 
-Om ervoor te zorgen dat we de stabiliteit van de verschillende scenatios met elkaar kunnen vergelijken is het ook nodig om te weten hoeveel outliers er precies aanwezig zijn. Dit is niet altijd zo gemakkelijk te tellen als deze kort bij elkaar liggen. De outliers kunnen allemaal opgelijst worden met het volgend commando.
+Om ervoor te zorgen dat we de stabiliteit van de verschillende scenario's  met elkaar kunnen vergelijken is het ook nodig om te weten hoeveel \textit{outliers} er precies aanwezig zijn. Dit is niet altijd zo gemakkelijk te tellen als deze kort bij elkaar liggen. De \textit{outliers} kunnen allemaal opgelijst worden met het volgend commando.
 \begin{minted}{bash} 
 > boxplot(ram)$out
 [1] 60.90 60.96 61.01 61.07 61.06 61.16 61.20 61.21 61.31 61.29 61.35
@@ -212,7 +212,7 @@ $ systemd-analyze
 Het eerste scenario bestaat eruit om een simpele cluster op te zetten zonder specifiek oog te hebben voor de beveiliging. De deployment die zal gebruikt worden wordt in figuur \ref{basicDeploy} weergegeven. Enkele van de variabelen worden hieronder uitgelegt: 
 \begin{itemize}
 	\item \verb|image: thenetworkchuck/nccoffee:pourover|: Dit is de Docker image met de statische demo site.
-	\item \verb|replicas:3|: Het aantal pods die moeten worden gecreëerd wordt door deze variabele ingesteld. In dit geval zijn dat er 3 omdat er wordt aangeraden om in een productieomgeving het aantal pods en nodes ongeveer gelijk te houden.
+	\item \verb|replicas:3|: Het aantal pods die moeten worden gecreëerd wordt door deze variabele ingesteld. In dit geval zijn dat er 3.
 	\item \verb|imagePullPolicy: Always|: Deze variabele zorgt er in dit scenario voor dat de Docker image steeds word gedownload uit de registry als de deployment wordt gebruikt.
 	\item \verb|containerPort: 80|: Dit zorgt ervoor dat de site via poort 80 beschikbaar zal zijn.
 \end{itemize}
@@ -259,7 +259,7 @@ gebruiken. In figuur \ref{editDeploy1} is de output van dit commando te zien. Al
 	\label{editDeploy1}
 \end{figure}
 
-Als we het aantal replicas verhoogd hebben van drie naar 5 en het \verb|kubectl get pods| commando uitvoeren krijgen we, zoals in figuur \ref{fig:kubectlGetPodsEditDeploy1}, te zien dat er twee extra pods worden bijgemaakt. Deze pods worden via de ``scheduler'' op de master node verdeeld over de drie nodes in onze cluster.
+Als we het aantal replicas verhoogd hebben van drie naar 5 en het \verb|kubectl get pods| commando uitvoeren krijgen we, zoals in figuur \ref{fig:kubectlGetPodsEditDeploy1} te zien, dat er twee extra pods worden bijgemaakt. Deze pods worden via de \textit{scheduler} op de master node verdeeld over de drie nodes in onze cluster.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\linewidth]{img/kubectlGetPodsEditDeploy1.png}
@@ -277,12 +277,12 @@ Nu we klaar zijn met het opzetten van de deployment is het mogelijk om de cluste
 
 
 
-Het volgend commando kan gebruikt worden om het publieke ip adres van de loadbalancer te vinden. 
+Het volgend commando kan gebruikt worden om het publieke IP-adres van de loadbalancer te vinden. 
 \begin{minted}{bash} 
 $ kubectl get services
 \end{minted}
 
-Er is ook een manier om een meer gedetailleerde beschrijving van de service te krijgen. Namelijk door middel van het volgend commando. In figuur is de output van dit commando en alle informatie over de loadbalancer service te zien. De ip adressen die worden getoond bij \verb|Endpoints:| zijn de ip adressen van alle achterliggende pods waar de ``nccoffee'' applicatie op draait. Als er nu naar het publieke ip adres van de loadbalancer wordt gesurft is de demo website te zien zoals in figuur \ref{fig:demoSite1}.
+Er is ook een manier om een meer gedetailleerde beschrijving van de service te krijgen. Namelijk door middel van het volgend commando. In figuur is de output van dit commando en alle informatie over de loadbalancer service te zien. De IP-adressen die worden getoond bij \verb|Endpoints:| zijn de IP-adressen van alle achterliggende pods waar de ``nccoffee'' applicatie op draait. Als er nu naar het publieke IP-adres van de loadbalancer wordt gesurft is de demo website te zien zoals in figuur \ref{fig:demoSite1}.
 \begin{minted}{bash} 
 $ kubectl describe services coffee-service 
 \end{minted}
@@ -303,21 +303,21 @@ $ kubectl describe services coffee-service
 
 \clearpage
 \section{Scenario 2: Cluster opstelling met gebruik van best practices}
-Het tweede scenario bestaat eruit om een simpele cluster op te zetten en gebruik te maken van enkele security ``best-practices''. Best-practices zoals het gebruik maken van een \textit{trusted base image} en een \textit{privite registry} zullen niet gebruikt worden omdat deze vooral dienen om de ontwikkeling van een container applicatie te beveiligen. \textit{Pod Security Policies} en \textit{RBAC} zullen wel toegepast worden op de cluster. 
+Het tweede scenario bestaat eruit om een simpele cluster op te zetten en gebruik te maken van enkele \textit{security best practices}. \textit{Best-practices} zoals het gebruik maken van een \textit{trusted base image} en een \textit{privite registry} zullen niet gebruikt worden omdat deze vooral dienen om de ontwikkeling van een container applicatie te beveiligen. \textit{Pod Security Policies} en \textit{RBAC} zullen wel toegepast worden op de cluster. 
 
 Als eerste zullen er enkele Security Policies geconfigureerd worden. Het ``PodSecurityPolicy.YAML'' bestand is te zien in figuur \ref{securePol}, enkele van de variabelen worden hieronder uitgelegd: 
 
 %https://kubernetes.io/docs/concepts/policy/pod-security-policy/
 
-\textbf{seccomp.security.alpha.kubernetes.io/defaultProfileName:'runtime/default'}: Door Linode te gebruiken wordt AppArmor automatisch gebruikt op een nieuwe Node. Deze variabele zorgt ervoor dat de standaard ``container runtime'' profiel wordt gebruikt. Het is ook bijvoorbeeld mogelijk om het gebruik van de ``Docker runtime engine'' op te leggen (in dit geval werd deze al als standaard gebruikt).
+\textbf{seccomp.security.alpha.kubernetes.io/defaultProfileName:'runtime/default'}: Op Linode worden nodes automatisch vooraf geinstalleerd en geconfigureerd met AppArmor (gelijkaardig aan SELinux). Deze variabele zorgt ervoor dat de standaard ``container runtime'' profiel wordt gebruikt. Nog een mogelijke optie is \textit{Docker runtime engine}(in dit geval werd deze al standaard ingesteld).
 
 \textbf{privileged: false} beslist of er geprivilegieerde pods aangemaakt kunnen worden. Dit staat standaard op ``false'' en moet enkel op ``true'' gezet worden wanneer een pod andere onderdelen van host nodig heeft om te werken. 
 
 \textbf{allowPrivilegeEscalation: false}: Dit zorgt ervoor dat de user ID niet kan veranderd worden. Een ``child-process'' kan hierdoor dus ook nooit meer privileges krijgen dan de ``Parent-process''. Door deze boolean op ``false'' te zetten wordt het moeilijker voor een aanvaller om aan ``privilege escalation'' te doen.
 
-\textbf{hostNetwork: false}: Deze variabele geeft een pod de mogelijkheid om het netwerk van de host te gebruiken. Zo kan deze ook applicaties die de via de localhost werken te zien en aan te passen. Het wordt hier op ``false'' gezet omdat deze functie niet nodig is.
+\textbf{hostNetwork: false}: Deze variabele geeft een pod de mogelijkheid om het netwerk van de host te gebruiken. Zo kan deze ook applicaties, die de via de \textit{localhost} werken, zien en deze aanpassen. Het wordt hier op ``false'' gezet omdat deze functie niet nodig is.
 
-\textbf{runAsUser: MustRunAsNonRoot}: Hier wordt de user ID gecontroleerd waarmee de nodes worden aangemaakt. De waarde ``MustRunAsNonRoot'' zorgt ervoor dat de containers niet door de root gebruiker kunnen worden aangemaakt. Dit wordt vooral gebruikt om te voorkomen dat iemand die (ongewenst) root privileges heeft verkregen nieuwe (onveilige) containers kan creëren.
+\textbf{runAsUser: MustRunAsNonRoot}: Hier wordt de user ID gecontroleerd waarmee de Pods worden aangemaakt. De waarde ``MustRunAsNonRoot'' zorgt ervoor dat de containers niet door de root gebruiker kunnen worden aangemaakt. Dit wordt vooral gebruikt om te voorkomen dat iemand die (ongewenst) root privileges heeft verkregen nieuwe (onveilige) containers kan creëren.
 
 \textbf{SupplementalGroups: 'MustRunAs'} verplicht hier het gebruik van een ``non-root'' groep bij het aanmaken van nieuwe pods. 
 
@@ -383,7 +383,7 @@ rolebinding.rbac.authorization.k8s.io/deployment-manager-binding created
 \section{Scenario 3: Cluster opstelling met security tools}
 In dit laatste scenario zal er gewerkt worden de security tools die besproken zijn in sectie \ref{tools}. Project Calico zal niet worden getest aangezien dat deze automatisch wordt gebruik in de LKE en het niet mogelijk is om deze te configureren. Kube-bench en Kube-hunter zullen wel uitgetest worden. De installatie en gebruik van deze tools wordt hieronder gedemonstreerd.
 
-Als eerste is Kube-bench aan de beurt. Zoals beschreven in sectie \ref{bench} zal Kube-bench de node gaan testen tegen de \textit{CIS kubernetes Benchmarks} en een overzicht geven van de conformiteit ervan. Om Kube-bench te installeren is het nodig om een ssh verbinding op te zetten met een node in de cluster. Wanneer de verbinding gemaakt is kunnen de volgende commando's uitgevoerd worden om de installatie te voltooien.
+Als eerste is Kube-bench aan de beurt. Zoals beschreven in sectie \ref{bench} zal Kube-bench de node gaan testen tegen de \textit{CIS kubernetes Benchmarks} en een overzicht geven van de conformiteit ervan. Om Kube-bench te installeren is het nodig om een SSH verbinding op te zetten met een node in de cluster. Wanneer de verbinding gemaakt is kunnen de volgende commando's uitgevoerd worden om de installatie te voltooien.
 
 \begin{minted}{bash} 
 $ curl -L https://github.com/aquasecurity/kube-bench/releases/download/
@@ -392,13 +392,13 @@ v0.3.1/kube-bench_0.3.1_linux_amd64.deb
 $ sudo apt install ./kube-bench_0.3.1_linux_amd64.deb -f
 \end{minted}
 
-Kube-bench kan nu gebruikt worden om de conformiteit van de cluster te controleren. Dit kan op verschillende manieren door enkele \textit{flags} mee te geven aan de applicatie. Enkele mogelijke manieren waarop kube-bench kan gebruikt worden zijn:
+Kube-bench kan nu gebruikt worden om de conformiteit van de cluster te controleren. Dit kan op verschillende manieren door enkele \textit{flags} mee te geven aan de applicatie. Configuratie van kube-bench kan op de volgende manieren gebeuren:
 \begin{itemize}
 	\item \verb|$ kube-bench --benchmark cis-1.5| zal er voor zorgen dat de node wordt controlleerd op basis van de \textit{CIS benchmark} versie 1.5. Andere opties zijn: cis-1.6, gke-1.0(Google K8s engine), eks-1.0(Elastic K8s engine) en ack-1.0. GKE, EKS en ACK staan respectievelijk voor Google Kubernetes Engine, Elastic Kubernetes Engine en AWS Controllers for Kubernetes. Deze drie opties zorgen ervoor dat er checks worden uitgevoerd die specifiek voor die platformen zijn geschreven.
-	\item \verb|$ kube-bench run --targets master,node|: Door dit commando uit te voeren worden enkel de test met betrekking tot de master- en worker nodes uitgevoerd.
+	\item \verb|$ kube-bench run --targets master,node|: Door dit commando uit te voeren worden enkel de test met betrekking tot de \textit{master}- en \textit{worker nodes} uitgevoerd.
 \end{itemize}
 
-Om het effect van Kube-bench op het resource gebruik aan te tonen zal de cluster getest worden tegen de cis 1.5 benchmarks. De output van dit commando is te zien in figuur \ref{benchOut}. Kube-bench geeft hierin een overzicht van welke delen van de cluster wel of niet voldoen aan de benchmarks. Verder geeft het ook nog tips over hoe deze problemen kunnen opgelost worden.
+Om het effect van Kube-bench op het resource gebruik aan te tonen zal de cluster getest worden tegen de CIS 1.5 benchmarks. De output van dit commando is te zien in figuur \ref{benchOut}. Kube-bench geeft hierin een overzicht van welke delen van de cluster wel of niet voldoen aan de benchmarks. Verder geeft het ook nog tips over hoe deze problemen kunnen opgelost worden.
 
 \begin{figure}[h] 
 	\centering
@@ -407,9 +407,9 @@ Om het effect van Kube-bench op het resource gebruik aan te tonen zal de cluster
 	\label{benchOut}
 \end{figure}
 
-Als tweede security tool zal \textit{Kube-hunter} uitgetest worden. Zoals besproken in sectie \ref{hunter} kan kube-hunter op drie verschillende manieren worden gebruikt. In dit deel van het scenario zulle alle 3 de delen aan bod komen.
+De volgende security tool is \textit{Kube-hunter}. Zoals besproken in sectie \ref{hunter} kan kube-hunter op drie verschillende manieren worden gebruikt. In dit deel van het scenario zulle alle 3 de delen aan bod komen.
 
-De eerste manier om Kube-hunter te gebruiken is om het node te installeren zodat het alle netwerkinterfaces kan scannen. Ook hier zijn er verschillende manieren om dit te doen, namlijk via het commando \verb|pip3 install kube-hunter| of met behulp van een Docker container. Hier werd voor de tweede optie gekozen. Met volgend commando wordt de docker container op de node geïnstalleerd en geconfigureerd.
+De eerste manier om Kube-hunter te gebruiken is om het node te installeren zodat het alle netwerkinterfaces kan scannen. Ook hier zijn er verschillende manieren om dit te doen, namlijk via het commando \verb|pip3 install kube-hunter| of met behulp van een Docker container. Hier werd voor de tweede optie gekozen. Met volgend commando wordt de Docker container op de node geïnstalleerd en geconfigureerd.
 \begin{minted}{bash} 
 $ docker run -it --rm --network host aquasec/kube-hunter
 Choose one of the options below:
@@ -420,7 +420,7 @@ Your choice: 2
 \end{minted}
 Dit zal ons een zeer gedetailleerd beeld geven over hoe welke nodes en services er aanwezig zijn in het lokale netwerk van de node. Het geeft ook een overzicht van de, al dan niet, gevonden zwakheden in het netwerk.
 
-De tweede manier om kube-hunter te gebruiken is om het op een machine te installeren die buiten de cluster staat. Deze manier geeft ons een overzicht van hoe de cluster er voor een aanvaller uitziet. Dit kan aan de hand van dezelfde Docker container maar dan met de eerste optie, namelijk het ``remote scanning''. De output van dit commando wordt in figuur \ref{remoteHunt} getoont.
+De tweede manier om kube-hunter te gebruiken is om het op een machine te installeren die buiten de cluster staat. Deze manier geeft ons een overzicht van hoe de cluster er voor een aanvaller uitziet. Dit kan aan de hand van dezelfde Docker container maar dan met de eerste optie, namelijk het ``remote scanning''. De output van dit commando wordt in figuur \ref{remoteHunt} getoond.
 
 \begin{figure}[h] 
 	\centering
@@ -510,7 +510,7 @@ Als eerste zal het gemiddelde gebruik van zowel de CPU als het RAM geheugen verz
 	\label{SC1_RAMAVG}
 \end{figure}
 
-Ten tweede zullen de gegevens in verband met de stabiliteit van het systeem bekeken worden. In figuur \ref{fig:SC1_CPUBox} en \ref{fig:SC1_RAMBox} zijn de boxplots voor zowel het CPU als RAM gebruik te zien. We kunnen zien dat bij het CPU gebruik er maar 3 outliers zijn en bij het RAM gebruik zijn er zelf geen outliers. 
+Ten tweede zullen de gegevens in verband met de stabiliteit van het systeem bekeken worden. In figuur \ref{fig:SC1_CPUBox} en \ref{fig:SC1_RAMBox} zijn de boxplots voor zowel het CPU als RAM gebruik te zien. We kunnen zien dat bij het CPU gebruik er maar 3 \textit{outliers} zijn en bij het RAM gebruik zijn er zelf geen \textit{outliers}. 
 
 %\begin{figure}[ht]
 %	\centering
@@ -541,7 +541,7 @@ Ten tweede zullen de gegevens in verband met de stabiliteit van het systeem beke
 	\label{fig:SC1_RAMBox}
 \end{figure}
 
-Als derde criteria worden de gegevens van het algemene CPU en RAM gebruik bekeken. Deze worden gevisualiseerd aan de hand van een lijngrafiek. Het resultaat van scenario 1 is te zien in figuur \ref{fig:SC1_CPUGraph} en \ref{fig:SC1_RAMGraph}. In figuur \ref{fig:SC1_RAMGraph} zien wa dat het gebruikte RAM geheugen steeds stijgt. Als er via het \verb|top| of \verb|htop| commando naar het resource gebruik wordt gekeken zien we dat de ``Kubelet'' het meeste gebruikt. Vermoedelijk is dit omdat de ``Kubelet'' steeds de gezondheids-status van de node wegschrijft naar het RAM geheugen.
+Als derde criteria worden de gegevens van het algemene CPU en RAM gebruik bekeken. Deze worden gevisualiseerd aan de hand van een lijngrafiek. Het resultaat van scenario 1 is te zien in figuur \ref{fig:SC1_CPUGraph} en \ref{fig:SC1_RAMGraph}. In figuur \ref{fig:SC1_RAMGraph} zien wa dat het gebruikte RAM geheugen steeds stijgt. Als er via het \verb|top| of \verb|htop| commando naar het resource gebruik wordt gekeken zien we dat de ``Kubelet'' het meeste n beslag neemt. Vermoedelijk is dit omdat de ``Kubelet'' steeds de gezondheids-status van de node wegschrijft naar het RAM geheugen.
 
 \begin{figure}[h]
 	\centering
@@ -602,7 +602,7 @@ Als eerste zal het gemiddelde gebruik van zowel de CPU als het RAM geheugen verz
 	\label{SC2_RAMAVG}
 \end{figure}
 
-Ten tweede zullen de gegevens in verband met de stabiliteit van het systeem bekeken worden. In figuur \ref{fig:SC2_CPUBox} en \ref{fig:SC2_RAMBox} zijn de boxplots voor zowel het CPU als RAM gebruik te zien. We kunnen zien dat bij het CPU gebruik er 4 outliers zijn en bij het RAM gebruik zijn er zelf geen outliers. 
+Ten tweede zullen de gegevens in verband met de stabiliteit van het systeem bekeken worden. In figuur \ref{fig:SC2_CPUBox} en \ref{fig:SC2_RAMBox} zijn de boxplots voor zowel het CPU als RAM gebruik te zien. We kunnen zien dat bij het CPU gebruik er 4 \textit{outliers} zijn en bij het RAM gebruik zijn er zelf geen \textit{outliers}. 
 
 %\begin{figure}[ht]
 %	\centering
@@ -775,7 +775,7 @@ Het laatste criteria is de opstarttijd van de node. Deze kan men simpelweg vinde
 
 \clearpage
 \subsection{Vergelijken van de data}
-Nu alle gegevens verzameld en verwerkt zijn kunne we deze met elkaar gaan vergelijken. Als eerste zal het gemiddeld resource gebruik van de verschillende scenario's besproken worden. Tabel \ref{tab:AVGResource} geeft een overzicht van de data. In deze tabel is duidelijk te zien dat zowel de ``Best practices'' als de ``Security tools'' een invloed hebben gehad op de CPU. De hoeveelheid gebruikte RAM is daarentegen hetzelfde gebleven bij zowel Scenario één als drie en is in scenario twee zelfs gezakt. Ook al werden in scenario drie de tools maar sporadisch gebruikt, toch hebben deze een aanzienlijke impact op het gemiddeld resource gebruik van de cluster gehad. 
+Nu alle gegevens verzameld en verwerkt zijn kunnen we deze met elkaar gaan vergelijken. Als eerste zal het gemiddeld \textit{resource} gebruik van de verschillende scenario's besproken worden. Tabel \ref{tab:AVGResource} geeft een overzicht van de data. In deze tabel is duidelijk te zien dat zowel de ``Best practices'' als de ``Security tools'' een invloed hebben gehad op de CPU. De hoeveelheid gebruikte RAM is daarentegen hetzelfde gebleven bij zowel Scenario één als drie en is in scenario twee zelfs gezakt. Ook al werden in scenario drie de tools maar sporadisch gebruikt, toch hebben deze een aanzienlijke impact op het gemiddeld \textit{resource} gebruik van de cluster gehad. 
 \begin{table}[h]
 	\centering
 	\begin{tabular}{lccc}
@@ -787,7 +787,7 @@ Nu alle gegevens verzameld en verwerkt zijn kunne we deze met elkaar gaan vergel
 	\label{tab:AVGResource}
 \end{table}
 
-Het tweede criteria dat onderzocht werd is de stabiliteit van de cluster, dit door het aantal outliers te tellen. In tabel \ref{tab:Outliers} is te zien hoeveel outliers er per scenario werden gedetecteerd. Geen enkel scenario had effect op de stabiliteit van het RAM gebruik maar het CPU gebruik werd wel iets onstabieler in scenario twee. De grote hoeveelheid outliers in scenario drie is te wijten aan het feit da de security tools niet constant werken. De outliers komen hier dus overeen met de momenten waarop de tools actief werden gebruikt. Hieruit is te concluderen dat best practices een kleine (bijna verwaarloosbare) impact hebben op de stabiliteit. Alsook dat security tools een tijdelijke maar toch aanzienlijk effect hebben op de data.
+Het tweede criteria dat onderzocht werd is de stabiliteit van de cluster, dit door het aantal \textit{outliers} te tellen. In tabel \ref{tab:Outliers} is te zien hoeveel \textit{outliers} er per scenario werden gedetecteerd. Geen enkel scenario had effect op de stabiliteit van het RAM gebruik maar het CPU gebruik werd wel iets onstabieler in scenario twee. De grote hoeveelheid outliers in scenario drie is te wijten aan het feit da de security tools niet constant werken. De outliers komen hier dus overeen met de momenten waarop de tools actief werden gebruikt. Hieruit is te concluderen dat best practices een kleine (bijna verwaarloosbare) impact hebben op de stabiliteit. Alsook dat beveiligings-tools een tijdelijke maar toch aanzienlijk effect hebben op de data.
 %
 \begin{table}[h]
 	\centering
