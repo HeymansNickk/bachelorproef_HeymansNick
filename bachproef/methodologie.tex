@@ -11,7 +11,7 @@
 %% op deze manier te werk gegaan bent. Je moet kunnen aantonen dat je de best
 %% mogelijke manier toegepast hebt om een antwoord te vinden op de
 %% onderzoeksvraag.
-Om het effect van zowel K8s \textit{best-practices} als K8s security tools op een cluster te onderzoeken werd er gekozen om het onderzoek in 3 scenario's onder te verdelen. Met als doel gegevens te verzamelen over enkele criteria, namelijk het resource gebruik, de stabiliteit en de opstarttijd van de cluster. Voordat we aan de scenario's kunnen beginnen, worden eerst nog alle stappen doorlopen voor het opzetten van de cluster. Nadat de cluster opgezet is zullen we beginnen met het eerste scenario, namelijk het opzetten van een basis cluster om de functionaliteit van K8s aan te tonen en om baseline gegevens te verzamelen voor het onderzoek. Deze cluster zal dienen als basis om verdere scenario's verder uit te werken. Als tweede worden er enkele ``best-practice'' gehanteerd bij het opzetten en de configuratie van de cluster, dit om te onderzoeken wat voor effect deze hebben op de cluster. Ten slotte zal er bij het opzetten en configureren van de cluster gebruik gemaakt worden van enkele K8s security tools, dit om te testen wat deze precies doen en wat voor effect deze kunnen hebben op de criteria. 
+Om het effect van zowel K8s \textit{best-practices} als K8s beveiligings-tools op een cluster te onderzoeken werd er gekozen om het onderzoek in 3 scenario's onder te verdelen. Met als doel gegevens te verzamelen over enkele criteria, namelijk het resource gebruik, de stabiliteit en de opstarttijd van de cluster. Voordat we aan de scenario's kunnen beginnen, worden eerst nog alle stappen doorlopen voor het opzetten van de cluster. Nadat de cluster opgezet is zullen we beginnen met het eerste scenario, namelijk het opzetten van een basis cluster om de functionaliteit van K8s aan te tonen en om baseline gegevens te verzamelen voor het onderzoek. Deze cluster zal dienen als basis om verdere scenario's verder uit te werken. Als tweede worden er enkele ``best-practice'' gehanteerd bij het opzetten en de configuratie van de cluster, dit om te onderzoeken wat voor effect deze hebben op de cluster. Ten slotte zal er bij het opzetten en configureren van de cluster gebruik gemaakt worden van enkele K8s beveiligings-tools, dit om te testen wat deze precies doen en wat voor effect deze kunnen hebben op de criteria. 
 
 Gedurende dit onderzoek werd er gebruik gemaakt van de volgende hardware en software:
 
@@ -102,7 +102,7 @@ $ kubectl delete service <Service naam>
 \end{minted}
 	
 \subsection{Gegevens- verzameling en verwerking} \label{ch:gegevens}
-Om conclusies te kunnen trekken uit dit onderzoek hebben we gegevens nodig. Meer bepaald gegevens over de bovengenoemde criteria, namelijk het \textit{resource} gebruik, de stabiliteit en de opstarttijd van de cluster. Deze gegevens zullen gebruikt worden om de onderzoeksvraag ``Welke impact hebben \textit{best practices} en \textit{security tools} op de criteria?'' te beantwoorden. De verzameling van deze gegevens zal gebeuren via \textit{sysstat}\footnote{github.com/sysstat/sysstat}. Dit is open source tool die ons in staat stelt om een hele hoop verschillende soorten data van ons systeem te exporteren naar bruikbare formaten (zoals JSON, CSV en XML). Deze bestanden zullen later in RStudio als bron gebruikt worden om statische modellen mee te maken. Sysstat zal op een van de Nodes in de cluster worden geïnstalleerd. Dit door middel van een ssh verbinding op te zetten met één van de Nodes en dan volgend commando uit te voeren. 
+Om conclusies te kunnen trekken uit dit onderzoek hebben we gegevens nodig. Meer bepaald gegevens over de bovengenoemde criteria, namelijk het \textit{resource} gebruik, de stabiliteit en de opstarttijd van de cluster. Deze gegevens zullen gebruikt worden om de onderzoeksvraag ``Welke impact hebben \textit{best practices} en beveiligings-tools op de criteria?'' te beantwoorden. De verzameling van deze gegevens zal gebeuren via \textit{sysstat}\footnote{github.com/sysstat/sysstat}. Dit is open source tool die ons in staat stelt om een hele hoop verschillende soorten data van ons systeem te exporteren naar bruikbare formaten (zoals JSON, CSV en XML). Deze bestanden zullen later in RStudio als bron gebruikt worden om statische modellen mee te maken. Sysstat zal op een van de Nodes in de cluster worden geïnstalleerd. Dit door middel van een ssh verbinding op te zetten met één van de Nodes en dan volgend commando uit te voeren. 
 \begin{minted}{bash} 
 $ sudo apt-get install sysstat
 \end{minted}
@@ -380,8 +380,8 @@ rolebinding.rbac.authorization.k8s.io/deployment-manager-binding created
 
 
 \clearpage
-\section{Scenario 3: Cluster opstelling met security tools}
-In dit laatste scenario zal er gewerkt worden de security tools die besproken zijn in sectie \ref{tools}. Project Calico zal niet worden getest aangezien dat deze automatisch wordt gebruik in de LKE en het niet mogelijk is om deze te configureren. Kube-bench en Kube-hunter zullen wel uitgetest worden. De installatie en gebruik van deze tools wordt hieronder gedemonstreerd.
+\section{Scenario 3: Cluster opstelling met beveiligings-tools}
+In dit laatste scenario zal er gewerkt worden de beveiligings-tools die besproken zijn in sectie \ref{tools}. Project Calico zal niet worden getest aangezien dat deze automatisch wordt gebruik in de LKE en het niet mogelijk is om deze te configureren. Kube-bench en Kube-hunter zullen wel uitgetest worden. De installatie en gebruik van deze tools wordt hieronder gedemonstreerd.
 
 Als eerste is Kube-bench aan de beurt. Zoals beschreven in sectie \ref{bench} zal Kube-bench de node gaan testen tegen de \textit{CIS kubernetes Benchmarks} en een overzicht geven van de conformiteit ervan. Om Kube-bench te installeren is het nodig om een SSH verbinding op te zetten met een node in de cluster. Wanneer de verbinding gemaakt is kunnen de volgende commando's uitgevoerd worden om de installatie te voltooien.
 
@@ -407,7 +407,7 @@ Om het effect van Kube-bench op het resource gebruik aan te tonen zal de cluster
 	\label{benchOut}
 \end{figure}
 
-De volgende security tool is \textit{Kube-hunter}. Zoals besproken in sectie \ref{hunter} kan kube-hunter op drie verschillende manieren worden gebruikt. In dit deel van het scenario zulle alle 3 de delen aan bod komen.
+De volgende beveiligings-tools is \textit{Kube-hunter}. Zoals besproken in sectie \ref{hunter} kan kube-hunter op drie verschillende manieren worden gebruikt. In dit deel van het scenario zulle alle 3 de delen aan bod komen.
 
 De eerste manier om Kube-hunter te gebruiken is om het node te installeren zodat het alle netwerkinterfaces kan scannen. Ook hier zijn er verschillende manieren om dit te doen, namlijk via het commando \verb|pip3 install kube-hunter| of met behulp van een Docker container. Hier werd voor de tweede optie gekozen. Met volgend commando wordt de Docker container op de node geïnstalleerd en geconfigureerd.
 \begin{minted}{bash} 
@@ -775,7 +775,7 @@ Het laatste criteria is de opstarttijd van de node. Deze kan men simpelweg vinde
 
 \clearpage
 \subsection{Vergelijken van de data}
-Nu alle gegevens verzameld en verwerkt zijn kunnen we deze met elkaar gaan vergelijken. Als eerste zal het gemiddeld \textit{resource} gebruik van de verschillende scenario's besproken worden. Tabel \ref{tab:AVGResource} geeft een overzicht van de data. In deze tabel is duidelijk te zien dat zowel de ``Best practices'' als de ``Security tools'' een invloed hebben gehad op de CPU. De hoeveelheid gebruikte RAM is daarentegen hetzelfde gebleven bij zowel Scenario één als drie en is in scenario twee zelfs gezakt. Ook al werden in scenario drie de tools maar sporadisch gebruikt, toch hebben deze een aanzienlijke impact op het gemiddeld \textit{resource} gebruik van de cluster gehad. 
+Nu alle gegevens verzameld en verwerkt zijn kunnen we deze met elkaar gaan vergelijken. Als eerste zal het gemiddeld \textit{resource} gebruik van de verschillende scenario's besproken worden. Tabel \ref{tab:AVGResource} geeft een overzicht van de data. In deze tabel is duidelijk te zien dat zowel de ``Best practices'' als de beveiligings-tools een invloed hebben gehad op de CPU. De hoeveelheid gebruikte RAM is daarentegen hetzelfde gebleven bij zowel Scenario één als drie en is in scenario twee zelfs gezakt. Ook al werden in scenario drie de tools maar sporadisch gebruikt, toch hebben deze een aanzienlijke impact op het gemiddeld \textit{resource} gebruik van de cluster gehad. 
 \begin{table}[h]
 	\centering
 	\begin{tabular}{lccc}
@@ -787,7 +787,7 @@ Nu alle gegevens verzameld en verwerkt zijn kunnen we deze met elkaar gaan verge
 	\label{tab:AVGResource}
 \end{table}
 
-Het tweede criteria dat onderzocht werd is de stabiliteit van de cluster, dit door het aantal \textit{outliers} te tellen. In tabel \ref{tab:Outliers} is te zien hoeveel \textit{outliers} er per scenario werden gedetecteerd. Geen enkel scenario had effect op de stabiliteit van het RAM gebruik maar het CPU gebruik werd wel iets onstabieler in scenario twee. De grote hoeveelheid outliers in scenario drie is te wijten aan het feit da de security tools niet constant werken. De outliers komen hier dus overeen met de momenten waarop de tools actief werden gebruikt. Hieruit is te concluderen dat best practices een kleine (bijna verwaarloosbare) impact hebben op de stabiliteit. Alsook dat beveiligings-tools een tijdelijke maar toch aanzienlijk effect hebben op de data.
+Het tweede criteria dat onderzocht werd is de stabiliteit van de cluster, dit door het aantal \textit{outliers} te tellen. In tabel \ref{tab:Outliers} is te zien hoeveel \textit{outliers} er per scenario werden gedetecteerd. Geen enkel scenario had effect op de stabiliteit van het RAM gebruik maar het CPU gebruik werd wel iets onstabieler in scenario twee. De grote hoeveelheid \textit{outliers} in scenario drie is te wijten aan het feit dat de beveiligings-tools niet constant werken. De outliers komen hier dus overeen met de momenten waarop de tools actief werden gebruikt. Hieruit is te concluderen dat \textit{best practices} een kleine (bijna verwaarloosbare) impact hebben op de stabiliteit. Alsook dat beveiligings-tools een tijdelijke maar toch aanzienlijk effect hebben op de data.
 %
 \begin{table}[h]
 	\centering

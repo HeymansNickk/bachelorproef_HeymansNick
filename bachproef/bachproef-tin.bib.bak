@@ -179,5 +179,23 @@
   url          = {https://www.youtube.com/watch?v=_l56oUxHSio},
   urldate      = {2021-03-29},
 }
+@INPROCEEDINGS{Shamim2020,
+  author	= {Islam Shamim, Md. Shazibul and Ahamed Bhuiyan, Farzana and Rahman, Akond},
+  booktitle	= {2020 IEEE Secure Development (SecDev)}, 
+  title		= {XI Commandments of Kubernetes Security: A Systematization of Knowledge Related to Kubernetes Security Practices}, 
+  year		= {2020},
+  volume	= {},
+  number	= {},
+  pages		= {58-64},
+  doi		= {10.1109/SecDev45635.2020.00025}
+}
+
+@Electronic{AquaSecurity2021,
+  author       = {AquaSecurity},
+  date         = {2021},
+  title        = {Docker Architecture},
+  url          = {https://www.aquasec.com/cloud-native-academy/docker-container/docker-architecture/},
+  organization = {Aqua Security},
+}
 
 @Comment{jabref-meta: databaseType:biblatex;}

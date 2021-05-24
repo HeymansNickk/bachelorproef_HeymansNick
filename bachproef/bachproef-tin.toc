@@ -37,7 +37,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.3}Container orkestratie}{25}{section.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Waarvoor wordt container orkestratie gebruikt?}{25}{section*.11}%
+\contentsline {subsubsection}{Waarvoor wordt container orkestratie gebruikt?}{26}{section*.11}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.1}Container orkestratie tools}{26}{subsection.2.3.1}%
 \defcounter {refsection}{0}\relax 
@@ -47,7 +47,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Hasicorp Nomad}{26}{section*.14}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}Kubernetes}{26}{section.2.4}%
+\contentsline {section}{\numberline {2.4}Kubernetes}{27}{section.2.4}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Kubernetes componenten en terminologie}{27}{section*.15}%
 \defcounter {refsection}{0}\relax 
@@ -57,7 +57,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.5.2}Hoe een container cluster beveiligen}{30}{subsection.2.5.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.6}Security tools}{32}{section.2.6}%
+\contentsline {section}{\numberline {2.6}beveiligings-tools}{32}{section.2.6}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.6.1}Project Calico}{32}{subsection.2.6.1}%
 \defcounter {refsection}{0}\relax 
@@ -79,7 +79,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.3}Scenario 2: Cluster opstelling met gebruik van best practices}{49}{section.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Scenario 3: Cluster opstelling met security tools}{52}{section.3.4}%
+\contentsline {section}{\numberline {3.4}Scenario 3: Cluster opstelling met beveiligings-tools}{52}{section.3.4}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.5}Data analyse}{56}{section.3.5}%
 \defcounter {refsection}{0}\relax 

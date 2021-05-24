@@ -89,7 +89,7 @@ Docker gebruikt een \textit{Client-Server} architectuur. Deze werkt als volgt: D
 Een \textit{Docker register} is een bibliotheek die \textit{Docker images} opslaat. Het standaard register voor Docker is de \textit{Docker Hub}\footnote{hub.docker.com/}. Als de Docker daemon geen lokale Docker image vindt gaat deze standaard in de \textit{Docker Hub} zoeken. Wanneer gebruik gemaakt wordt van de \verb|docker pull| of \verb|docker run| commando's, worden de benodigde images uit het register gehaald.
 
 \subsubsection{Docker objecten} \label{dockerObjects}
-Docker maakt gebruik van images, volumes en netwerken, al deze onderdelen worden objecten genoemd. Volgens \textcite{Docker2021a} zijn dit de belangrijkste objecten:
+Docker maakt gebruik van images, volumes en netwerken, al deze onderdelen worden objecten genoemd. Volgens \textcite{Docker2021a} en \textcite{AquaSecurity2021} zijn dit de belangrijkste objecten:
 
 \begin{itemize}
         \item \textbf{Images}: Docker images zijn \textit{read-only} sjablonen met instructies om een Docker container op te zetten. Docker images vanuit de Docker Hub zijn typisch onmiddelijk klaar voor gebruik, zonder verdere configuratie. Verder kan je tevens bijkomende instructies toevoegen aan de \textit{base image} en deze opslaan als een nieuwe en aangepaste Docker image. Een Docker image is vaak gebaseerd op een andere images (i.e., Een nieuwe image kan gebaseerd zijn op een bestaande \textit{Ubuntu} image maar installeert en configureert daarbij een \textit{Apache} webserver). Alsook is het mogelijk om zelf een compleet nieuwe image te maken met behulp van een \textit{dockerfile}.
@@ -173,7 +173,7 @@ Ten slotte zijn er nog enkele extra \textit{addons} die gebruikt kunnen worden o
 
 \section{Security}
 
-Hier zal het \textit{security} aspect van containers en container orkestratie besproken worden. In dit hoofdstuk wordt er geantwoord op de onderzoeksvragen ``Wat zijn de belangrijkste security risico's?'' en ``Welke \textit{security tools} zijn er en hoe werken ze?''.
+Hier zal het \textit{security} aspect van containers en container orkestratie besproken worden. In dit hoofdstuk wordt er geantwoord op de onderzoeksvragen ``Wat zijn de belangrijkste security risico's?'' en ``Welke beveiligings-tools zijn er en hoe werken ze?''.
 
 Uit een raport van \textcite{Tripwire2019} blijkt dat 94\% van bevraagden bezorgd zijn over de veiligheid van hun containers. Uit hetzelfde rapport blijkt ook dat 47\% zich bewust is van feit dat ze mogelijks kwetsbare containers gebruiken in hun productieomgeving. Het beveiligen van een K8s cluster is dan ook een zeer grote en complexe taak. Dit is omdat er veel verschillende onderdelen zijn die allemaal andere veiligheidsproblemen met zich mee kunnen meebrengen. Vanwege de hoeveelheid tijd en middelen die er nodig zijn voor het implementeren van goede veiligheidsmaatregelen wordt het door veel bedrijven gezien als een \textit{nice to have} in plaats van een \textit{need to have}.
 
@@ -249,16 +249,16 @@ Spijtig genoeg is niet iedereen die met container clusters werkt even bezorgd ov
 %
 %Open Policy Agent gebruiken om het opzetten van onveilige pods onmogelijk te maken adv policies.
 
-\section{Security tools} \label{tools}
+\section{beveiligings-tools} \label{tools}
 
- In dit hoofdstuk zal er geantwoord worden op de onderzoeksvraag ``Welke security tools zijn er?''
+ In dit hoofdstuk zal er geantwoord worden op de onderzoeksvraag ``Welke beveiligings-tools zijn er?''
 
-Een andere manier om een K8S cluster verder te beveiligen is om bepaalde \textit{security tools} te overwegen.
+Een andere manier om een K8S cluster verder te beveiligen is om bepaalde beveiligings-tools te overwegen.
 \textcite{Taylor2019} geeft een overzicht met de meest prominente tools.
 
 \subsection{Project Calico} \label{Calico}
 
-\textbf{\textit{Project Calico}}\footnote{projectcalico.org/} is volledig \textit{open source} en volgens \textcite{Armstrong2021} de meeste gebruikte security tool voor K8s. Calico is niet enkel een K8s security tool maar is tevens volledig geïntegreerd met vele andere platformen. Figuur \ref{fig:CalicaEco} geeft een overzicht van de door Calico ondersteunde platformen. Project Calico creëert een soort van \textit{microfirewall} rond elke service. De policies die ingesteld kunnen worden in Calico worden automatisch omgezet naar firewall regels. Deze worden vervolgens toegepast op elke service. Calico heeft zich onlangs aangesloten bij de CNCF, waardoor het onder deskundig toezicht staat en nog beter geïntegreerd is in het Kubernetes ecosysteem.
+\textbf{\textit{Project Calico}}\footnote{projectcalico.org/} is volledig \textit{open source} en volgens \textcite{Armstrong2021} de meeste gebruikte beveiligings-tools voor K8s. Calico is niet enkel een K8s beveiligings-tools maar is tevens volledig geïntegreerd met vele andere platformen. Figuur \ref{fig:CalicaEco} geeft een overzicht van de door Calico ondersteunde platformen. Project Calico creëert een soort van \textit{microfirewall} rond elke service. De policies die ingesteld kunnen worden in Calico worden automatisch omgezet naar firewall regels. Deze worden vervolgens toegepast op elke service. Calico heeft zich onlangs aangesloten bij de CNCF, waardoor het onder deskundig toezicht staat en nog beter geïntegreerd is in het Kubernetes ecosysteem.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\linewidth]{img/Calico-Ecosystem.png}
