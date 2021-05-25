@@ -68,7 +68,7 @@
       \strng{authornamehash}{52288fd5e9ce9a66264afd21da0f9bf3}
       \strng{authorfullhash}{ad9eeca218c1667d6cb2f6937b9efa10}
       \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -90,6 +90,38 @@
       \verb https://docs.microsoft.com/en-us/dotnet/architecture/microservices/container-docker-introduction/docker-defined
       \endverb
     \endentry
+    \entry{AquaSecurity2021}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8f145e9402dcaca0eb525b997bb2550e}{%
+           family={AquaSecurity},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Aqua Security}%
+      }
+      \strng{namehash}{8f145e9402dcaca0eb525b997bb2550e}
+      \strng{fullhash}{8f145e9402dcaca0eb525b997bb2550e}
+      \strng{bibnamehash}{8f145e9402dcaca0eb525b997bb2550e}
+      \strng{authorbibnamehash}{8f145e9402dcaca0eb525b997bb2550e}
+      \strng{authornamehash}{8f145e9402dcaca0eb525b997bb2550e}
+      \strng{authorfullhash}{8f145e9402dcaca0eb525b997bb2550e}
+      \field{sortinit}{A}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Docker Architecture}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.aquasec.com/cloud-native-academy/docker-container/docker-architecture/
+      \endverb
+      \verb{url}
+      \verb https://www.aquasec.com/cloud-native-academy/docker-container/docker-architecture/
+      \endverb
+    \endentry
     \entry{Armstrong2021}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=bc0b31e72eaad0820a851291225fd4b1}{%
@@ -106,7 +138,7 @@
       \strng{authornamehash}{bc0b31e72eaad0820a851291225fd4b1}
       \strng{authorfullhash}{bc0b31e72eaad0820a851291225fd4b1}
       \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -124,6 +156,58 @@
       \verb https://www.projectcalico.org/a-2020-review-of-the-worlds-most-popular-kubernetes-cni/
       \endverb
     \endentry
+    \entry{Bannister2021}{online}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=8a0bb727eb4bdd06571041e3bf47d9b4}{%
+           family={Bannister},
+           familyi={B\bibinitperiod},
+           given={Tim},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4ac7bd57e0767e51595300a7d6a66675}{%
+           family={Katz},
+           familyi={K\bibinitperiod},
+           given={Ricardo},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=250138d3f1d2e689a117d73bc35c05bc}{%
+           family={Sychevskyi},
+           familyi={S\bibinitperiod},
+           given={Ihor},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=841a7df04ea96e28424d16a5175a9008}{%
+           family={Corleissen},
+           familyi={C\bibinitperiod},
+           given={Zach},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6c05a8b7f2cf6265d80aca12abd08b7c}
+      \strng{fullhash}{c8a3a64e80509a318241457153bf2299}
+      \strng{bibnamehash}{c8a3a64e80509a318241457153bf2299}
+      \strng{authorbibnamehash}{c8a3a64e80509a318241457153bf2299}
+      \strng{authornamehash}{6c05a8b7f2cf6265d80aca12abd08b7c}
+      \strng{authorfullhash}{c8a3a64e80509a318241457153bf2299}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{1}
+      \field{month}{4}
+      \field{title}{Network Policies}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://kubernetes.io/docs/concepts/services-networking/network-policies/
+      \endverb
+      \verb{url}
+      \verb https://kubernetes.io/docs/concepts/services-networking/network-policies/
+      \endverb
+    \endentry
     \entry{CNCF2021}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=ef9ef7f5e556877b3564609ef26e328e}{%
@@ -137,7 +221,7 @@
       \strng{authornamehash}{ef9ef7f5e556877b3564609ef26e328e}
       \strng{authorfullhash}{ef9ef7f5e556877b3564609ef26e328e}
       \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -168,7 +252,7 @@
       \strng{authornamehash}{fdebfb7f9f92cecc72af2a21b6d9333d}
       \strng{authorfullhash}{fdebfb7f9f92cecc72af2a21b6d9333d}
       \field{sortinit}{D}
-      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -203,7 +287,7 @@
       \strng{authorfullhash}{c5fd214cdd0d2b3b4272e73b022ba5c2}
       \field{extraname}{1}
       \field{sortinit}{D}
-      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
       \field{extradate}{1}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
@@ -243,7 +327,7 @@
       \strng{authorfullhash}{c5fd214cdd0d2b3b4272e73b022ba5c2}
       \field{extraname}{2}
       \field{sortinit}{D}
-      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
       \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
@@ -282,7 +366,7 @@
       \strng{authorfullhash}{5a3089a19a6fe2740bde62328d352eec}
       \field{extraname}{1}
       \field{sortinit}{E}
-      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{sortinithash}{c554bd1a0b76ea92b9f105fe36d9c7b0}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -320,7 +404,7 @@
       \strng{authorfullhash}{5a3089a19a6fe2740bde62328d352eec}
       \field{extraname}{2}
       \field{sortinit}{E}
-      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{sortinithash}{c554bd1a0b76ea92b9f105fe36d9c7b0}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -358,7 +442,7 @@
       \strng{authornamehash}{8b36e9207c24c76e6719268e49201d94}
       \strng{authorfullhash}{8b36e9207c24c76e6719268e49201d94}
       \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -373,6 +457,49 @@
       \endverb
       \verb{url}
       \verb https://cloud.google.com/containers
+      \endverb
+    \endentry
+    \entry{Shamim2020}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=48783361589ed3d27d2e344e796f1d5e}{%
+           family={Islam\bibnamedelima Shamim},
+           familyi={I\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Md.\bibnamedelimi Shazibul},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ca524356360be8c82034cfa3b03d9df0}{%
+           family={Ahamed\bibnamedelima Bhuiyan},
+           familyi={A\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Farzana},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1c177278bad381ca1bc3e21468dce78d}{%
+           family={Rahman},
+           familyi={R\bibinitperiod},
+           given={Akond},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{689bf3be60a0082556fc318e73df60e1}
+      \strng{fullhash}{558c38f5ccb770095033d9bbaf542ffd}
+      \strng{bibnamehash}{558c38f5ccb770095033d9bbaf542ffd}
+      \strng{authorbibnamehash}{558c38f5ccb770095033d9bbaf542ffd}
+      \strng{authornamehash}{689bf3be60a0082556fc318e73df60e1}
+      \strng{authorfullhash}{558c38f5ccb770095033d9bbaf542ffd}
+      \field{sortinit}{I}
+      \field{sortinithash}{9417e9a1288a9371e2691d999083ed39}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2020 IEEE Secure Development (SecDev)}
+      \field{title}{XI Commandments of Kubernetes Security: A Systematization of Knowledge Related to Kubernetes Security Practices}
+      \field{year}{2020}
+      \field{pages}{58\bibrangedash 64}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1109/SecDev45635.2020.00025
       \endverb
     \endentry
     \entry{Kreisa2020}{online}{}
@@ -394,7 +521,7 @@
       \strng{authornamehash}{994463a750605e38875735bb89a78e9c}
       \strng{authorfullhash}{994463a750605e38875735bb89a78e9c}
       \field{sortinit}{K}
-      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{sortinithash}{d3edc18d54b9438a72c24c925bfb38f4}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -433,7 +560,7 @@
       \strng{authornamehash}{30136395f01879792198317c11831ea4}
       \strng{authorfullhash}{30136395f01879792198317c11831ea4}
       \field{sortinit}{K}
-      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{sortinithash}{d3edc18d54b9438a72c24c925bfb38f4}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -476,7 +603,7 @@
       \strng{authornamehash}{cf07fad3f55a56caca1b22b3796ba72c}
       \strng{authorfullhash}{cf07fad3f55a56caca1b22b3796ba72c}
       \field{sortinit}{L}
-      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{sortinithash}{dad3efd0836470093a7b4a7bb756eb8c}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -520,7 +647,7 @@
       \strng{authornamehash}{a55badf62d05bdd1365857dd8cd411cf}
       \strng{authorfullhash}{a55badf62d05bdd1365857dd8cd411cf}
       \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -578,7 +705,7 @@
       \strng{authornamehash}{e68d9773a13ee7faaba16d499ac5c517}
       \strng{authorfullhash}{40bb02d6c2779daf182be1cb2efffd02}
       \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{sortinithash}{bb5b15f2db90f7aef79bb9e83defefcb}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -612,7 +739,7 @@
       \strng{authornamehash}{5ba95598ff684100819d138f5b64f250}
       \strng{authorfullhash}{5ba95598ff684100819d138f5b64f250}
       \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{sortinithash}{bb5b15f2db90f7aef79bb9e83defefcb}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -647,7 +774,7 @@
       \strng{authorfullhash}{a82007c47b25723539a00ff94e8b3d27}
       \field{extraname}{1}
       \field{sortinit}{R}
-      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{sortinithash}{b9c68a358aea118dfa887b6e902414a7}
       \field{extradate}{1}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
@@ -684,7 +811,7 @@
       \strng{authorfullhash}{a82007c47b25723539a00ff94e8b3d27}
       \field{extraname}{2}
       \field{sortinit}{R}
-      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{sortinithash}{b9c68a358aea118dfa887b6e902414a7}
       \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
@@ -728,7 +855,7 @@
       \strng{authornamehash}{43886f3c9e02ddddd3c6a84bddf71808}
       \strng{authorfullhash}{43886f3c9e02ddddd3c6a84bddf71808}
       \field{sortinit}{R}
-      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{sortinithash}{b9c68a358aea118dfa887b6e902414a7}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -788,7 +915,7 @@
       \strng{authornamehash}{4f58432b3f2191d901dcdc545ec532d6}
       \strng{authorfullhash}{6b50eeac6b102c9f38a18cfa05920d4c}
       \field{sortinit}{R}
-      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{sortinithash}{b9c68a358aea118dfa887b6e902414a7}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -822,7 +949,7 @@
       \strng{authornamehash}{67da51953ca4aa1cf2d9a0edfa5629fd}
       \strng{authorfullhash}{67da51953ca4aa1cf2d9a0edfa5629fd}
       \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -857,7 +984,7 @@
       \strng{authornamehash}{a3fe3e643eeedb1fd7a5bd0429199a0b}
       \strng{authorfullhash}{a3fe3e643eeedb1fd7a5bd0429199a0b}
       \field{sortinit}{T}
-      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{sortinithash}{51f9faf24c60c62ca764a77f78cf5666}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -892,7 +1019,7 @@
       \strng{authornamehash}{495b1784053b80be3a14ac58261c9ca5}
       \strng{authorfullhash}{495b1784053b80be3a14ac58261c9ca5}
       \field{sortinit}{T}
-      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{sortinithash}{51f9faf24c60c62ca764a77f78cf5666}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -926,7 +1053,7 @@
       \strng{authornamehash}{1291fcd1f5e4f409f9d172f58ea05a63}
       \strng{authorfullhash}{1291fcd1f5e4f409f9d172f58ea05a63}
       \field{sortinit}{T}
-      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{sortinithash}{51f9faf24c60c62ca764a77f78cf5666}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -950,6 +1077,43 @@
       \verb https://3b6xlt3iddqmuq5vy2w0s5d3-wpengine.netdna-ssl.com/state-of-security/wp-content/uploads/sites/3/Tripwire-Dimensional-Research-State-of-Container-Security-Report.pdf
       \endverb
     \endentry
+    \entry{Venugopal2019}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d8a0c7fbe38485c46b1702d346dacc76}{%
+           family={Venugopal},
+           familyi={V\bibinitperiod},
+           given={Viswajith},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Red Hat Openshift}%
+      }
+      \strng{namehash}{d8a0c7fbe38485c46b1702d346dacc76}
+      \strng{fullhash}{d8a0c7fbe38485c46b1702d346dacc76}
+      \strng{bibnamehash}{d8a0c7fbe38485c46b1702d346dacc76}
+      \strng{authorbibnamehash}{d8a0c7fbe38485c46b1702d346dacc76}
+      \strng{authornamehash}{d8a0c7fbe38485c46b1702d346dacc76}
+      \strng{authorfullhash}{d8a0c7fbe38485c46b1702d346dacc76}
+      \field{sortinit}{V}
+      \field{sortinithash}{02432525618c08e2b03cac47c19764af}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{5}
+      \field{month}{4}
+      \field{title}{Guide to Kubernetes Ingress Network Policies}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.openshift.com/blog/guide-to-kubernetes-ingress-network-policies
+      \endverb
+      \verb{url}
+      \verb https://www.openshift.com/blog/guide-to-kubernetes-ingress-network-policies
+      \endverb
+    \endentry
     \entry{VMWare2021}{online}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=7f8b37715b940736bc29a71b2f98126d}{%
@@ -963,7 +1127,7 @@
       \strng{authornamehash}{7f8b37715b940736bc29a71b2f98126d}
       \strng{authorfullhash}{7f8b37715b940736bc29a71b2f98126d}
       \field{sortinit}{V}
-      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{sortinithash}{02432525618c08e2b03cac47c19764af}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -984,3 +1148,4 @@
   \enddatalist
 \endrefsection
 \endinput
+

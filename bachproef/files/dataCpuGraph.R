@@ -1,6 +1,6 @@
 library(readr)
 library(ggplot2)
-CPUoverTime <- read_table2("SC2_CPUGebruikDag12.csv", skip = 1)
+CPUoverTime <- read_table2("SC1_CpuGebruikDag9.csv", skip = 1)
 CPUoverTime <- head(CPUoverTime, - 2)
 
 #CPUoverTime <- CPUoverTime[1:8]

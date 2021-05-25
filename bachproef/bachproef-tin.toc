@@ -89,7 +89,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.5.3}Scenario 3}{61}{subsection.3.5.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5.4}Vergelijken van de data}{63}{subsection.3.5.4}%
+\contentsline {subsection}{\numberline {3.5.4}Vergelijken van de data}{64}{subsection.3.5.4}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Conclusie}{65}{chapter.4}%
 \defcounter {refsection}{0}\relax 

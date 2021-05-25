@@ -89,7 +89,7 @@ Docker gebruikt een \textit{Client-Server} architectuur. Deze werkt als volgt: D
 Een \textit{Docker register} is een bibliotheek die \textit{Docker images} opslaat. Het standaard register voor Docker is de \textit{Docker Hub}\footnote{hub.docker.com/}. Als de Docker daemon geen lokale Docker image vindt gaat deze standaard in de \textit{Docker Hub} zoeken. Wanneer gebruik gemaakt wordt van de \verb|docker pull| of \verb|docker run| commando's, worden de benodigde images uit het register gehaald.
 
 \subsubsection{Docker objecten} \label{dockerObjects}
-Docker maakt gebruik van images, volumes en netwerken, al deze onderdelen worden objecten genoemd. Volgens \textcite{Docker2021a} en \textcite{AquaSecurity2021} zijn dit de belangrijkste objecten:
+Docker maakt gebruik van images, volumes en netwerken, al deze onderdelen worden objecten genoemd. Volgens \textcite{Docker2021a, AquaSecurity2021} zijn dit de belangrijkste objecten:
 
 \begin{itemize}
         \item \textbf{Images}: Docker images zijn \textit{read-only} sjablonen met instructies om een Docker container op te zetten. Docker images vanuit de Docker Hub zijn typisch onmiddelijk klaar voor gebruik, zonder verdere configuratie. Verder kan je tevens bijkomende instructies toevoegen aan de \textit{base image} en deze opslaan als een nieuwe en aangepaste Docker image. Een Docker image is vaak gebaseerd op een andere images (i.e., Een nieuwe image kan gebaseerd zijn op een bestaande \textit{Ubuntu} image maar installeert en configureert daarbij een \textit{Apache} webserver). Alsook is het mogelijk om zelf een compleet nieuwe image te maken met behulp van een \textit{dockerfile}.
@@ -145,7 +145,7 @@ Zoals beschreven in de documentatie van \textcite{Pedersen2021, RedHat2021a} wor
     \label{fig:K8sComponents}
 \end{figure}
 
-Het hart van een K8s cluster is de \textbf{\textit{Control plane}}, hierin bevinden zich alle componenten die de cluster controleren. Tevens zitten alle gegevens omtrent de staat van de cluster en de configuratie hierin verbonden. Alle componenten die deel uitmaken van de \textit{Control plane} kunnen op verschillende machines draaien. Hierbij wordt er wel aangeraden om deze binnen eenzelfde machine te houden. De verschillende onderdelen en hun plaats binnen een cluster worden hieronder besproken.
+Het hart van een K8s cluster is de \textbf{\textit{Control plane}}, hierin bevinden zich alle componenten die de cluster controleren. Tevens zitten alle gegevens omtrent de staat van de cluster en de configuratie hierin verbonden. Alle componenten die deel uitmaken van de \textit{Control plane} kunnen op verschillende machines draaien. Hierbij wordt er wel aangeraden om deze binnen eenzelfde machine te houden. De verschillende onderdelen en hun plaats binnen een cluster worden hieronder besproken \autocite{Pedersen2021}.
 
 De \textbf{\textit{kube-apiserver}} wordt gezien als de \textit{Front-end} van een Kubernetes cluster. Deze is de link tussen \textit{nodes} en \textit{pods} van de cluster en de \textit{Control plane}. Het doel van deze apiserver is om de communicatie van de nodes en de Kubernetes API to bolwerken. De apiserver is ontworpen om horizontaal te schalen als deze te zwaar belast wordt. Hierbij creëert die nieuwe instanties van zichzelf.
 
@@ -207,7 +207,7 @@ Een voorbeeld van zo een policy is de \verb|seLinux| policy die, zoals zijn naam
     \end{minted}
 \end{figure}
 
-De communicatie tussen de Pods kan gecontroleerd worden aan de hand van zogenaamde \textbf{\textit{Network policies}}. Dit zijn regels die aanduiden welke pods met elkaar kunnen communiceren en welke soort data er uitgewisseld kan worden. In voorbeeld \ref{netpolicy} wordt inkomend verkeer naar pods met label ``color: blue'' alleen toegestaan als het afkomstig is van een pod met label ``color: red'' en dit enkel op poort 80. De \textit{Network policies} kunnen handmatig worden geconfigureerd of er kan gebruik gemaakt worden van een zogenaamde \textit{Container Network Interface} (CNI). Een CNI helpt met het configureren en onderhouden van de \textit{Network policies}. In sectie \ref{Calico} wordt één van de meest prominente CNI's besproken, namelijk \textit{Project Calico}.
+De communicatie tussen de Pods kan gecontroleerd worden aan de hand van zogenaamde \textbf{\textit{Network policies}}. Dit zijn regels die aanduiden welke pods met elkaar kunnen communiceren en welke soort data er uitgewisseld kan worden \autocite{Venugopal2019, Bannister2021}. In voorbeeld \ref{netpolicy} wordt inkomend verkeer naar pods met label ``color: blue'' alleen toegestaan als het afkomstig is van een pod met label ``color: red'' en dit enkel op poort 80. De \textit{Network policies} kunnen handmatig worden geconfigureerd of er kan gebruik gemaakt worden van een zogenaamde \textit{Container Network Interface} (CNI). Een CNI helpt met het configureren en onderhouden van de \textit{Network policies}. In sectie \ref{Calico} wordt één van de meest prominente CNI's besproken, namelijk \textit{Project Calico}.
 
 \begin{figure}[h!] \label{netpolicy}
     \begin{minted}{yaml}
