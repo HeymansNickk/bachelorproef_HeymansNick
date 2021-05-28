@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.4.17)  25 MAY 2021 14:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.4.17)  28 MAY 2021 10:14
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1662,14 +1662,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [11
 
 ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Font Info:    Font shape `T1/pag/m/it' in size <12> not available
+(Font)              Font shape `T1/pag/m/sl' tried instead on input line 56.
 
- [12])
+[12])
 \tf@lof=\write9
 \openout9 = `bachproef-tin.lof'.
 
-
-[13] [14
+ [13] [14
 
 ] (./bachproef-tin.lot)
 \tf@lot=\write10
@@ -1750,7 +1750,7 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 3
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-<img/Hypervisor.png, id=442, 1606.0pt x 903.375pt>
+<img/Hypervisor.png, id=446, 1606.0pt x 903.375pt>
 File: img/Hypervisor.png Graphic file (type png)
 <use img/Hypervisor.png>
 Package pdftex.def Info: img/Hypervisor.png  used on input line 41.
@@ -1762,14 +1762,14 @@ Package pdftex.def Info: img/Hypervisor.png  used on input line 41.
                                                   
 l.49 
       <./img/Hypervisor.png (PNG copy)>]
-<img/container-vs-vm.png, id=451, 713.66624pt x 275.0275pt>
+<img/container-vs-vm.png, id=455, 713.66624pt x 275.0275pt>
 File: img/container-vs-vm.png Graphic file (type png)
 <use img/container-vs-vm.png>
 Package pdftex.def Info: img/container-vs-vm.png  used on input line 52.
 (pdftex.def)             Requested size: 426.79135pt x 164.47221pt.
 
-Overfull \hbox (11.22435pt too wide) in paragraph at lines 62--63
-[]$[]$\T1/ptm/m/n/12 (-20) : Con-tai-ners zijn klein en licht, waar-door ze goe
+Overfull \hbox (8.6019pt too wide) in paragraph at lines 62--63
+[]$[]$\T1/ptm/m/n/12 (-20) : con-tai-ners zijn klein en licht, waar-door ze goe
 d pas-sen bij microservice-
  []
 
@@ -1780,7 +1780,7 @@ d pas-sen bij microservice-
                                                   
 l.70 
       <./img/container-vs-vm.png>]
-<img/dockerArchitecture.jpg, id=468, 948.54375pt x 495.8525pt>
+<img/dockerArchitecture.jpg, id=472, 948.54375pt x 495.8525pt>
 File: img/dockerArchitecture.jpg Graphic file (type jpg)
 <use img/dockerArchitecture.jpg>
 Package pdftex.def Info: img/dockerArchitecture.jpg  used on input line 77.
@@ -1808,7 +1808,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [26]
-<img/kubernetes-components.png, id=524, 930.47626pt x 440.39531pt>
+<img/kubernetes-components.png, id=528, 930.47626pt x 440.39531pt>
 File: img/kubernetes-components.png Graphic file (type png)
 <use img/kubernetes-components.png>
 Package pdftex.def Info: img/kubernetes-components.png  used on input line 143.
@@ -1841,22 +1841,28 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
 
 
 (./_minted-bachproef-tin/66DABE8DE257AA52C98F4F7E0BE3A4563796B838DCE80A178598AE
-D9F477B952.pygtex) [31]
-<img/Calico-Ecosystem.png, id=578, 996.72375pt x 365.365pt>
+D9F477B952.pygtex)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[31]
+<img/Calico-Ecosystem.png, id=582, 996.72375pt x 365.365pt>
 File: img/Calico-Ecosystem.png Graphic file (type png)
 <use img/Calico-Ecosystem.png>
 Package pdftex.def Info: img/Calico-Ecosystem.png  used on input line 264.
 (pdftex.def)             Requested size: 426.79135pt x 156.44603pt.
- [32]
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [33pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
-5}) has been already used, duplicate ignored
+ [32]
+[33pdfTeX warning (ext4): destination with the same identifier (name{figure.2.5
+}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.275 
-       <./img/Calico-Ecosystem.png>]) (./methodologie.tex [34]
+l.272 \subsection
+                 {Kube-hunter} \label{hunter} <./img/Calico-Ecosystem.png>])
+(./methodologie.tex [34]
 Hoofdstuk 3.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1864,7 +1870,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [35
 
 ]
-<img/LinodeClusterNaam.png, id=617, 967.615pt x 396.48125pt>
+<img/LinodeClusterNaam.png, id=621, 967.615pt x 396.48125pt>
 File: img/LinodeClusterNaam.png Graphic file (type png)
 <use img/LinodeClusterNaam.png>
 Package pdftex.def Info: img/LinodeClusterNaam.png  used on input line 47.
@@ -1873,7 +1879,7 @@ Package pdftex.def Info: img/LinodeClusterNaam.png  used on input line 47.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/LinodeAddNodes.png, id=619, 980.66376pt x 751.80875pt>
+<img/LinodeAddNodes.png, id=623, 980.66376pt x 751.80875pt>
 File: img/LinodeAddNodes.png Graphic file (type png)
 <use img/LinodeAddNodes.png>
 Package pdftex.def Info: img/LinodeAddNodes.png  used on input line 56.
@@ -1948,7 +1954,7 @@ r (name{figure.3.3}) has been already used, duplicate ignored
                                                   
 l.3 \end{Verbatim}
                   ])
-<img/CPUDataPreview.png, id=643, 822.07124pt x 349.305pt>
+<img/CPUDataPreview.png, id=647, 822.07124pt x 349.305pt>
 File: img/CPUDataPreview.png Graphic file (type png)
 <use img/CPUDataPreview.png>
 Package pdftex.def Info: img/CPUDataPreview.png  used on input line 118.
@@ -1973,7 +1979,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.153 
+l.152 
        <./img/CPUDataPreview.png>]
 (./_minted-bachproef-tin/C5DA764280BF94F0A635002173B9C95BBEB734D0A7A6CAAD047893
 D7A7BB6426.pygtex)
@@ -2032,11 +2038,11 @@ l.1 \begin{Verbatim}[commandchars=\\\{\}]
 
 (./_minted-bachproef-tin/AD38056472C4C8E94C741AC27576E238DE0F623D73D7EBA888DAB4
 2BC8980A7C.pygtex)
-<img/kubectlGetPodsDeployment1.png, id=669, 750.805pt x 111.41624pt>
+<img/kubectlGetPodsDeployment1.png, id=673, 750.805pt x 111.41624pt>
 File: img/kubectlGetPodsDeployment1.png Graphic file (type png)
 <use img/kubectlGetPodsDeployment1.png>
 Package pdftex.def Info: img/kubectlGetPodsDeployment1.png  used on input line 
-238.
+237.
 (pdftex.def)             Requested size: 426.79135pt x 63.3345pt.
 
 
@@ -2070,11 +2076,11 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/kubectlGetPodsEditDeploy1.png, id=676, 855.195pt x 152.57pt>
+<img/kubectlGetPodsEditDeploy1.png, id=680, 855.195pt x 152.57pt>
 File: img/kubectlGetPodsEditDeploy1.png Graphic file (type png)
 <use img/kubectlGetPodsEditDeploy1.png>
 Package pdftex.def Info: img/kubectlGetPodsEditDeploy1.png  used on input line 
-265.
+264.
 (pdftex.def)             Requested size: 426.79135pt x 76.14047pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -2094,27 +2100,27 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 (./_minted-bachproef-tin/B6A6BFDCC2EAAB14E1E9AB2FD215DF6FDE0F623D73D7EBA888DAB4
-2BC8980A7C.pygtex [45pdfTeX warning (ext4): destination with the same identifie
-r (name{figure.3.10}) has been already used, duplicate ignored
+2BC8980A7C.pygtex) [45pdfTeX warning (ext4): destination with the same identifi
+er (name{figure.3.10}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.3 \end{Verbatim}
-                   <./img/kubectlGetPodsDeployment1.png>])
-<img/kubectlDescriveService1.png, id=685, 782.925pt x 427.5975pt>
+l.288 
+       <./img/kubectlGetPodsDeployment1.png>]
+<img/kubectlDescriveService1.png, id=690, 782.925pt x 427.5975pt>
 File: img/kubectlDescriveService1.png Graphic file (type png)
 <use img/kubectlDescriveService1.png>
 Package pdftex.def Info: img/kubectlDescriveService1.png  used on input line 29
-2.
+1.
 (pdftex.def)             Requested size: 426.79135pt x 233.09799pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/demoSite1.png, id=686, 1258.7025pt x 620.3175pt>
+<img/demoSite1.png, id=691, 1258.7025pt x 620.3175pt>
 File: img/demoSite1.png Graphic file (type png)
 <use img/demoSite1.png>
-Package pdftex.def Info: img/demoSite1.png  used on input line 299.
+Package pdftex.def Info: img/demoSite1.png  used on input line 298.
 (pdftex.def)             Requested size: 426.79135pt x 210.32777pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -2124,32 +2130,32 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.304 \clearpage
+l.303 \clearpage
                 ] [47pdfTeX warning (ext4): destination with the same identifie
 r (name{figure.3.12}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.304 \clearpage
+l.303 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.3.13}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.304 \clearpage
+l.303 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.3.14}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.304 \clearpage
+l.303 \clearpage
                  <./img/kubectlGetPodsEditDeploy1.png> <./img/kubectlDescriveSe
 rvice1.png>] [48pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.3.15}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.304 \clearpage
+l.303 \clearpage
                  <./img/demoSite1.png>]
 (./_minted-bachproef-tin/241A22856DA4CC6ABF3EBEBAF4B4AC8BE52B7F9E5304998A374CB7
 6D18889DB2.pygtex)
@@ -2183,24 +2189,34 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 (./_minted-bachproef-tin/7E1A2C337543E4551251D9A8FBC11267DE0F623D73D7EBA888DAB4
-2BC8980A7C.pygtex) [50pdfTeX warning (ext4): destination with the same identifi
-er (name{figure.3.16}) has been already used, duplicate ignored
+2BC8980A7C.pygtex)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[50pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1
+6}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.382 \clearpage
+l.375 \clearpage
                 ] [51pdfTeX warning (ext4): destination with the same identifie
 r (name{figure.3.17}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.382 \clearpage
+l.375 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.3.18}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.382 \clearpage
+l.375 \clearpage
+                pdfTeX warning (ext4): destination with the same identifier (na
+me{figure.3.19}) has been already used, duplicate ignored
+
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.375 \clearpage
                 ]
 \openout6 = `bachproef-tin.pyg'.
 
@@ -2248,52 +2264,52 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[53pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1
-9}) has been already used, duplicate ignored
+[53pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2
+0}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.483 \clearpage
+l.476 \clearpage
                 ] [54pdfTeX warning (ext4): destination with the same identifie
-r (name{figure.3.20}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.483 \clearpage
-                ] [55pdfTeX warning (ext4): destination with the same identifie
 r (name{figure.3.21}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.483 \clearpage
-                pdfTeX warning (ext4): destination with the same identifier (na
-me{figure.3.22}) has been already used, duplicate ignored
+l.476 \clearpage
+                ] [55pdfTeX warning (ext4): destination with the same identifie
+r (name{figure.3.22}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.483 \clearpage
+l.476 \clearpage
+                pdfTeX warning (ext4): destination with the same identifier (na
+me{figure.3.23}) has been already used, duplicate ignored
+
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.476 \clearpage
                 ] [56
 
 ]
-<img/SC1_CPUAVG.png, id=752, 695.59875pt x 23.08624pt>
+<img/SC1_CPUAVG.png, id=758, 695.59875pt x 23.08624pt>
 File: img/SC1_CPUAVG.png Graphic file (type png)
 <use img/SC1_CPUAVG.png>
-Package pdftex.def Info: img/SC1_CPUAVG.png  used on input line 493.
+Package pdftex.def Info: img/SC1_CPUAVG.png  used on input line 486.
 (pdftex.def)             Requested size: 426.79135pt x 14.16464pt.
 \openout6 = `bachproef-tin.pyg'.
 
 
 (./_minted-bachproef-tin/F1916A67F86C44B3793F62773A0B647EDE0F623D73D7EBA888DAB4
 2BC8980A7C.pygtex)
-<img/SC1_CPUBox.png, id=755, 613.54219pt x 383.93437pt>
+<img/SC1_CPUBox.png, id=761, 613.54219pt x 383.93437pt>
 File: img/SC1_CPUBox.png Graphic file (type png)
 <use img/SC1_CPUBox.png>
-Package pdftex.def Info: img/SC1_CPUBox.png  used on input line 532.
+Package pdftex.def Info: img/SC1_CPUBox.png  used on input line 525.
 (pdftex.def)             Requested size: 320.0935pt x 200.30315pt.
-<img/SC1_RAMBox.png, id=756, 613.54219pt x 383.93437pt>
+<img/SC1_RAMBox.png, id=762, 613.54219pt x 383.93437pt>
 File: img/SC1_RAMBox.png Graphic file (type png)
 <use img/SC1_RAMBox.png>
-Package pdftex.def Info: img/SC1_RAMBox.png  used on input line 539.
+Package pdftex.def Info: img/SC1_RAMBox.png  used on input line 532.
 (pdftex.def)             Requested size: 320.0935pt x 200.30315pt.
 
 
@@ -2301,186 +2317,186 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [57
 
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.23})
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.24})
  has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.545 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.
-3.24}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.545 
+l.538 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 3.25}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.545 
+l.538 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+3.26}) has been already used, duplicate ignored
+
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.538 
        <./img/SC1_CPUAVG.png> <./img/SC1_CPUBox.png>]
-<img/SC1_CPUGraph.png, id=765, 613.54219pt x 383.93437pt>
+<img/SC1_CPUGraph.png, id=771, 613.54219pt x 383.93437pt>
 File: img/SC1_CPUGraph.png Graphic file (type png)
 <use img/SC1_CPUGraph.png>
-Package pdftex.def Info: img/SC1_CPUGraph.png  used on input line 549.
+Package pdftex.def Info: img/SC1_CPUGraph.png  used on input line 542.
 (pdftex.def)             Requested size: 192.0548pt x 120.17838pt.
-<img/SC1_RAMGraph.png, id=766, 613.54219pt x 383.93437pt>
+<img/SC1_RAMGraph.png, id=772, 613.54219pt x 383.93437pt>
 File: img/SC1_RAMGraph.png Graphic file (type png)
 <use img/SC1_RAMGraph.png>
-Package pdftex.def Info: img/SC1_RAMGraph.png  used on input line 555.
+Package pdftex.def Info: img/SC1_RAMGraph.png  used on input line 548.
 (pdftex.def)             Requested size: 192.0548pt x 120.17838pt.
 \openout6 = `bachproef-tin.pyg'.
 
 
 (./_minted-bachproef-tin/4040EC16A04743C6040E44E34EB26E71DE0F623D73D7EBA888DAB4
 2BC8980A7C.pygtex) [58pdfTeX warning (ext4): destination with the same identifi
-er (name{figure.3.26}) has been already used, duplicate ignored
+er (name{figure.3.27}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.579 \clearpage
-                pdfTeX warning (ext4): destination with the same identifier (na
-me{figure.3.27}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.579 \clearpage
+l.572 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.3.28}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.579 \clearpage
+l.572 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.3.29}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.579 \clearpage
+l.572 \clearpage
+                pdfTeX warning (ext4): destination with the same identifier (na
+me{figure.3.30}) has been already used, duplicate ignored
+
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.572 \clearpage
                  <./img/SC1_RAMBox.png> <./img/SC1_CPUGraph.png> <./img/SC1_RAM
 Graph.png>]
-<img/SC2_CPUAVG.png, id=778, 689.57625pt x 21.07875pt>
+<img/SC2_CPUAVG.png, id=784, 689.57625pt x 21.07875pt>
 File: img/SC2_CPUAVG.png Graphic file (type png)
 <use img/SC2_CPUAVG.png>
-Package pdftex.def Info: img/SC2_CPUAVG.png  used on input line 585.
+Package pdftex.def Info: img/SC2_CPUAVG.png  used on input line 578.
 (pdftex.def)             Requested size: 426.79135pt x 13.04616pt.
 \openout6 = `bachproef-tin.pyg'.
 
 
 (./_minted-bachproef-tin/454BE82B748D4EC75611295391910575DE0F623D73D7EBA888DAB4
 2BC8980A7C.pygtex)
-<img/SC2_CPUBox.png, id=781, 613.54219pt x 383.93437pt>
+<img/SC2_CPUBox.png, id=787, 613.54219pt x 383.93437pt>
 File: img/SC2_CPUBox.png Graphic file (type png)
 <use img/SC2_CPUBox.png>
-Package pdftex.def Info: img/SC2_CPUBox.png  used on input line 624.
+Package pdftex.def Info: img/SC2_CPUBox.png  used on input line 617.
 (pdftex.def)             Requested size: 320.0935pt x 200.30315pt.
-<img/SC2_RAMBox.png, id=782, 613.54219pt x 383.93437pt>
+<img/SC2_RAMBox.png, id=788, 613.54219pt x 383.93437pt>
 File: img/SC2_RAMBox.png Graphic file (type png)
 <use img/SC2_RAMBox.png>
-Package pdftex.def Info: img/SC2_RAMBox.png  used on input line 631.
+Package pdftex.def Info: img/SC2_RAMBox.png  used on input line 624.
 (pdftex.def)             Requested size: 320.0935pt x 200.30315pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/SC2_CPUGraph.png, id=785, 613.54219pt x 383.93437pt>
+<img/SC2_CPUGraph.png, id=791, 613.54219pt x 383.93437pt>
 File: img/SC2_CPUGraph.png Graphic file (type png)
 <use img/SC2_CPUGraph.png>
-Package pdftex.def Info: img/SC2_CPUGraph.png  used on input line 641.
+Package pdftex.def Info: img/SC2_CPUGraph.png  used on input line 634.
 (pdftex.def)             Requested size: 192.0548pt x 120.17838pt.
-<img/SC2_RAMGraph.png, id=786, 613.54219pt x 383.93437pt>
+<img/SC2_RAMGraph.png, id=792, 613.54219pt x 383.93437pt>
 File: img/SC2_RAMGraph.png Graphic file (type png)
 <use img/SC2_RAMGraph.png>
-Package pdftex.def Info: img/SC2_RAMGraph.png  used on input line 647.
+Package pdftex.def Info: img/SC2_RAMGraph.png  used on input line 640.
 (pdftex.def)             Requested size: 192.0548pt x 120.17838pt.
 [59
 
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.30})
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.31})
  has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.652 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.
-3.31}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.652 
+l.645 
       pdfTeX warning (ext4): destination with the same identifier (name{figure.
 3.32}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.652 
+l.645 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+3.33}) has been already used, duplicate ignored
+
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.645 
        <./img/SC2_CPUAVG.png> <./img/SC2_CPUBox.png>]
 \openout6 = `bachproef-tin.pyg'.
 
 
 (./_minted-bachproef-tin/352E9DAB9E91818E4BE25B8A20C345F4DE0F623D73D7EBA888DAB4
 2BC8980A7C.pygtex) [60pdfTeX warning (ext4): destination with the same identifi
-er (name{figure.3.33}) has been already used, duplicate ignored
+er (name{figure.3.34}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.680 \clearpage
-                pdfTeX warning (ext4): destination with the same identifier (na
-me{figure.3.34}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.680 \clearpage
+l.673 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.3.35}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.680 \clearpage
+l.673 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.3.36}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.680 \clearpage
+l.673 \clearpage
+                pdfTeX warning (ext4): destination with the same identifier (na
+me{figure.3.37}) has been already used, duplicate ignored
+
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.673 \clearpage
                  <./img/SC2_RAMBox.png> <./img/SC2_CPUGraph.png> <./img/SC2_RAM
 Graph.png>]
-<img/SC3_CPUAVG.png, id=806, 688.5725pt x 29.10875pt>
+<img/SC3_CPUAVG.png, id=812, 688.5725pt x 29.10875pt>
 File: img/SC3_CPUAVG.png Graphic file (type png)
 <use img/SC3_CPUAVG.png>
-Package pdftex.def Info: img/SC3_CPUAVG.png  used on input line 694.
+Package pdftex.def Info: img/SC3_CPUAVG.png  used on input line 687.
 (pdftex.def)             Requested size: 426.79135pt x 18.04234pt.
 \openout6 = `bachproef-tin.pyg'.
 
 
 (./_minted-bachproef-tin/F1916A67F86C44B3793F62773A0B647EDE0F623D73D7EBA888DAB4
 2BC8980A7C.pygtex)
-<img/SC3_CPUBox.png, id=809, 613.54219pt x 383.93437pt>
+<img/SC3_CPUBox.png, id=815, 613.54219pt x 383.93437pt>
 File: img/SC3_CPUBox.png Graphic file (type png)
 <use img/SC3_CPUBox.png>
-Package pdftex.def Info: img/SC3_CPUBox.png  used on input line 734.
+Package pdftex.def Info: img/SC3_CPUBox.png  used on input line 711.
 (pdftex.def)             Requested size: 320.0935pt x 200.30315pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/SC3_RAMBox.png, id=810, 613.54219pt x 383.93437pt>
+<img/SC3_RAMBox.png, id=816, 613.54219pt x 383.93437pt>
 File: img/SC3_RAMBox.png Graphic file (type png)
 <use img/SC3_RAMBox.png>
-Package pdftex.def Info: img/SC3_RAMBox.png  used on input line 741.
+Package pdftex.def Info: img/SC3_RAMBox.png  used on input line 718.
 (pdftex.def)             Requested size: 320.0935pt x 200.30315pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/SC3_CPUGraph.png, id=813, 613.54219pt x 383.93437pt>
+<img/SC3_CPUGraph.png, id=819, 613.54219pt x 383.93437pt>
 File: img/SC3_CPUGraph.png Graphic file (type png)
 <use img/SC3_CPUGraph.png>
-Package pdftex.def Info: img/SC3_CPUGraph.png  used on input line 751.
+Package pdftex.def Info: img/SC3_CPUGraph.png  used on input line 728.
 (pdftex.def)             Requested size: 192.0548pt x 120.17838pt.
-<img/SC3_RAMGraph.png, id=814, 613.54219pt x 383.93437pt>
+<img/SC3_RAMGraph.png, id=820, 613.54219pt x 383.93437pt>
 File: img/SC3_RAMGraph.png Graphic file (type png)
 <use img/SC3_RAMGraph.png>
-Package pdftex.def Info: img/SC3_RAMGraph.png  used on input line 757.
+Package pdftex.def Info: img/SC3_RAMGraph.png  used on input line 734.
 (pdftex.def)             Requested size: 192.0548pt x 120.17838pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -2495,51 +2511,51 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [61
 
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.37})
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.38})
  has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.776 \clearpage
+l.753 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
-me{figure.3.38}) has been already used, duplicate ignored
+me{figure.3.39}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.776 \clearpage
+l.753 \clearpage
                  <./img/SC3_CPUAVG.png>] [62pdfTeX warning (ext4): destination 
-with the same identifier (name{figure.3.39}) has been already used, duplicate i
+with the same identifier (name{figure.3.40}) has been already used, duplicate i
 gnored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.776 \clearpage
-                pdfTeX warning (ext4): destination with the same identifier (na
-me{figure.3.40}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.776 \clearpage
+l.753 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.3.41}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.776 \clearpage
+l.753 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.3.42}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.776 \clearpage
+l.753 \clearpage
+                pdfTeX warning (ext4): destination with the same identifier (na
+me{figure.3.43}) has been already used, duplicate ignored
+
+\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
+                                                  
+l.753 \clearpage
                  <./img/SC3_CPUBox.png> <./img/SC3_RAMBox.png> <./img/SC3_CPUGr
 aph.png> <./img/SC3_RAMGraph.png>] [63pdfTeX warning (ext4): destination with t
-he same identifier (name{figure.3.43}) has been already used, duplicate ignored
+he same identifier (name{figure.3.44}) has been already used, duplicate ignored
 
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.776 \clearpage
+l.753 \clearpage
                 ]) (./conclusie.tex [64
 
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) h
@@ -2592,12 +2608,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--54
 
  []
 
-<img/Mock1.png, id=869, 824.32968pt x 606.01407pt>
+<img/Mock1.png, id=875, 824.32968pt x 606.01407pt>
 File: img/Mock1.png Graphic file (type png)
 <use img/Mock1.png>
 Package pdftex.def Info: img/Mock1.png  used on input line 79.
 (pdftex.def)             Requested size: 426.79135pt x 313.76057pt.
-<img/Mock2.png, id=870, 361.95226pt x 92.7465pt>
+<img/Mock2.png, id=876, 361.95226pt x 92.7465pt>
 File: img/Mock2.png Graphic file (type png)
 <use img/Mock2.png>
 Package pdftex.def Info: img/Mock2.png  used on input line 82.
@@ -2641,13 +2657,13 @@ Package logreq Info: Writing requests to 'bachproef-tin.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36222 strings out of 482266
- 690360 string characters out of 5940285
- 1634609 words of memory out of 5000000
- 50223 multiletter control sequences out of 15000+600000
- 624062 words of font info for 296 fonts, out of 8000000 for 9000
+ 36240 strings out of 482266
+ 690559 string characters out of 5940285
+ 1634715 words of memory out of 5000000
+ 50227 multiletter control sequences out of 15000+600000
+ 628331 words of font info for 304 fonts, out of 8000000 for 9000
  350 hyphenation exceptions out of 8191
- 68i,12n,72p,1462b,4672s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,12n,72p,1463b,4672s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/nick/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt1000.600p
 k> </home/nick/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcit1000.600p
 k> </home/nick/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1000.600p
@@ -2656,13 +2672,14 @@ k>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/nick/.texl
 ive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk></usr/share/texliv
 e/texmf-dist/fonts/type1/urw/avantgar/uagd8a.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/avantgar/uagk8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb
-i8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on bachproef-tin.pdf (74 pages, 1091540 bytes).
+/urw/avantgar/uagko8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
+utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on bachproef-tin.pdf (74 pages, 1099517 bytes).
 PDF statistics:
- 1378 PDF objects out of 1440 (max. 8388607)
- 923 compressed objects within 10 object streams
- 239 named destinations out of 1000 (max. 500000)
- 48667 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 1389 PDF objects out of 1440 (max. 8388607)
+ 930 compressed objects within 10 object streams
+ 240 named destinations out of 1000 (max. 500000)
+ 52763 words of extra memory for PDF output out of 61914 (max. 10000000)
 

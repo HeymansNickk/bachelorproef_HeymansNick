@@ -45,7 +45,7 @@ Bij traditionele virtuele machines virtualiseert een \textit{hypervisor} de fysi
 
 Tegenwoordig worden type 1 hypervisors in productieomgevingen het meest gebruikt, dit vanwege hun efficiënte \textit{resource} gebruik en veiligheid. Type 2 hypervisors worden meer gebruikt in testomgevingen omdat deze gemakkelijker op te zetten zijn.
 
-Elke VM heeft zijn eigen volwaardig besturingssysteem, met gevolg dat deze veel resources gebruiken en hierbij,in vergelijking met containers, vaak trager zijn. In plaats van de onderliggende hardware te visualiseren gebruiken containers de kernel van het besturingssysteem (meestal is dit Linux) zelf, zo bevat elke individuele container enkel de applicatie en de bijhorende afhankelijkheden bevat \autocite{Education2020}.
+Elke VM heeft zijn eigen volwaardig besturingssysteem, met gevolg dat deze veel resources gebruiken en hierbij, in vergelijking met containers, vaak trager zijn. In plaats van de onderliggende hardware te visualiseren gebruiken containers de kernel van het besturingssysteem (meestal is dit Linux) zelf, zo bevat elke individuele container enkel de applicatie en de bijhorende afhankelijkheden  \autocite{Education2020}.
 
 \begin{figure}[ht]
     \centering
@@ -55,22 +55,22 @@ Elke VM heeft zijn eigen volwaardig besturingssysteem, met gevolg dat deze veel 
 \end{figure}
 
 
-\subsection{Waarvoor worden containers gebruikt}
+\subsection{Waarvoor worden containers gebruikt?}
 Containers zijn zeer veelzijdig en kunnen dus in veel verschillende omstandigheden gebruikt worden. Enkele \textit{use cases} waarvoor containers zeer geschikt zijn \autocite{Docker2021}:
 
 \begin{itemize}
-  \item \underline{Microservices}: Containers zijn klein en licht, waardoor ze goed passen bij microservice-architecturen waarin applicaties zijn opgebouwd uit vele, losjes gekoppelde en onafhankelijk services.
-  \item \underline{Modernisering en migratie van applicaties}: Een van de meest voorkomende benaderingen voor het moderniseren van applicaties begint met het containeriseren ervan, zodat ze naar de \textit{cloud} kunnen worden gemigreerd.
-  \item \underline{Nieuwe ontwikkelaars snel inwerken}: Door gebruik te maken van containers verloopt het opzetten van een nieuwe lokale ontwikkelingsomgeving snel en vlot, hierdoor kunnen de ontwikkelaars direct aan de slag.
+  \item \underline{Microservices}: containers zijn klein en licht, waardoor ze goed passen bij microservice-architecturen waarin applicaties zijn opgebouwd uit vele, losjes gekoppelde en onafhankelijk services.
+  \item \underline{Modernisering en migratie van applicaties}: een van de meest voorkomende benaderingen voor het moderniseren van applicaties begint met het containeriseren ervan, zodat ze naar de \textit{cloud} kunnen worden gemigreerd.
+  \item \underline{Nieuwe ontwikkelaars snel inwerken}: door gebruik te maken van containers verloopt het opzetten van een nieuwe lokale ontwikkelingsomgeving snel en vlot, hierdoor kunnen de ontwikkelaars direct aan de slag.
 \end{itemize}
 
 
 \section{Docker}
-\textit{Docker}\footnote{docker.com/} is een open source container platform dat sinds de \textit{release} in 2013 ongelofelijk populair is geworden. In november 2019 stond de teller van aantal \textit{pulls} op de \textit{Docker hub} op 130 miljard, in juli 2020 stond deze al op 242 miljard. Dat is bijna een verdubbeling op minder dan 8 maand tijd \autocite{Kreisa2020}. Docker-containers kunnen overal draaien, in het datacenter, bij een externe serviceprovider of in de cloud. Docker containers kunnen zowel op Linux als op Windows draaien. Containers die op Windows gebaseerd zijn kunnen echter alleen op Windows systemen draaien, maar Linux containers kunnen op zowel Linux systemen en Windows systemen draaien (met behulp van een Linux VM). Dit komt omdat containers ontworpen zijn om het besturingssysteem van de host te gebruiken \autocite{Anil2018}.
+\textit{Docker}\footnote{docker.com/} is een open source container platform dat sinds de \textit{release} in 2013 ongelofelijk populair is geworden. In november 2019 stond de teller van aantal \textit{pulls} op de \textit{Docker hub} op 130 miljard, in juli 2020 stond deze al op 242 miljard. Dat is bijna een verdubbeling op minder dan acht maanden tijd \autocite{Kreisa2020}. Docker-containers kunnen overal draaien, in het datacenter, bij een externe serviceprovider of in de cloud. Docker containers kunnen zowel op Linux als op Windows draaien. Containers die op Windows gebaseerd zijn kunnen echter alleen op Windows systemen draaien, maar Linux containers kunnen op zowel Linux systemen en Windows systemen draaien (met behulp van een Linux VM). Dit komt omdat containers ontworpen zijn om het besturingssysteem van de host te gebruiken \autocite{Anil2018}.
 
 
-\subsection{Hoe werkt Docker}
-Docker gebruikt een \textit{Client-Server} architectuur. Deze werkt als volgt: De Docker \textit{Client} communiceert met de Docker \textit{Deamon} (een proces dat op de achtergrond draait en bepaalde (onderhouds-)taken uitvoert). Deze is verantwoordelijk voor het bouwen, runnen en verspreiden van containers \autocite{Docker2021a}.
+\subsection{Hoe werkt Docker?}
+Docker gebruikt een \textit{Client-Server} architectuur. Deze werkt als volgt: de Docker \textit{Client} communiceert met de Docker \textit{Deamon} (een proces dat op de achtergrond draait en bepaalde (onderhouds-)taken uitvoert). Deze is verantwoordelijk voor het bouwen, runnen en verspreiden van containers \autocite{Docker2021a}.
 
 \begin{figure}[ht]
 	\centering
@@ -81,7 +81,7 @@ Docker gebruikt een \textit{Client-Server} architectuur. Deze werkt als volgt: D
 
 \subsection{Docker componenten en terminologie}
 
-\subsubsection{Docker Deamon}De Docker Daemon (\verb|dockerd|) luistert naar Docker Application programming interface (API) verzoeken en beheert Docker objecten waaronder \textit{images}, \textit{containers}, netwerken, en \textit{volumes}.
+\subsubsection{Docker Deamon}De Docker Daemon (\verb|dockerd|) luistert naar Docker Application programming interface (API) verzoeken en beheert Docker objecten waaronder \textit{images}, \textit{containers}, netwerken en \textit{volumes}.
 
 \subsubsection{Docker Client}De Docker Client is de meest gebruikte manier voor gebruikers om te communiceren met Docker. De client stuurt alle ingevoerde commando's (zoals \verb|docker pull| en \verb|docker run|) door naar de Docker Daemon die deze uitvoert.
 
@@ -92,9 +92,9 @@ Een \textit{Docker register} is een bibliotheek die \textit{Docker images} opsla
 Docker maakt gebruik van images, volumes en netwerken, al deze onderdelen worden objecten genoemd. Volgens \textcite{Docker2021a, AquaSecurity2021} zijn dit de belangrijkste objecten:
 
 \begin{itemize}
-        \item \textbf{Images}: Docker images zijn \textit{read-only} sjablonen met instructies om een Docker container op te zetten. Docker images vanuit de Docker Hub zijn typisch onmiddelijk klaar voor gebruik, zonder verdere configuratie. Verder kan je tevens bijkomende instructies toevoegen aan de \textit{base image} en deze opslaan als een nieuwe en aangepaste Docker image. Een Docker image is vaak gebaseerd op een andere images (i.e., Een nieuwe image kan gebaseerd zijn op een bestaande \textit{Ubuntu} image maar installeert en configureert daarbij een \textit{Apache} webserver). Alsook is het mogelijk om zelf een compleet nieuwe image te maken met behulp van een \textit{dockerfile}.
-        \item \textbf{Containers}: Een container is een uitvoerbare instantie van een image die wordt gecontroleerd via de Docker API. Een container heeft de mogelijkheid om te verbinden met andere containers, aan externe opslag of kan als basis dienen voor een nieuwe image.
-        \item \textbf{Volumes}: De persistente gegevens die Docker containers kunnen gebruiken wordt opgeslagen in zogenaamde volumes. Deze volumes worden volledig gecontroleerd via de Docker API en bevinden zich buiten de container zelf. Hierdoor blijft het gewicht van de containers laag en kan de data blijven bestaan ook al wordt de container gestopt of verwijderd.
+        \item \textbf{Images}: Docker images zijn \textit{read-only} sjablonen met instructies om een Docker container op te zetten. Docker images vanuit de Docker Hub zijn typisch onmiddelijk klaar voor gebruik, zonder verdere configuratie. Verder kan je tevens bijkomende instructies toevoegen aan de \textit{base image} en deze opslaan als een nieuwe en aangepaste Docker image. Een Docker image is vaak gebaseerd op een andere image (i.e., Een nieuwe image kan gebaseerd zijn op een bestaande \textit{Ubuntu} image maar installeert en configureert daarbij een \textit{Apache} webserver). Alsook is het mogelijk om zelf een compleet nieuwe image te maken met behulp van een \textit{dockerfile}.
+        \item \textbf{Containers}: een container is een uitvoerbare instantie van een image die wordt gecontroleerd via de Docker API. Een container heeft de mogelijkheid om te verbinden met andere containers, aan externe opslag of kan als basis dienen voor een nieuwe image.
+        \item \textbf{Volumes}: de persistente gegevens die Docker containers kunnen gebruiken wordt opgeslagen in zogenaamde volumes. Deze volumes worden volledig gecontroleerd via de Docker API en bevinden zich buiten de container zelf. Hierdoor blijft het gewicht van de containers laag en kan de data blijven bestaan ook al wordt de container gestopt of verwijderd.
 \end{itemize}
 
 \section{Container orkestratie}
@@ -113,21 +113,21 @@ Container orkestratie wordt vooral gebruikt voor het automatiseren en beheren va
 %\end{itemize}
 
 \subsection{Container orkestratie tools}
-Om aan container orkestratie te gaan doen zijn er natuurlijk tools nodig die ons alle nodig functionaliteiten kunnen aanbieden. \textcite{DevopsCube2021} geeft een overzicht van de meest prominente orkestratie tools.
+Om aan container orkestratie te gaan doen zijn er natuurlijk tools nodig die ons alle nodige functionaliteiten kunnen aanbieden. \textcite{DevopsCube2021} geeft een overzicht van de meest prominente orkestratie tools.
 
 \subsubsection{Kubernetes}
-Kubernetes(K8s)\footnote{kubernetes.io/} is een open source, container cluster manager en orchestratie tool. Het is gebouwd met een uitstekende resource manager voor het inzetten van containers op een efficiëntere manier. Kubernetes is voor vele organisaties de ``de facto'' container orkestratie tool geworden. Volgens \textcite{CNCF2021} zijn er meer dan 109 tools om containers te beheren, maar 89\% is gebouwd met K8s aan de basis.
+Kubernetes(K8s)\footnote{kubernetes.io/} is een open source, container cluster manager en orkestratie tool. Het is gebouwd met een uitstekende resource manager voor het inzetten van containers op een efficiëntere manier. Kubernetes is voor vele organisaties de ``de facto'' container orkestratie tool geworden. Volgens \textcite{CNCF2021} zijn er meer dan 109 tools om containers te beheren, maar 89\% is gebouwd met K8s aan de basis.
 
 \subsubsection{Openshift}
 Openshift behoort tot de 89\% tools die gebouwd zijn bovenop Kubernetes. Het Openshift-project\footnote{openshift.com/} word onderhouden door RedHat\footnote{redhat.com/}. Het heeft zowel een open source versie (\textit{openshift origin}\footnote{github.com/openshift/origin}) als een enterprise versie (\textit{openshift container platform}\footnote{openshift.com/products/container-platform}).
 
 \subsubsection{Hasicorp Nomad}
-Nomad\footnote{nomadproject.io/} is een orkestratieplatform van Hashicorp\footnote{hashicorp.com/} dat containers op schaal kan ondersteunen. Op het vlak van applicatiemanagement is het zeer sterk vergelijkbaar met Kubernetes. Echter kan Nomad ook niet-containerapplicaties kan beheren, met gevolg dat deze zich kan distantiëren van de andere orkestratie tools. Daarnaast kan Nomad feilloos geïntegreerd worden met andere tools van Hashicorp.
+Nomad\footnote{nomadproject.io/} is een orkestratieplatform van Hashicorp\footnote{hashicorp.com/} dat containers op schaal kan ondersteunen. Op het vlak van applicatiemanagement is het zeer sterk vergelijkbaar met Kubernetes. Echter kan Nomad ook niet-containerapplicaties beheren, met gevolg dat deze zich kan distantiëren van de andere orkestratie tools. Daarnaast kan Nomad feilloos geïntegreerd worden met andere tools van Hashicorp.
 
 \section{Kubernetes}
 Hier wordt ingegaan op wat Kubernetes(K8s) doet en hoe het werkt. Daarnaast worden de verschillende technische termen die eigen zijn aan K8s uitgelegd.
 
-Kubernetes is een \textit{open source}, container cluster manager en orkestratie tool. Het werd ontwikkeld door Google om hun container applicaties op grote schaal te kunnen orkestreren. Het project werd in 2014 \textit{open source} gemaakt, dat wil zeggen dat Google heeft besloten om het Kubernetes project samen met de \textit{community} to omwikkelen en onderhouden. Google heeft dan ook, in samenwerking met de Linux Foundation, de Cloud Native Computing Foundation(CNCF)\footnote{cncf.io/} opgericht. Zij zijn nu de \textit{maintainers} van het project en kiezen welke veranderingen er worden doorgevoerd.Hierdoor konden ook andere organisaties niet alleen gebruik maken van deze krachtige tool, maar tevens meewerken aan de ontwikkeling ervan. De term \textit{Kubernetes} is Grieks voor ``stuurman van een schip'' \autocite{Kubernetes2021}. Enkele diensten die door K8s aangeboden worden:
+Kubernetes is een \textit{open source}, container cluster manager en orkestratie tool. Het werd ontwikkeld door Google om hun container applicaties op grote schaal te kunnen orkestreren. Het project werd in 2014 \textit{open source} gemaakt, dat wil zeggen dat Google heeft besloten om het Kubernetes project samen met de \textit{community} te omwikkelen en onderhouden. Google heeft dan ook, in samenwerking met de Linux Foundation, de Cloud Native Computing Foundation(CNCF)\footnote{cncf.io/} opgericht. Zij zijn nu de \textit{maintainers} van het project en kiezen welke veranderingen er worden doorgevoerd. Hierdoor konden ook andere organisaties niet alleen gebruik maken van deze krachtige tool, maar tevens meewerken aan de ontwikkeling ervan. De term \textit{Kubernetes} is Grieks voor ``stuurman van een schip'' \autocite{Kubernetes2021}. Enkele diensten die door K8s aangeboden worden:
 \begin{itemize}
     \item Automatisch load-balancing op basis van de hoeveelheid verkeer.
     \item Opslag orkestratie: Het automatisch \textit{mounten} van verschillende types opslag (lokale- of cloud opslag).
@@ -136,7 +136,7 @@ Kubernetes is een \textit{open source}, container cluster manager en orkestratie
 \end{itemize}
 
 \subsubsection{Kubernetes componenten en terminologie}
-Zoals beschreven in de documentatie van \textcite{Pedersen2021, RedHat2021a} worden Kubernetes en de bijhorende componenten als volgt gedefinieerd: Kubernetes is een \textit{cluster} bestaande uit 2 grote delen namelijk het \textit{control plane} en de \textit{nodes}. Deze nodes zijn de door K8s georkestreerde containers. Elke cluster bestaat uit uit minstens één, maar meestal meerdere, nodes. De nodes worden gebruikt om \textit{pods} te hosten. Pods zijn de kleinst mogelijke eenheid in een K8s systeem. Een pod bestaat uit één of meerdere containers die opslag- en netwerk \textit{resources} delen \autocite{RedHat2021a}. In Figuur \ref{fig:K8sComponents} worden de verschillende componenten van een K8s cluster gevisualiseerd.
+Zoals beschreven in de documentatie van \textcite{Pedersen2021, RedHat2021a} worden Kubernetes en de bijhorende componenten als volgt gedefinieerd: Kubernetes is een \textit{cluster} bestaande uit 2 grote delen namelijk het \textit{control plane} en de \textit{nodes}. Deze nodes zijn de door K8s georkestreerde containers. Elke cluster bestaat uit minstens één maar meestal meerdere nodes. De nodes worden gebruikt om \textit{pods} te hosten. Pods zijn de kleinst mogelijke eenheid in een K8s systeem. Een pod bestaat uit één of meerdere containers die opslag- en netwerk \textit{resources} delen \autocite{RedHat2021a}. In Figuur \ref{fig:K8sComponents} worden de verschillende componenten van een K8s cluster gevisualiseerd.
 
 \begin{figure}[ht]
     \centering
@@ -147,47 +147,47 @@ Zoals beschreven in de documentatie van \textcite{Pedersen2021, RedHat2021a} wor
 
 Het hart van een K8s cluster is de \textbf{\textit{Control plane}}, hierin bevinden zich alle componenten die de cluster controleren. Tevens zitten alle gegevens omtrent de staat van de cluster en de configuratie hierin verbonden. Alle componenten die deel uitmaken van de \textit{Control plane} kunnen op verschillende machines draaien. Hierbij wordt er wel aangeraden om deze binnen eenzelfde machine te houden. De verschillende onderdelen en hun plaats binnen een cluster worden hieronder besproken \autocite{Pedersen2021}.
 
-De \textbf{\textit{kube-apiserver}} wordt gezien als de \textit{Front-end} van een Kubernetes cluster. Deze is de link tussen \textit{nodes} en \textit{pods} van de cluster en de \textit{Control plane}. Het doel van deze apiserver is om de communicatie van de nodes en de Kubernetes API to bolwerken. De apiserver is ontworpen om horizontaal te schalen als deze te zwaar belast wordt. Hierbij creëert die nieuwe instanties van zichzelf.
+De \textbf{\textit{kube-apiserver}} wordt gezien als de \textit{Front-end} van een Kubernetes cluster. Deze is de link tussen \textit{nodes} en \textit{pods} van de cluster en de \textit{Control plane}. Het doel van deze apiserver is om de communicatie van de nodes en de Kubernetes API te bolwerken. De apiserver is ontworpen om horizontaal te schalen als deze te zwaar belast wordt. Hierbij creëert die nieuwe instanties van zichzelf.
 
 Alle data en informatie met betrekking tot de status van de cluster wordt opgeslagen in \textbf{\textit{etcd}}, een \textit{key-value store database}.
 
-De \textbf{\textit{kube-scheduler}} is verantwoordelijk voor het toekennen van pods aan nodes en voor het verdelen van de resources tussen de verschillende Nodes. Het toekennen van een Node aan een Pod gebeurdt aan de hand van verschillende factoren. De mogelijke factoren zijn onder andere de benodigde resources van een Pod en eventuele harware- en sofware beperkingen.
+De \textbf{\textit{kube-scheduler}} is verantwoordelijk voor het toekennen van pods aan nodes en voor het verdelen van de resources tussen de verschillende nodes. Het toekennen van een pod aan een node gebeurd aan de hand van verschillende factoren. De mogelijke factoren zijn onder andere de benodigde resources van een pod en eventuele harware- en sofware beperkingen.
 
 Een \textbf{\textit{kube-controller-manager}} bestaat uit verschillende \textit{controllers} die allemaal een verschillende taak op zich nemen. Enkele van deze \textit{controllers} zijn:
 \begin{itemize}
-    \item \textit{Node controller}: Het hoofddoel van deze controller is om op te merken en correct te reageren als er Nodes zouden wegvallen.
-    \item \textit{Job controller}: Deze zoekt naar zogenaamde \textit{job-objecten}, die eenmalige taken voorstellen, en creëert bijgevolg de nodige Pods om deze taken uit te voeren.
-    \item \textit{Service Account \& Token controllers}: Deze creëert standaard accounts en \textit{API access tokens} voor nieuwe Pods.
+    \item \textit{Node controller}: het hoofddoel van deze controller is om op te merken en correct te reageren als er nodes zouden wegvallen.
+    \item \textit{Job controller}: deze zoekt naar zogenaamde \textit{job-objecten}, die eenmalige taken voorstellen, en creëert bijgevolg de nodige pods om deze taken uit te voeren.
+    \item \textit{Service Account \& Token controllers}: deze creëert standaard accounts en \textit{API access tokens} voor nieuwe pods.
 \end{itemize}
 
-Als het \textit{Control plane} het hart van een K8s cluster is dan kunnen we de \textit{Nodes} het lichaam noemen. Deze doen namelijk al het zware werk en worden bestuurt door de \textit{Control plane}.
+Als het \textit{Control plane} het hart van een K8s cluster is dan kunnen we de \textit{nodes} het lichaam noemen. Deze doen namelijk al het zware werk en worden bestuurd door de \textit{Control plane}.
 
-Het eerste onderdeel van een Node is de \textbf{\textit{kubelet}}, een kleine applicatie die op elke Node aanwezig is. De \textit{kubelet} houdt de gezondheid en status van de Pods, die binnen zijn Node draaien, in het oog. Wanneer de \textit{Control plane} wil dat er iets gebeurd met de Node zorgt de \textit{kubelet} ervoor dat deze acties correct uitgevoerd worden.
+Het eerste onderdeel van een node is de \textbf{\textit{kubelet}}, een kleine applicatie die op elke node aanwezig is. De \textit{kubelet} houdt de gezondheid en status van de pods, die binnen zijn node draaien, in het oog. Wanneer de \textit{Control plane} wil dat er iets gebeurd met de node zorgt de \textit{kubelet} ervoor dat deze acties correct uitgevoerd worden.
 
-De \textbf{\textit{kube-proxy}} is een netwerk \textit{proxy} die de verantwoordelijk is voor de K8s \textit{networkservices}. De \textit{kube-proxy} verzorgt netwerkcommunicatie zowel binnen- als buiten de cluster.
+De \textbf{\textit{kube-proxy}} is een netwerk \textit{proxy} die verantwoordelijk is voor de K8s \textit{networkservices}. De \textit{kube-proxy} verzorgt netwerkcommunicatie zowel binnen- als buiten de cluster.
 
-Het volgende component, namelijk de \textbf{\textit{Container runtime}}, werd al reeds besproken in sectie \ref{containers}.
+Het volgende component, namelijk de \textbf{\textit{Container runtime}}, werd reeds besproken in sectie \ref{containers}.
 
 Ten slotte zijn er nog enkele extra \textit{addons} die gebruikt kunnen worden om de functionaliteit van een K8s cluster uit te breiden. Een eerste voorbeeld van een \textit{addon} is de mogelijkheid om persistent geheugen (ook wel \textit{volumes} genoemd) toe te voegen zoals uitgelegd in sectie \ref{dockerObjects}. Andere voorbeelden zijn het toevoegen van een \textbf{\textit{cluster DNS}}, \textbf{\textit{Web UI}} of \textbf{\textit{Dashboard}} en het opslaan van de log bestanden van de cluster met \textbf{\textit{cluster-level logging}}.
-\clearpage
 
+\clearpage
 \section{Security}
 
-Hier zal het \textit{security} aspect van containers en container orkestratie besproken worden. In dit hoofdstuk wordt er geantwoord op de onderzoeksvragen ``Wat zijn de belangrijkste security risico's?'' en ``Welke beveiligings-tools zijn er en hoe werken ze?''.
+Hier zal het \textit{security} aspect van containers en container orkestratie besproken worden. In dit hoofdstuk wordt er geantwoord op de onderzoeksvragen ``Wat zijn de belangrijkste beveiligingsrisico?'' en ``Welke beveiligings-tools zijn er en hoe werken ze?''.
 
-Uit een raport van \textcite{Tripwire2019} blijkt dat 94\% van bevraagden bezorgd zijn over de veiligheid van hun containers. Uit hetzelfde rapport blijkt ook dat 47\% zich bewust is van feit dat ze mogelijks kwetsbare containers gebruiken in hun productieomgeving. Het beveiligen van een K8s cluster is dan ook een zeer grote en complexe taak. Dit is omdat er veel verschillende onderdelen zijn die allemaal andere veiligheidsproblemen met zich mee kunnen meebrengen. Vanwege de hoeveelheid tijd en middelen die er nodig zijn voor het implementeren van goede veiligheidsmaatregelen wordt het door veel bedrijven gezien als een \textit{nice to have} in plaats van een \textit{need to have}.
+Uit een rapport van \textcite{Tripwire2019} blijkt dat 94\% van bevraagden bezorgd zijn over de veiligheid van hun containers. Uit hetzelfde rapport blijkt ook dat 47\% zich bewust is van feit dat ze mogelijks kwetsbare containers gebruiken in hun productieomgeving. Het beveiligen van een K8s cluster is dan ook een zeer grote en complexe taak. Dit is omdat er veel verschillende onderdelen zijn die allemaal andere veiligheidsproblemen met zich mee kunnen meebrengen. Vanwege de hoeveelheid tijd en middelen die er nodig zijn voor het implementeren van goede veiligheidsmaatregelen wordt het door veel bedrijven gezien als een \textit{nice to have} in plaats van een \textit{need to have}.
 
 
 \subsection{Meest voorkomende security problemen}
 %Uitleg over hoe k8s security eruit ziet + wat voor exploits daarmee onmogeleijk gemaakt worden
-Een van de meest voorkomende veiligheidsproblemen bij het opzetten van een K8s cluster is het fout, of zelf helemaal niet, definiëren van parameters. Dit kan er mogelijks voor zorgen dat een aanvaller kan `ontsnappen` uit een container (lees: toegang krijgen tot het host systeem). Ook het gebruik van ongecontroleerde Docker images kan ervoor zorgen dat een cluster van binnenuit compromitteren kan worden.
+Een van de meest voorkomende veiligheidsproblemen bij het opzetten van een K8s cluster is het fout, of zelf helemaal niet, definiëren van parameters. Dit kan er mogelijks voor zorgen dat een aanvaller kan `ontsnappen` uit een container (lees: toegang krijgen tot het host systeem). Ook het gebruik van ongecontroleerde Docker images kan ervoor zorgen dat een cluster van binnenuit gecompromitteerd kan worden.
 
-Een ander probleem zijn de onvermijdelijke \textit{bugs} in K8s zelf. Deze is tevens wel een van de gemakkelijkste veiligheidsproblemen om op te lossen, namelijk door altijd de laatste versie van Kubernetes te installeren. Als er een \textit{bug} of kwetsbaarheid wordt ontdekt, wordt deze in de meeste gevallen binnen enkele dagen weggewerkt door het K8s security team.
+Een ander probleem zijn de onvermijdelijke \textit{bugs} in K8s zelf. Deze is tevens wel één van de gemakkelijkste veiligheidsproblemen om op te lossen, namelijk door altijd de laatste versie van Kubernetes te installeren. Als er een \textit{bug} of kwetsbaarheid wordt ontdekt, wordt deze in de meeste gevallen binnen enkele dagen weggewerkt door het K8s security team.
 
 \subsection{Hoe een container cluster beveiligen}
 Hieronder zullen er enkele mogelijke manieren om een container cluster te beveiligen besproken worden.
 
-\textcite{Rice2019, Lewis2019} geven enkele tips voor het veilig opzetten van een K8s cluster. Ten eerste wordt het gebruik van \textit{Role Based Access Control} (RBAC) stevig aangemoedigd. Door hiervan gebruik te maken, is het mogelijk om rollen toe te kennen aan bepaalde gebruikers. Deze rollen dicteren welke applicaties de gebruiker kan gebruiken en wat die ermee kan doen.
+\textcite{Rice2019, Lewis2019} geven enkele tips voor het veilig opzetten van een K8s cluster. Ten eerste wordt het gebruik van \textit{Role Based Access Control} (RBAC) stevig aangemoedigd. Door hiervan gebruik te maken, is het mogelijk om rollen toe te kennen aan bepaalde gebruikers. Deze rollen dicteren welke applicaties de gebruiker kan gebruiken en wat die ermee kan doen. Er zijn twee soorten rollen, namelijke \textit{Roles} en \textit{ClusterRoles}. \textit{Roles} specificeren bepaalde permissies binnen een bepaalde \textit{namespace} terwijl \textit{ClusterRoles} permissies specificeren die op de hele cluster van toepassing zijn.
 
 Vervolgens wordt er aangeraden om nooit de administrator (ook wel \textit{root} genoemd) rechten te gebruiken, enkel als het nodig is voor de specifieke applicatie (i.e, \textit{KubeDNS}). Dit kan ervoor zorgen dat wanneer een aanvaller controle krijgt over de cluster, hij nog steeds gelimiteerd is door de restricties die aan gewone accounts worden toegekend met RBAC. Men kan tevens beter de anonieme toegang tot de API ontzeggen en vervangen door een gecontroleerde toegang met RBAC.
 
@@ -207,9 +207,9 @@ Een voorbeeld van zo een policy is de \verb|seLinux| policy die, zoals zijn naam
     \end{minted}
 \end{figure}
 
-De communicatie tussen de Pods kan gecontroleerd worden aan de hand van zogenaamde \textbf{\textit{Network policies}}. Dit zijn regels die aanduiden welke pods met elkaar kunnen communiceren en welke soort data er uitgewisseld kan worden \autocite{Venugopal2019, Bannister2021}. In voorbeeld \ref{netpolicy} wordt inkomend verkeer naar pods met label ``color: blue'' alleen toegestaan als het afkomstig is van een pod met label ``color: red'' en dit enkel op poort 80. De \textit{Network policies} kunnen handmatig worden geconfigureerd of er kan gebruik gemaakt worden van een zogenaamde \textit{Container Network Interface} (CNI). Een CNI helpt met het configureren en onderhouden van de \textit{Network policies}. In sectie \ref{Calico} wordt één van de meest prominente CNI's besproken, namelijk \textit{Project Calico}.
+De communicatie tussen de pods kan gecontroleerd worden aan de hand van zogenaamde \textbf{\textit{Network policies}}. Dit zijn regels die aanduiden welke pods met elkaar kunnen communiceren en welke soort data er uitgewisseld kan worden \autocite{Venugopal2019, Bannister2021}. In voorbeeld \ref{netpolicy} wordt inkomend verkeer naar pods met label ``color: blue'' alleen toegestaan als het afkomstig is van een pod met label ``color: red'' en dit enkel op poort 80. De \textit{Network policies} kunnen handmatig worden geconfigureerd of er kan gebruik gemaakt worden van een zogenaamde \textit{Container Network Interface} (CNI). Een CNI helpt met het configureren en onderhouden van de \textit{Network policies}. In sectie \ref{Calico} wordt één van de meest prominente CNI's besproken, namelijk \textit{Project Calico}.
 
-\begin{figure}[h!] \label{netpolicy}
+\begin{figure}[h] \label{netpolicy}
     \begin{minted}{yaml}
         kind: NetworkPolicy
         apiVersion: networking.k8s.io/v1
@@ -237,9 +237,9 @@ Fouten maken is menselijk, dus het is perfect mogelijk dat er tijdens het opstel
 Het spreekwoord `De ketting is maar zo sterk als zijn zwakste schakel` is ook hier van toepassing. Hoe beveiligd de cluster ook mag zijn, één onveilige container is voldoende om alle geherinvesteerde moeite teniet te doen.
 
 Volgens \textcite{Lewis2019} zijn er verschillende manieren om ervoor te zorgen dat er enkel veilige containers gebruikt worden. De eerste is om enkel \textit{trusted base images} binnen te halen. Dit zijn containers die volledig \textit{from scratch} ontwikkeld zijn door het bedrijf, of de persoon, die container zal draaien. Dit zijn containers die volledig ontwikkeld zijn door het bedrijf dat ze in gebruik neemt. Het \textit{Base} gedeelte van de naam komt van het feit dat deze containers meestal zeer simpel zijn. Zo kan elke container applicatie gebaseerd worden op dezelfde veilige container \textit{image}.
-Een extra veiligheidsmaatregel die vaak aangeraden wordt is het opzetten van een \textit{private registry}. Wat een \textit{registry} precies is werd al reeds verduidelijkt in sectie \ref{registry}. Een \textit{private registry} is niets anders dan een \textit{registry} die volledig door het bedrijf wordt gecontrolleerd en enkel door hen wordt gebruikt. Zij kiezen zelf welke \textit{images} er wel of niet worden toegevoegd. Hierdoor vermijdt men dat er per ongeluk een onveilige container wordt gebouwd binnen een cluster.
+Een extra veiligheidsmaatregel die vaak aangeraden wordt is het opzetten van een \textit{private registry}. Wat een \textit{registry} precies is werd reeds verduidelijkt in sectie \ref{registry}. Een \textit{private registry} is niets anders dan een \textit{registry} die volledig door het bedrijf wordt gecontrolleerd en enkel door hen wordt gebruikt. Zij kiezen zelf welke \textit{images} er wel of niet worden toegevoegd. Hierdoor vermijdt men dat er per ongeluk een onveilige container wordt gebouwd binnen een cluster.
 
-Spijtig genoeg is niet iedereen die met container clusters werkt even bezorgd over de veiligheid ervan. Om het gebruik van onveilige Pods te vermijden kan men een \textit{policy agent} gebruiken. Hiermee kan er automatisch gecontroleerd worden of de Pods aan alle veiligheidsvoorschriften voldoen, alvorens ze ingeschakeld worden. Een voorbeeld van een \textit{policy agent} is de \textbf{\textit{Open Policy Agent}}\footnote{openpolicyagent.org/}, onwikkeld door de \textit{text Cloud Native Computing Foundation (CNCF)}.
+Spijtig genoeg is niet iedereen die met container clusters werkt even bezorgd over de veiligheid ervan. Om het gebruik van onveilige pods te vermijden kan men een \textit{policy agent} gebruiken. Hiermee kan er automatisch gecontroleerd worden of de pods aan alle veiligheidsvoorschriften voldoen, alvorens ze ingeschakeld worden. Een voorbeeld van een \textit{policy agent} is de \textbf{\textit{Open Policy Agent}}\footnote{openpolicyagent.org/}, onwikkeld door de \textit{text Cloud Native Computing Foundation (CNCF)}.
 
 %
 %Tips:
@@ -249,28 +249,28 @@ Spijtig genoeg is niet iedereen die met container clusters werkt even bezorgd ov
 %
 %Open Policy Agent gebruiken om het opzetten van onveilige pods onmogelijk te maken adv policies.
 
-\section{beveiligings-tools} \label{tools}
+\section{Beveiligings-tools} \label{tools}
 
- In dit hoofdstuk zal er geantwoord worden op de onderzoeksvraag ``Welke beveiligings-tools zijn er?''
+In dit hoofdstuk zal er geantwoord worden op de onderzoeksvraag ``Welke beveiligings-tools zijn er?''
 
 Een andere manier om een K8S cluster verder te beveiligen is om bepaalde beveiligings-tools te overwegen.
 \textcite{Taylor2019} geeft een overzicht met de meest prominente tools.
 
 \subsection{Project Calico} \label{Calico}
 
-\textbf{\textit{Project Calico}}\footnote{projectcalico.org/} is volledig \textit{open source} en volgens \textcite{Armstrong2021} de meeste gebruikte beveiligings-tools voor K8s. Calico is niet enkel een K8s beveiligings-tools maar is tevens volledig geïntegreerd met vele andere platformen. Figuur \ref{fig:CalicaEco} geeft een overzicht van de door Calico ondersteunde platformen. Project Calico creëert een soort van \textit{microfirewall} rond elke service. De policies die ingesteld kunnen worden in Calico worden automatisch omgezet naar firewall regels. Deze worden vervolgens toegepast op elke service. Calico heeft zich onlangs aangesloten bij de CNCF, waardoor het onder deskundig toezicht staat en nog beter geïntegreerd is in het Kubernetes ecosysteem.
+\textbf{\textit{Project Calico}}\footnote{projectcalico.org/} is volledig \textit{open source} en volgens \textcite{Armstrong2021} de meeste gebruikte beveiligings-tool voor K8s. Calico is niet enkel een K8s beveiligings-tool maar is tevens volledig geïntegreerd met vele andere platformen. Figuur \ref{fig:CalicaEco} geeft een overzicht van de door Calico ondersteunde platformen. Project Calico creëert een soort van \textit{microfirewall} rond elke service. De policies die ingesteld kunnen worden in Calico worden automatisch omgezet naar firewall regels. Deze worden vervolgens toegepast op elke service. Calico heeft zich onlangs aangesloten bij de CNCF, waardoor het onder deskundig toezicht staat en nog beter geïntegreerd is in het Kubernetes ecosysteem.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\linewidth]{img/Calico-Ecosystem.png}
-    \caption{Platformen die ondersteunt zorden door Calico \autocite{Tigera2021}}
+    \caption{Platformen die ondersteunt worden door Calico \autocite{Tigera2021}}
     \label{fig:CalicaEco}
 \end{figure}
 
 \subsection{Kube-Bench} \label{bench}
-\textbf{\textit{Kube-Bench}}\footnote{github.com/aquasecurity/kube-bench} is een \textit{open source} applicatie geschreven in \textit{Go}\footnote{golang.org/} die controleert of k8s veilig is geïmplementeerd door middel van controles uit te voeren op de cluster. De controles zijn gebaseerd op enkele guidelines die het \textit{Center for Internet Security}\footnote{cisecurity.org/benchmark/kubernetes/} (CIS), een organisatie die richtlijnen opmaakt voor het schrijven van veilige code, heeft opgesteld. De zogenaamde \textit{CIS Kubernetes Benchmarks} worden geschreven door de Kubernetes \textit{community} en worden door de CIS gecontrolleerd en gebundeld. \textit{Kube-Bench} controleert niet alleen of er fouten in de beveiliging van een cluster zitten, het geeft ook mogelijke oplossingen. Mogelijke controles zijn het controleren van gebruikersautorisatie- en -authenticatie, de versleuteling van gegevens en kijken of de cluster het principe van \textit{least privilege} volgt (een gebruiker krijgt enkel toegang tot gegevens die hij echt nodig heeft). De testen worden gedefinieert een in `YAML Ain't Markup Language' (YAML) bestand zodat ze gemakkelijk aangepast en uitgebreid kunnen worden \autocite{Rice2021}. De testen worden uitgevoerd op elke individuele node in de cluster waardoor het vooral geschikt is voor kleinere opstellingen.
+\textbf{\textit{Kube-Bench}}\footnote{github.com/aquasecurity/kube-bench} is een \textit{open source} applicatie geschreven in \textit{Go}\footnote{golang.org/} die controleert of K8s veilig is geïmplementeerd door middel van controles uit te voeren op de cluster. De controles zijn gebaseerd op enkele guidelines die het \textit{Center for Internet Security}\footnote{cisecurity.org/benchmark/kubernetes/} (CIS), een organisatie die richtlijnen opmaakt voor het schrijven van veilige code, heeft opgesteld. De zogenaamde \textit{CIS Kubernetes Benchmarks} worden geschreven door de Kubernetes \textit{community} en worden door de CIS gecontrolleerd en gebundeld. \textit{Kube-Bench} controleert niet alleen of er fouten in de beveiliging van een cluster zitten, het geeft ook mogelijke oplossingen. Mogelijke controles zijn het controleren van gebruikersautorisatie- en -authenticatie, de versleuteling van gegevens en kijken of de cluster het principe van \textit{least privilege} volgt (een gebruiker krijgt enkel toegang tot gegevens die hij echt nodig heeft). De testen worden gedefinieerd in een `YAML Ain't Markup Language' (YAML) bestand zodat ze gemakkelijk aangepast en uitgebreid kunnen worden \autocite{Rice2021}. De testen worden uitgevoerd op elke individuele node in de cluster waardoor het vooral geschikt is voor kleinere opstellingen.
 
 \subsection{Kube-hunter} \label{hunter}
 
 \textbf{\textit{Kube-hunter}}\footnote{github.com/aquasecurity/kube-hunter} is, net zoals \textit{Kube-Bench}, een open source applicatie gemaakt door \textit{Aqua Security}\footnote{aquasec.com/}. \textit{Kube-hunter} breidt de functionaliteiten van \textit{Kube-Bench} uit door penetratie testen uit te voeren op de cluster. Dit zorgt ervoor dat administrators problemen met een cluster gemakkelijk kunnen opsporen en verhelpen.
 
-Er zijn drie verschillende manieren om \textit{kube-hunter} te gebruiken. De eerste maakt gebruik van het IP-adres van de cluster om vanop afstand de testen uit te voeren. Bij de tweede manier wordt \textit{kube-hunter} lokaal op één van de machines in de cluster geïnstalleerd om die netwerkinterfaces van die specifieke machine te testen. De derde en laatste manier om \textit{kube-hunter} te gebruiken is om het te installeren in een Pod binnen de cluster. Deze manier kan aantonen wat voor potentiële schade er kan aangericht worden als één van de Pods gecompromitteerd zou worden.
+Er zijn drie verschillende manieren om \textit{kube-hunter} te gebruiken. De eerste maakt gebruik van het IP-adres van de cluster om vanop afstand de testen uit te voeren. Bij de tweede manier wordt \textit{kube-hunter} lokaal op één van de machines in de cluster geïnstalleerd om die netwerkinterfaces van die specifieke machine te testen. De derde en laatste manier om \textit{kube-hunter} te gebruiken is om het te installeren in een pod binnen de cluster. Deze manier kan aantonen wat voor potentiële schade er kan aangericht worden als één van de pods gecompromitteerd zou worden.

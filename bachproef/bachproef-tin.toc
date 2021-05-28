@@ -19,11 +19,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Hypervisors}{22}{section*.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.2}Waarvoor worden containers gebruikt}{23}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.2}Waarvoor worden containers gebruikt?}{23}{subsection.2.1.2}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.2}Docker}{23}{section.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.1}Hoe werkt Docker}{24}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.1}Hoe werkt Docker?}{24}{subsection.2.2.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.2}Docker componenten en terminologie}{24}{subsection.2.2.2}%
 \defcounter {refsection}{0}\relax 
@@ -57,9 +57,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.5.2}Hoe een container cluster beveiligen}{30}{subsection.2.5.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.6}beveiligings-tools}{32}{section.2.6}%
+\contentsline {section}{\numberline {2.6}Beveiligings-tools}{32}{section.2.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6.1}Project Calico}{32}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.1}Project Calico}{33}{subsection.2.6.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.6.2}Kube-Bench}{33}{subsection.2.6.2}%
 \defcounter {refsection}{0}\relax 
